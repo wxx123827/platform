@@ -1,0 +1,89 @@
+label {
+    position: relative;
+}
+
+.label_list input {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px
+}
+
+.bottom_list p {
+    margin-top: 10px;
+}
+.layui-upload-img{
+    width: 135px;
+    height: 135px;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 10px;
+    cursor: pointer;
+    background: url(../imgs/loading.png) no-repeat;
+    text-align: center;
+    background-position: center;
+    margin-top: -70px;
+}
+.materialImg{
+    float: left;
+    margin-left: 5px;
+}
+.published_material{
+    width: 100%;
+}
+.material_content{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.material_content h2{
+    clear: both;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.layui-form-item p{
+    float: left;
+    margin-left: 40px;
+}
+
+.layui-form-item p span{
+    font-size: 14px;
+    color: #333333;
+}
+.material_submit{
+    height: 120px;
+    padding-top: 30px;
+}
+.material_submit .submit{
+    float: left;
+}
+#immediate,#save{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+	border-radius: 5px;
+    border: solid 1px #247dd0;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #247dd0;
+    margin-left: 20px;
+}
+#immediate{
+    margin-left: 35%;
+}
+#immediate:hover,#save:hover{
+	background-color: #247dd0;
+    color: #ffffff;
+    cursor: pointer;
+}
+.layui-form-item .layui-input-inline {
+    width: 210px!important;
+}
+xm-select{
+    width: 200px!important;
+    top: -20px;
+    left: 85px;
+    border: 1px solid #ccc!important;
+}
+
+

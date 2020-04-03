@@ -1,0 +1,76 @@
+.bottom_list {
+	clear: both;
+	padding-bottom: 60px;
+}
+
+.bottom_list p {
+	margin-left: 30px;
+	font-size: 16px;
+}
+
+.bottom_list p input {
+	width: 330px;
+	height: 30px;
+	margin-bottom: 20px;
+}
+
+.bottom_list p span {
+	color: #e31f1f;
+}
+
+label {
+	margin-right: 20px;
+}
+.layui-textarea{
+		width:600px!important;
+}
+.cardfront{
+	float: left;
+}
+.cardreverse{
+	float: left;
+}
+.main {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.layui-upload-img {
+	width: 135px;
+	height: 135px;
+	border: 1px solid rgb(204, 204, 204);
+	padding: 10px;
+	cursor: pointer;
+	background: url(../imgs/loading.png) no-repeat;
+	text-align: center;
+	background-position: center;
+	margin-left: 130px;
+	margin-top: -70px;
+}
+
+.layui-input-inline {
+	width: 330px;
+	height: 30px;
+	margin-bottom: 20px;
+	margin-left: 130px;
+	margin-top: -30px;
+}
+.layui-form-item .layui-input-inline{
+	margin-right: 0;
+	width: 250px!important;
+}
+
+.layui-btn{
+	margin-left: 100px;
+}
+
+#sorts {
+	width: 200px;
+	background-color: #ffffff;
+	height: 420px;
+}
+
+#sorts li {
+	list-style: none;
+}
+

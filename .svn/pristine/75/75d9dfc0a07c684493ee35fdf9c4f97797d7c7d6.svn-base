@@ -1,0 +1,52 @@
+// 每个档位的最小界值，去除以同样的份数，得到当前档位的HTML 的字体大小；
+// 其实：同样的份数随意定的；
+
+
+// 第二步：
+// 2.1 准备 各个档位下的rem值（1rem = HTML font-size PX）
+
+@no:16;
+
+
+// 800
+@media screen and (min-width: 800px) {
+  html {
+    font-size: 800px/@no;
+  }
+}
+
+
+// 1024
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 1024px/@no;
+  }
+}
+// 1280
+@media screen and (min-width: 1280px) {
+  html {
+    font-size: 1280px/@no;
+  }
+}
+// 1360
+@media screen and (min-width: 1360px) {
+  html {
+    font-size: 1360px/@no;
+  }
+}
+// 1366
+@media screen and (min-width: 1366px) {
+  html {
+    font-size:1366px/@no;
+  }
+}
+//1920
+@media screen and (min-width: 1920px) {
+    html {
+      font-size:1920px/@no;
+    }
+  }
+
+
+
+// 各个档位的1rem值确认，现在我只需要把写的CSS代码的里的px值换成rem单位；

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>搜索页</title>
+		<link rel="stylesheet" href="css/common/headandfoot.css" />
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/searchpage.css" type="text/css">
+		<!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" /> -->
+		<link rel="stylesheet" href="css/commonSearch.css" type="text/css" />
+	</head>
+
+	<body style="position: relative;">
+
+		<!--顶部-->
+		<div id="front_header" class="head">
+		</div>
+		<!--搜索栏-->
+		<div id="search_container" class="search">
+		</div>
+		<!--分类导航-->
+		<div id="nav_type" style="margin-top: 10px;">
+			<div class="container">
+				<p id="all_types" class="fl" style="margin-left: -15px">
+					全站分类
+				</p>
+				<ul class="fl nav" id="drop_down_nav" style="width: 1000px;height: 38px;float: right;margin-right: -15px">
+					<li class="trangel" style="left: 568.5px; display: none;"></li>
+					<li class="fl">
+						<div class="nav_item">
+							<a class="active">首页</a>
+						</div>
+					</li>
+					<li class="fl">
+						<div class="nav_item"><a target="_blank" class="bold " href="">仪器共享</a><b class="hot"></b>
+						</div>
+
+					</li>
+					<li class="fl">
+						<div class="nav_item"><a target="_blank" class="bold " href="">实验室共享</a><b class="hot"></b></div>
+					</li>
+					<li class="fl">
+						<div class="nav_item"><a target="_blank" class="bold " href="">耗材共享</a><b class="hot"></b></div>
+					</li>
+					<li class="fl">
+						<div class="nav_item"><a target="_blank" class="bold " href="">知识共享</a><b class="hot"></b></div>
+					</li>
+
+				</ul>
+			</div>
+
+		</div>
+		<div class="nav_middle" style="clear: both;background-color: #ffffff">
+			<div id="search_cla"></div>
+			<div class="search_list"></div>
+		</div>
+		<div id="page"></div>
+		<!-- 底部 -->
+		<div id="footer" style="margin-top: 60px" class="foot">
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="layui/layui.js"></script>
+		<!-- <script src="bootstrap/js/bootstrap.min.js"></script> -->
+		<script src="js/baseconstant.js"></script>
+		<script src="js/commonSearch.js"></script>
+		<script src="js/searchpage.js"></script>
+	</body>
+
+</html>

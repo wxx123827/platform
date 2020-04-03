@@ -1,0 +1,265 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav_area').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>个人中心</span>')
+	});
+	$('.foot').load("foot.html");
+	var html = "";
+	if (userSrc === "" || userSrc === null) {
+		html += '<img id="userpic" src="imgs/admin_icon.png" style="width:59px;height:59px;border-radius: 50%">';
+	} else {
+		html += '<img id="userpic" src="' + baseImgUrl + userSrc + '" style="width:59px;height:59px;border-radius: 50%">';
+	}
+	$(".face").before(html);
+	sessionStorage.removeItem("adddata");
+})
+
+//我的发布数据
+layui.config({
+	base: './static/cropper/' //layui自定义layui组件目录
+}).use(['laypage', 'layer', 'table', 'upload', 'croppers','element'], function() {
+	var laypage = layui.laypage;
+	var layer = layui.layer;
+	var table = layui.table;
+	var upload = layui.upload;
+	var element = layui.element;
+	var croppers = layui.croppers;
+	var $ = layui.$;
+	var form = layui.form;
+	var page;
+	croppers.render({
+		elem: '#updateSrc',
+		saveW: 150,
+		saveH: 150,
+		mark: 1 / 1,
+		area: '900px',
+		url: baseUploadUrl,
+		done: function(url) { //上传完毕回调
+			updateSrc(url);
+		}
+	});
+
+	function updateSrc(src) {
+		$.ajax({
+			url: baseUrl + "personal/updateUserSrc",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				src: src
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					sessionStorage.setItem("src", src);
+					$(document).find('#userpic').attr('src', baseImgUrl + src);
+					layer.msg("上传成功", {
+						icon: 1
+					});
+					layer.closeAll('page');
+				}
+			}
+		})
+	}
+	$(function() {
+		$.ajax({
+			url: baseUrl + "personal/getUserInfo",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					var data = res.msg;
+					form.val("updatetelform", {
+						"tel": data.tel
+					})
+					form.val("updatetelform", {
+						"email": data.email
+					})
+					form.render(); 
+					if (data.emailstatus === '0') {
+						$(".emailstatus").before("<span style='color: red;'>未验证</span>")
+					} else {
+						$(".emailstatus").before("<span style='color: green;'>验证成功</span>")
+						$('.emailstatus').remove()
+					}
+				}
+			}
+		})
+	})
+	// layer.load(2)
+	var address=table.render({
+		elem: '#release',
+		url: baseUrl + "personal/getUserAddress",
+		toolRow: true,
+		cols: [
+			[ //标题栏
+				{
+					field: 'name',
+					title: '收货人',
+					width: 100,
+					align: 'center',
+					sort: true
+				},
+				{
+					field: 'officename',
+					title: '单位名称',
+					align: 'center',
+					// width: 300,
+					sort: true
+				},
+				{
+					field: 'province',
+					title: '所在地区',
+					align: 'center',
+					// width: 300,
+					sort: true
+				},
+				{
+					field: 'address',
+					title: '详细地址',
+					align: 'center',
+					// width: 300,
+					sort: true
+				},
+				{
+					field: 'postcode',
+					title: '邮编',
+					align: 'center',
+					// width: 300,
+					sort: true,
+				},
+				{
+					field: 'tel',
+					title: '电话/手机',
+					align: 'center',
+					// width: 300,
+					sort: true,
+				},
+				{
+					fixed: 'right',
+					title: '操作',
+					width: 200,
+					align: 'center',
+					toolbar: "#release-bar"
+				}, {
+					field: 'ban',
+					hide: true
+				},{
+					field:'uid',
+					hide:true
+				}
+			]
+		],
+		initSort: {
+			field: 'ban' //排序字段，对应 cols 设定的各字段名
+				,
+			type: 'desc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+		},
+		id: 'releaseList',
+		response: {
+			statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+		},
+		parseData: function(res) { //将原始数据解析成 table 组件所规定的数据
+			return {
+				"code": res.code, //解析接口状态
+				"msg": res.msg.msg, //解析提示文本
+				"count": res.msg.count, //解析数据长度
+				"data": res.msg.data, //解析数据列表
+			};
+		},
+		done: function(res) {
+			if (res.count >= 10) {
+				$(".add_address").remove();
+				$("#release").before('<h5 style="color: red;margin-left: 20px;">最多可保存10个地址信息</h5>');
+			}
+		}
+	}); 
+
+	var openindex;
+	//行内工具栏事件
+	table.on('tool(release)', function(obj) {
+		var data = obj.data;
+		if (obj.event === 'ban') {
+			var index=layer.confirm('确定设为默认吗？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+			  updateAddressBan(data.uid,index)
+			}, function(){
+			  layer.close(index)
+			});
+		} else if (obj.event === 'edit') {
+			sessionStorage.setItem("adddata",JSON.stringify(data));
+			layer.open({
+				type: 2,
+				content: './new_address.html?type=1&uid='+data.uid,
+				area: ['800px','600px'],
+				scrollbar: false,
+				end:function(){
+					address.reload()
+				}
+			})
+		} else if (obj.event === 'del') {
+			var index=layer.confirm('确定删除吗？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+			  delAddress(data.uid,index)
+			}, function(){
+			  layer.close(index)
+			});
+		}
+	})
+	$(".add_address").on("click", function() {
+		layer.open({
+			type: 2,
+			content: './new_address.html?type=0',
+			area: ['800px','600px'],
+			scrollbar: false,
+			end:function(){
+				address.reload()
+			}
+        })
+    })
+	
+	function delAddress(uid,index){
+		$.ajax({
+			url:baseUrl+"personal/delUserAddress",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data:{
+				uid:uid
+			},
+			success:function(res){
+				if(res.code===SUCCESS){
+					layer.close(index)
+					address.reload()
+				}
+			}
+		})
+	}
+	function updateAddressBan(uid,index){
+		$.ajax({
+			url:baseUrl+"personal/updateAddressBan",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data:{
+				uid:uid
+			},
+			success:function(res){
+				if(res.code===SUCCESS){
+					layer.close(index)
+					address.reload()
+				}
+			}
+		})
+	}
+
+})
+
+
+

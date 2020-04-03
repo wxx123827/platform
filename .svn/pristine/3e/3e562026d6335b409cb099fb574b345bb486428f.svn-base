@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的发布-入驻审核</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css">
+    <link rel="stylesheet" href="css/enter_audit.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="head">
+    </div>
+    <div class="nav_area">
+    </div>
+    <div class="basic_content">
+        <div class="content">
+            <div class="content_left left">
+                <ul>
+                    <li><a href="my_release.html">我的发布</a>
+                    </li>
+                    <li><a href="serve_data.html">服务商资料</a></li>
+                    <li><a href="service_introduction.html">服务商简介</a></li>
+                    <li style="background-color: #247dd0;"><a href="enter_audit.html" style="color: #ffffff;">入住审核</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="content_right right">
+                <div class="circle_top">
+                 
+                </div>
+                <div class="circle">
+                    <div style="margin-left: 120px">
+                        <a href="#" style="background-color: #247dd0;">1</a>
+                        <p>选择类型</p>
+                    </div>
+                    <div style="margin-left: 148px">
+                        <a href="#" style="background-color: #247dd0;">2</a>
+                        <p>提交材料</p>
+                    </div>
+                    <div style="margin-left: 148px">
+                        <a href="#" style="background-color: #247dd0;">3</a>
+                        <p>身份验证</p>
+                    </div>
+                    <div style="margin-left: 148px">
+                        <a href="#" style="background-color: #247dd0;">4</a>
+                        <p>资质审核</p>
+                    </div>
+                </div>
+                <div class="circle_bottom">
+                    <img src="imgs/success.png">
+                    <p class="success">恭喜您！入驻成功</p>
+                    <p class="pass_check">您的资料已经通过审核！现在可以发布自己的物品了</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="foot">
+    </div>
+    <script src="layui/layui.all.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/enter_audit.js"></script>
+</body>
+</html>

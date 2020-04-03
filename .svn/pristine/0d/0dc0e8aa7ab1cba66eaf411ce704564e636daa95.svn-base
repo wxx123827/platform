@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务商</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css" type="text/css" />
+    <link rel="stylesheet" href="css/service_page.css" type="text/css" />
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/common/classify.css" type="text/css" />
+</head>
+
+<body style="position: relative;">
+    <!--顶部-->
+    <div id="front_header" class="head"></div>
+    <!-- 搜索框 -->
+    <div id="nav">
+        <div class="nav_content">
+            <div class="center_left left">
+                <img src="imgs/logo.png">
+            </div>
+            <div class="center_middle left">
+                <span>北京海洋仪器科技股份有限公司</span>
+            </div>
+            <div class="center_right right">
+                <form action="" id="search">
+                    <input type="text" class="key_words" name="ky" placeholder="请输入您想搜索的内容">
+                    <button class="go_search" type="button">搜索</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 内容区域 -->
+    <div id="goods_list">
+        <div class="provider_list">
+            <div class="title_select">
+               <div class="classifty">
+                    <a href="javascript:;">分类</a>
+                  <a href="javascript:;" style="color: #e31f1f;">全部</a>
+                  <a href="javascript:;">1</a>
+                  <a href="javascript:;">1</a>
+                  <a href="javascript:;">1</a>
+                  <a href="javascript:;">1</a>
+               </div>
+               <div class="sort">
+                    <a href="javascript:;">排序</a>
+                    <a href="javascript:;" style="color: #e31f1f;">默认</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">3</a>
+                    <a href="javascript:;">3</a>
+                </div>
+            </div>
+            <div class="provider_content">
+                <div class="content_box">
+                    <img src="imgs/default.jpg">
+                    <p>静电放电模拟器</p>
+                    <p>型号：</p>
+                    <p>北京市海淀区</p>
+                </div>
+                <div class="content_box">
+                        <img src="imgs/default.jpg">
+                        <p>静电放电模拟器</p>
+                        <p>型号：</p>
+                        <p>北京市海淀区</p>
+                    </div>
+                    <div class="content_box">
+                            <img src="imgs/default.jpg">
+                            <p>静电放电模拟器</p>
+                            <p>型号：</p>
+                            <p>北京市海淀区</p>
+                        </div>
+                        <div class="content_box">
+                                <img src="imgs/default.jpg">
+                                <p>静电放电模拟器</p>
+                                <p>型号：</p>
+                                <p>北京市海淀区</p>
+                            </div>
+                            <div class="content_box">
+                                    <img src="imgs/default.jpg">
+                                    <p>静电放电模拟器</p>
+                                    <p>型号：</p>
+                                    <p>北京市海淀区</p>
+                                </div>
+                                <div class="content_box">
+                                        <img src="imgs/default.jpg">
+                                        <p>静电放电模拟器</p>
+                                        <p>型号：</p>
+                                        <p>北京市海淀区</p>
+                                    </div>
+            </div>
+        </div>
+       
+          
+    </div>
+    <!-- 底部 -->
+    <div id="footer" class="foot" style="clear:both;">
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/classify-common.js"></script>
+    <script src="js/provider_more.js"></script>
+</body>
+
+</html>

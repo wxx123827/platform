@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人入驻</title>
+		<link rel="stylesheet" href="css/common/headandfoot.css" type="text/css" />
+		<link rel="stylesheet" href="css/personal.css">
+		<link rel="stylesheet" href="css/settle_select.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+		<style>
+			.case {
+            margin-top: -30px !important;
+        }
+    </style>
+	</head>
+
+	<body>
+		<div id="front_header" class="head">
+		</div>
+		<!--搜索栏-->
+		<div id="search_container" class="search">
+		</div>
+		<div class="main">
+			<div class="main_content">
+				<div class="main_content_top">
+					<p>个人入驻</p>
+				</div>
+				<div class="main_content_bottom">
+					<div class="circle">
+						<div style="margin-left: 150px">
+							<a href="" style="background-color: #247dd0;">1</a>
+							<p>选择类型</p>
+						</div>
+						<div style="margin-left: 180px">
+							<a href="" style="background-color: #247dd0;">2</a>
+							<p>提交材料</p>
+						</div>
+						<div style="margin-left: 180px">
+							<a href="">3</a>
+							<p>身份验证</p>
+						</div>
+						<div style="margin-left: 180px">
+							<a href="">4</a>
+							<p>资质审核</p>
+						</div>
+					</div>
+					<div class="bottom_list">
+						<form action="" method="" lay-filter="personalform" class="layui-form" style="padding-top: 30px;">
+							<div class="layui-form-item">
+								<p style="margin-top: 20px"><span>※</span>真实姓名：
+									<div class="layui-input-inline">
+										<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+									</div>
+								</p>
+							</div>
+							<div class="layui-form-item">
+								<p style="margin-top: 20px"><span>※</span>真实姓名：
+									<div class="layui-input-inline">
+										<input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+									</div>
+								</p>
+							</div>
+							<div class="layui-form-item">
+								<p style="margin-top: 20px"><span>※</span>手机号码：
+									<div class="layui-input-inline">
+										<input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+									</div>
+								</p>
+							</div>
+							<div class="layui-form-item">
+								<p style="margin-top: 20px"><span>※</span>电子邮箱：
+									<div class="layui-input-inline">
+										<input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+									</div>
+								</p>
+							</div>
+							<div class="layui-form-item">
+								<p style="margin-top: 20px;float: left;"><span>※</span>个人描述：
+									<div class="layui-input-block" style="margin-left: 130px!important;">
+										<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+									</div>
+								</p>
+							</div>
+							<div class="layui-form-item" style="margin-top: 65px;">
+								<p><span style="margin-left: -20px;">※</span>身份证正反面：
+									<div class="cardfront">
+										<div class="layui-upload-list" id="cardfrontdiv">
+											<img class="layui-upload-img" id="cardfrontimg" >
+							
+										</div>
+										<p id="cardfronterrorText"></p>
+									</div>
+									<div class="cardreverse">
+										<div class="layui-upload-list" id="cardreversediv">
+											<img class="layui-upload-img" id="cardreverseimg" style="margin-left: 10px;">
+							
+										</div>
+										<p id="cardreverseerrorText"></p>
+									</div>
+								</p>
+							</div>
+							<p style="clear: both;margin-left: 130px;margin-top: -10px;margin-bottom: 10px;">请上传正、反面身份证照片</p>
+							<p style="margin-top: 5px;margin-left: 130px">上传图片需要真实有效，内容清晰可见</p>
+							<p class="next" style="margin-top: 30px;">
+								<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="foot">
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="layui/layui.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/personal.js"></script>
+	</body>
+
+</html>

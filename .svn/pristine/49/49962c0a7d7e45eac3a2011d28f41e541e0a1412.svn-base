@@ -1,0 +1,65 @@
+//类别数据渲染
+var baseurl = "http://cms.keyanwu.com/api/";
+var str1 = "";
+function jobss() {
+    var jobs = "";
+	console.log(11111111)
+    $.ajax({
+        url: baseurl + '/sys/getAllClissify',
+        type: 'get',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+        async:false,
+        success: function (e) {
+            var data = e;
+            console.log(data)
+            jobs += "{\"status\":true,\"info\":[";
+            $.each(data, function (i, n) {
+                jobs += "{\"id\":" + n.uid + ",\"uid\":" + n.uid + ",\"name\":\"" + n.name + "\",\"level\":1"
+                if (n.hasNext === 1) {
+                    jobs += ",\"children\":[";
+                    var count=n.next.length-1;
+                    $.each(n.next, function (i, n) {
+                        // console.log()
+                        jobs += "{\"id\":" + n.uid + ",\"uid\":" + n.uid + ",\"name\":\"" + n.name + "\",\"level\":2"
+                        var num = 3;
+                        if (n.hasNext === 1) {
+                            jobs+=","
+                            jobs += "\"children\":[";
+                            str1="";
+                            classifys(n, num);
+                            jobs += str1.substr(0, str1.length - 1);
+                            
+                            jobs += "]";
+                        }
+                        jobs +=count===0?"}": "},";
+                        count--;
+                    })
+                    jobs += "]";
+
+                } else {
+                    jobs += "}";
+                }
+                jobs += "},";
+            })
+            jobs=jobs.substr(0, jobs.length - 1);
+            jobs += "]}";
+        }
+    });
+    return jobs;
+}
+function classifys(n, num) {
+    $.each(n.next, function (i, n) {
+        str1 += "{\"id\":" + n.uid + ",\"uid\":" + n.uid + ",\"name\":\"" + n.name + "\",\"level\":3}"
+        str1 += ",";
+        if (n.hasNext === 1) {
+            num++;
+            classifys(n, num);
+        } else {
+
+            return false;
+        }  
+    })
+}

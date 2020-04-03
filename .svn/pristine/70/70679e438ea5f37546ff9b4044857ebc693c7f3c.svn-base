@@ -1,0 +1,28 @@
+<div class="searchcontainer">
+	<div class="left logo">
+		<a href="index.html"><img src="imgs/logo.png" alt="" id="imgs" style="margin-top: -10px;"></a>
+	</div>
+	<form action="" class="left " id="search">
+		<dl class="left">
+			<dt>全站</dt>
+			<dd class="all" data-href="" style="visibility: hidden;">全站></dd>
+
+			<dd data-href="" style="visibility: hidden;">仪器
+			</dd>
+
+			<dd data-href="" style="visibility: hidden;">服务</dd>
+
+			<dd data-href="" style="visibility: hidden;">公开课
+			</dd>
+			<dd data-href="" style="visibility: hidden;">需求</dd>
+			<dd class="last" data-href="" style="visibility: hidden;">店铺</dd>
+		</dl>
+		<input type="text" class="left key_words" name="ky" placeholder="请输入您想搜索的内容">
+		<button class="right go_search" type="button">搜索</button>
+		<p id="hotWords" class="clearfix">
+		</p>
+	</form>
+	<div class="right punlish_container">
+	</div>
+</div>
+<script src="js/search.js"></script>

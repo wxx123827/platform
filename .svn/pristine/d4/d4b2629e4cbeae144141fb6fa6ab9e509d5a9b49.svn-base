@@ -1,0 +1,357 @@
+$(document).ready(function () {
+	$('.head').load("personal_head.html");
+	$('.nav_area').load("personal_nav.html", function (response, status, xhr) {
+		$(document).find(".center_middle").html('<span>个人中心</span>')
+	});
+	$('.foot').load("foot.html");
+	var html = "";
+	if (userSrc === "" || userSrc === null) {
+		html += '<img id="userpic" src="imgs/admin_icon.png" style="width:59px;height:59px;border-radius: 50%">';
+	} else {
+		html += '<img id="userpic" src="' + baseImgUrl + userSrc + '" style="width:59px;height:59px;border-radius: 50%">';
+	}
+	$(".face").before(html);
+})
+
+layui.config({
+	base: './static/cropper/'
+}).use(['form', 'layedit', 'laydate', 'upload', 'croppers', 'element'], function () {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		croppers = layui.croppers,
+		element = layui.element,
+		laydate = layui.laydate;
+	croppers.render({
+		elem: '#updateSrc',
+		saveW: 150,
+		saveH: 150,
+		mark: 1 / 1,
+		area: '900px',
+		url: baseUploadUrl,
+		done: function (url) { //上传完毕回调
+			updateSrc(url);
+		}
+	});
+
+	function updateSrc(src) {
+		$.ajax({
+			url: baseUrl + "personal/updateUserSrc",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				src: src
+			},
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					sessionStorage.setItem("src", src);
+					$(document).find('#userpic').attr('src', baseImgUrl + src);
+					layer.msg("上传成功", {
+						icon: 1
+					});
+					layer.closeAll('page');
+				}
+			}
+		})
+	}
+	$(function () {
+		$.ajax({
+			url: baseUrl + "personal/getUserInfo",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					form.render();
+				}
+			}
+		})
+	})
+	form.verify({
+		oldpwd: function (value) {
+			if (value.length === 0) {
+				return "请输入原密码";
+			}
+		},
+		newpwd: function (value) {
+			if (value.length === 0) {
+				return "请输入新密码";
+			}
+		},
+		checkpwd: function (value) {
+			if (value.length === 0) {
+				return "请输入新密码";
+			}
+		},
+		oldcode: function (value) {
+			if (value.length === 0) {
+				return "请输入短信验证码";
+			}
+		},
+		newtel: function (value) {
+			if (value.length === 0) {
+				return "请输入手机号";
+			}
+		},
+		newcode: function (value) {
+			if (value.length === 0) {
+				return "请输入短信验证码";
+			}
+		},
+		tels: [/^[1][3,4,5,7,8][0-9]{9}$/, '手机号格式有误'],
+		pass: [
+			/^([0-9]+[a-zA-Z]+|[a-zA-Z]+[0-9]+)[0-9a-zA-Z]*$/, '密码不符合要求，6-20位数字和字母组合'
+		]
+	})
+	form.on('submit(savepwd)', function (data) {
+		var data = form.val("updatepwdform");
+		if (data.newpwd != data.checkpwd) {
+			layer.msg("两次密码输入不相同", {
+				icon: 2
+			});
+			$("[name=checkpwd]").addClass("layui-form-danger").focus();
+			return false;
+		}
+		updatepwd(JSON.stringify(data));
+		return false;
+	})
+
+	form.on("submit(savetel)", function (data) {
+		var data = form.val("updatetelform");
+		if (data.tel === data.newtel) {
+			layer.msg("新旧手机号不能相同", {
+				icon: 2
+			});
+			$('[name=newtel]').addClass("layui-form-danger").focus();
+			return;
+		}
+		updateTel(data.newtel, data.newcode)
+		return false;
+	})
+
+	$(".sendEmail").on("click", function () {
+		var thiss = $(this);
+		var url = window.location.href;
+		url = url.substring(0, url.lastIndexOf("/") + 1);
+		url += "email_result.html";
+		$.ajax({
+			url: baseUrl + "personal/sendEmail",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				url: url
+			},
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					layer.msg("激活邮件已发送，请前往邮箱验证", {
+						icon: 1
+					});
+					setTimer(thiss);
+				} else {
+					layer.msg(res.msg, {
+						icon: 2
+					});
+				}
+			}
+		})
+		return;
+	})
+	$('.sendOldSms').on('click', function () {
+		if ($(this).hasClass("layui-btn-disabled")) {
+			return;
+		}
+		var tel = $(this).prev().val();
+		sendSms(tel, $(this))
+	})
+	$('.sendNewSms').on('click', function () {
+		if ($(this).hasClass("layui-btn-disabled")) {
+			return;
+		}
+		var tel = $(this).prev().val();
+		var oldcode = $("[name=oldcode]").val();
+		if (oldcode === "") {
+			layer.msg("请输入验证码", {
+				icon: 2
+			});
+			$('[name=oldcode]').addClass("layui-form-danger").focus();
+			return;
+		}
+		if (tel === "") {
+			layer.msg("请输入手机号", {
+				icon: 2
+			});
+			$(this).prev().addClass("layui-form-danger").focus();
+			return;
+		} else if (!/^[1][3,4,5,7,8][0-9]{9}$/.test(tel)) {
+			layer.msg("手机号格式有误", {
+				icon: 2
+			});
+			$(this).prev().addClass("layui-form-danger").focus();
+			return;
+		}
+		if ($('[name=tel]').val() === $('[name=newtel]').val()) {
+			layer.msg("新旧手机号不能相同", {
+				icon: 2
+			});
+			$('[name=newtel]').addClass("layui-form-danger").focus();
+			return;
+		}
+		checkCode($("[name=tel]").val(), oldcode, tel, $(this))
+	})
+
+	function checkCode(tel, code, newtel, thiss) {
+		$.ajax({
+			url: baseUrl + "personal/checkTelCode",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				tel: tel,
+				code: code
+			},
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					$.ajax({
+						url: baseUrl + "personal/checkTelRegister",
+						xhrFields: {
+							withCredentials: true
+						},
+						crossDomain: true,
+						data: {
+							tel: tel
+						},
+						success: function (res) {
+							if (res.code === FAIL) {
+								sendSms(newtel, thiss)
+							} else {
+								layer.msg("此手机号已注册", {
+									icon: 2
+								});
+								$('[name=newtel]').addClass("layui-form-danger").focus();
+							}
+						}
+
+					})
+
+				} else {
+					layer.msg("验证码有误", {
+						icon: 2
+					});
+					$('[name=oldcode]').addClass("layui-form-danger").focus();
+					return;
+				}
+			}
+		})
+	}
+
+	function updateTel(tel, code) {
+		$.ajax({
+			url: baseUrl + "personal/updateTel",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				tel: tel,
+				code: code
+			},
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					layer.msg('修改成功，请重新登录', {
+						icon: 1,
+						time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function () {
+						sessionStorage.clear();
+						sessionStorage.setItem("url", window.location.href);
+						window.location.href = "./login.html";
+						return false;
+					});
+				} else {
+					layer.msg(res.msg, {
+						icon: 2
+					});
+				}
+			}
+		})
+
+	}
+
+	function sendSms(tel, thiss) {
+		$.ajax({
+			url: baseUrl + 'user/sendSms',
+			type: 'post',
+			data: {
+				tel: tel,
+			},
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					layer.msg('发送成功');
+					setTimer(thiss)
+				} else {
+					layer.msg(res.msg)
+				}
+			}
+		})
+	}
+	//倒计时
+	function setTimer(thiss) {
+		var time = 60;
+		var timers = setInterval(function () {
+			time--;
+			if (time <= 0) {
+				time = 0;
+				console.log(time);
+				$(thiss).eq(0)[0].b = false;
+				$(thiss).text('获取验证码');
+				clearInterval(timers);
+				return false;
+			}
+			$(thiss).text(time + '秒后重新获取');
+			if (time == 1) {
+				$(thiss).removeClass("layui-btn-disabled")
+			} else {
+				$(thiss).addClass("layui-btn-disabled")
+			}
+		}, 1000)
+	}
+
+	function updatepwd(data) {
+		$.ajax({
+			url: baseUrl + "personal/updatePwd",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data: {
+				data: data
+			},
+			success: function (res) {
+				if (res.code === SUCCESS) {
+					layer.msg('修改成功，请重新登录', {
+						icon: 1,
+						time: 2000 //2秒关闭（如果不配置，默认是3秒）
+					}, function () {
+						sessionStorage.clear();
+						sessionStorage.setItem("url", window.location.href);
+						window.location.href = "./login.html";
+						return false;
+					});
+				} else {
+					layer.msg(res.msg);
+				}
+			}
+		})
+	}
+})

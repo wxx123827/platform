@@ -1,0 +1,17 @@
+<div class="basic_head">
+	<div class="head_container">
+		<div class="left site">
+			<div class="nav_city"><span class="select">咨询电话：010-62176775</span></div>
+
+		</div>
+		<div class="left about"><a href="#">关于我们</a>
+		</div>
+		<div class="right" id="nologin">
+			<a href="#"><img src="imgs/home_page.png">科研屋首页</a>
+			<a href="#">你好,请登录</a>
+			<a href="#">我的发布</a>
+			<a href="#">我要入住</a>
+			<a href="#">帮助中心</a>
+		</div>
+	</div>
+</div>

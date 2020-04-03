@@ -1,0 +1,11 @@
+<div class="center">
+	<div class="personal_center">
+		<div class="center_left left">
+			<img src="imgs/logo.png">
+			
+		</div>
+		<div class="center_right right">
+			<a href="#" class="layui-btn layui-btn-lg layui-btn-primary">一键发布</a>
+		</div>
+	</div>
+</div>

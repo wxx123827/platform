@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>共享平台首页</title>
+		<link rel="stylesheet" href="css/common/headandfoot.css" type="text/css" />
+		<link rel="stylesheet" href="css/index.css" type="text/css" />
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common/classify.css" type="text/css" />
+	</head>
+	<style>
+		#search dl dt {
+		line-height: 38px !important;
+	}
+
+	#search .key_words {
+		height: 38px !important;
+		width: 70% !important;
+	}
+
+	.brand {
+		margin-top: 20px;
+	}
+
+	.layui-carousel {
+		height: 420px !important;
+	}
+
+	.layui-carousel>[carousel-item] {
+		height: 420px !important;
+	}
+
+	.layui-carousel>[carousel-item]>* {
+		height: 420px !important;
+	}
+
+	.layui-carousel>[carousel-item]>.layui-this {
+		background-color: #efefef;
+	}
+</style>
+
+	<body style="position: relative;">
+
+		<!--顶部-->
+		<div id="front_header" class="head"></div>
+		<!--搜索栏-->
+		<div id="search_container" class="search"></div>
+		<!--分类导航-->
+		<div id="nav_type">
+			<div class="container">
+				<p id="all_types" class="fl">
+					全站分类
+				</p>
+				<ul class="fl nav" id="drop_down_nav">
+					<li class="trangel" style="left: 568.5px; display: none;"></li>
+					<li class="fl">
+						<div class="nav_item">
+							<a class="active" style="color: #247dd0;">首页</a>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<!--banner图及分类-->
+		<div class="nav_middle">
+			<div id="banner_types" class="container">
+				<div class="fl" id="classify" style="overflow: hidden;">
+				</div>
+				<div class="fr" id="banners">
+					<div class="fl carousel_container">
+						<div class="main_banner">
+							<div id="myCarousel" class="layui-carousel">
+								<div carousel-item class="banner_list">
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div id="banner_right" class="fl">
+						<div class="banner_right_img">
+						</div>
+						<div class="banner_right_middle">
+						</div>
+						<div class="the_new">
+							<h3>实时新闻</h3>
+							<div class="new_list">
+							</div>
+							<div class="news_more">查看更多</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--最新上架-->
+			<div class="the_newest">
+				<div class="newest_title">
+					<p>最新上架</p>
+				</div>
+				<div class="newest_content">
+					<div class="newest_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="newest_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="newest_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="newest_one">
+						<img src="./imgs/default.jpg">
+					</div>
+				</div>
+			</div>
+			<!-- 企业排行 -->
+			<div class="enterprise">
+				<div class="enterprise_title">
+					<p>企业排行</p>
+				</div>
+				<div class="enterprise_content">
+
+					<div class="enterprise_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="enterprise_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="enterprise_one">
+						<img src="./imgs/default.jpg">
+					</div>
+					<div class="enterprise_one">
+						<img src="./imgs/default.jpg">
+					</div>
+				</div>
+			</div>
+			<!-- 为你推荐 -->
+			<div class="recommend">
+				<div class="recommend_title">
+					<p>为你推荐</p>
+				</div>
+				<div class="tab_box">
+					<div class="recommend_bar">
+						<a href="javascript:;" class="recommend_bar_one on" name="recommend_bar">1</a>
+						<a href="javascript:;" class="recommend_bar_two" name="recommend_bar">2</a>
+						<a href="javascript:;" class="recommend_bar_three" name="recommend_bar">3</a>
+						<a href="javascript:;" class="recommend_bar_four" name="recommend_bar">4</a>
+					</div>
+					<div class="recommend_content">
+						<div class="tab_content show">
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+						</div>
+						<div class="tab_content">
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+						</div>
+						<div class="tab_content">
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+							<div class="recommend_one" name="recommend_one">
+								<img src="./imgs/default.jpg" style="margin-left: -3px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div id="footer" class="foot" style="clear:both;">
+
+		</div>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="layui/layui.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/classify-common.js"></script>
+		<script src="js/index.js"></script>
+		<script>
+			(function(w, d, s, g, o) {
+				var x = document.createElement(s),
+					s = document.getElementsByTagName(s)[0];
+				w[g] = o;
+				x.async = true;
+				x.charset = 'utf-8';
+				x.src = 'https://cdn.xiankefu.com/dist/xiankefu.js';
+				s.parentNode.insertBefore(x, s);
+			})(window, document, 'script', 'XIANKEFU_GLOBAL', {
+				bid: '8bf020a01beff4596aa0c02d629330b6',
+				csid: '25d65be4e31e42b1cd97d98396a90163'
+			});
+			
+		</script>
+
+	</body>
+
+</html>

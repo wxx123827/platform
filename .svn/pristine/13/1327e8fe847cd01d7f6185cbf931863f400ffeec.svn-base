@@ -1,0 +1,155 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav_area').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>个人中心</span>')
+	});
+	$('.foot').load("foot.html");
+	getUserLightning()
+})
+
+function getUserLightning(){
+	var html="";
+	$.ajax({
+		url:baseUrl+"personal/getUserLightning",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async:false,
+		success:function(res){
+			if(res.code===SUCCESS){
+				$(res.msg).each(function(){
+					html+='<div id="content">';
+					html+='<div class="invoice_left">';
+					html+='<ul>';
+					html+='<input class="uid" style="display:none" value="'+this.uid+'">'
+					html+='<li class="type">发票类型<span types=\"'+this.types+'\">'+getTypes(this.types)+'</span></li>';
+					html+='<li class="name">发票抬头<span>'+this.name+'</span></li>'
+					html+='<li class="code">纳税人识别号<span>'+this.code+'</span></li>'
+					html+='</ul>';
+					html+='</div>';
+					html+='<div class="invoice_right">';
+					if(this.ban==="1"){
+						html+='<div class="">默认</div>';
+					}else{
+						html+='<div class="default">设为默认</div>';
+					}
+					html+='<div class="edit">编辑</div>';
+					html+='<div class="delete">删除</div>';
+					html+='</div>';
+					html+='</div>';
+				})
+				$(".invoice_content").html(html)
+			}
+		}
+	})
+}
+function getTypes(type){
+	if(type==="0"){
+		return "增值税普通发票"
+	}else{
+		return "增值税专用发票"
+	}
+}
+layui.use(['laypage', 'layer', 'table', 'upload', 'element'], function() {
+	var laypage = layui.laypage;
+	var layer = layui.layer;
+	var table = layui.table;
+	var upload = layui.upload;
+	var element = layui.element;
+	var $ = layui.$;
+	var form = layui.form;
+	
+	$('.contents').on("click",function(){
+		layer.open({
+			type: 2,
+			content: './individual_invoice.html',
+			area: ['480px','300px'],
+			scrollbar: false,
+			success:function(){
+				form.render("radio")
+			},
+			end:function(){
+				history.go(0) 
+			}
+		})
+	})
+	$(document).on("click",'.edit',function(){
+		var parent=$(this).parent().prev(".invoice_left")
+		var type=$(parent).find(".type>span").attr("types");
+		var name=$(parent).find(".name>span").text();
+		var code=$(parent).find(".code>span").text();
+		var uid=$(parent).find(".uid").attr("value");
+		console.log(type)
+		layer.open({
+			type: 2,
+			content: './individual_invoice.html?type=1',
+			area: ['580px','300px'],
+			scrollbar: false,
+			success:function(layero, index){
+				let body = layer.getChildFrame('body', index);
+				var iframeWin = window[layero.find('iframe')[0]['name']];
+				console.log(typeof type)
+				$($(body).find('[name=type]')).each(function(){
+					if($(this).attr("value")===type){
+						$(this).attr("checked",true)
+					}
+				})
+				$(body).find('[name=name]').val(name);
+				$(body).find('[name=code]').val(code)
+				$(body).find('[name=uid]').val(uid);
+				iframeWin.layui.form.render()
+				iframeWin.layui.form.render("radio")
+			},
+			end:function(){
+				history.go(0) 
+			}
+		})
+	})
+	$(document).on("click",".default",function(){
+		var parent=$(this).parent().prev(".invoice_left")
+		var uid=$(parent).find(".uid").attr("value");
+		$.ajax({
+			url:baseUrl+"personal/updateLightningBan",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			data:{
+				uid:uid
+			},
+			success:function(res){
+				if(res.code===SUCCESS){
+					history.go(0) 
+				}
+			}
+		})
+	})
+	
+	$(document).on("click",".delete",function(){
+		var parent=$(this).parent().prev(".invoice_left")
+		var uid=$(parent).find(".uid").attr("value");
+		layer.confirm('确定删除吗？', {
+		  btn: ['确定','取消'], //按钮
+		}, function(){
+		  $.ajax({
+		  	url:baseUrl+"personal/delUserLightning",
+		  	xhrFields: {
+		  		withCredentials: true
+		  	},
+		  	crossDomain: true,
+		  	data:{
+		  		uid:uid
+		  	},
+		  	success:function(res){
+		  		if(res.code===SUCCESS){
+		  			history.go(0) 
+		  		}
+		  	}
+		  })
+		}, function(){
+		  layer.closeAll()
+		});
+		
+	})
+})

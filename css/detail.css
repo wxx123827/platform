@@ -1,0 +1,401 @@
+@font-face {
+    font-family: 'SourceHanSansCN-Regular';
+    src: url('../font/SourceHanSansCN-Regular.otf');
+    src: url('../font/SourceHanSansCN-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content_left {
+    width: 890px;
+    height: 1200px;
+    background-color: #ffffff;
+    float: left;
+    margin-bottom: 60px;
+}
+.title a{
+    font-size: 14px;
+    color: #999;
+}
+.main {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.main h3 {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #666666;
+}
+.content_top{
+    height: 588px;
+    background-color: #fff;
+}
+.left_img {
+    width: 346px;
+    height: 470px;
+    margin-left: 20px;
+    float: left;
+}
+.imgs_box{
+    height: 100px;
+    width: 346px;
+    margin-top: 20px;
+}
+.imgs_box a {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #dddddd;
+    margin-left: 20px;
+}
+.imgs_box a:first-child{
+    margin-left: 0;
+}
+.imgs_box img{
+    width: 100px;
+    height: 100px;
+}
+.content {
+    width: 346px;
+    height: 346px;
+}
+.content img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.right_text {
+    height: 300px;
+    float: left;
+    margin-left: 50px;
+}
+.right_text h2{
+    font-size: 20px;
+    color: #333;
+}
+.right_text .content_area{
+    width: 600px;
+	height: 266px;
+    background-color: #f5f5f5;
+    margin-top: 65px;
+}
+.introduction div {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+}
+
+.right_text .content_area p {
+    height: 46px;
+    line-height: 46px;
+    font-size: 14px;
+    color: #999999;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 1px dotted #dddddd;
+}
+.right_text .content_area p span{
+    color: #666666;
+}
+.right_text .content_area p:first-child{
+    padding-top: 10px;
+}
+.right_text .content_area p:last-child{
+    border-bottom: none;
+}
+.right_text input {
+    width: 144px;
+    height: 35px;
+    background-color: #247dd0;
+    border-radius: 5px;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-top: 55px;
+    border: 1px solid #247dd0;
+}
+
+.shops_list {
+    margin-top: 20px;
+}
+
+.shops_list .shop_info {
+    height: 110px;
+    background: url(../imgs/detail_shop.png) no-repeat;
+}
+
+.shops_list #name {
+    font-size: 26px;
+	font-weight: bold;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    padding-left: 50px;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+.shops_list #test{
+    padding-left: 50px;
+    box-sizing: border-box;
+    margin-top: -5px;
+}
+.list_detail p {
+    width: 980px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #eeeeee;
+    margin-top: 20px;
+    float: left;
+    font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #666666;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.content_bottom {
+    width: 100%;
+    clear: both;
+}
+
+.collect_share {
+    height: 30px;
+    clear: both;
+    width: 300px;
+    float: left;
+    margin-top: -425px;
+    margin-left: 340px;
+}
+
+#collect,
+#share {
+    cursor: pointer;
+    /* width: 100px; */
+}
+
+#collect {
+    margin-left: 75px;
+}
+
+#share {
+    margin-left: 40px;
+}
+
+#collect:hover .collect_img {
+    color: red;
+}
+
+#share:hover .share_img {
+    color: #247dd0;
+}
+
+.introduction {
+    width: 980px;
+    border: solid 1px #eeeeee;
+    float: left;
+    background-color: #fff;
+    min-height: 740px;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 100px;
+}
+.introduction p span{
+    display: inline-block;
+    width: 940px;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+.content_right {
+    float: right;
+    width: 200px;
+    height: 780px;
+    background-color: #ffffff;
+    margin-top: -40px;
+}
+
+.content_right p {
+    line-height: 40px;
+    width: 200px;
+    height: 40px;
+	background-color: #bb3838;
+    text-align: center;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.content_right .recommend_list ul{
+    margin-top: 10px;
+}
+.content_right .recommend_list ul li{
+    margin-top: 10px;
+    width: 150px;
+}
+.content_right .recommend_list {
+    height: 220px;
+    text-align: center;
+    border-bottom: dotted 1px #a0a0a0;
+    margin-top: 20px;
+}
+
+.content_right .recommend_list img {
+    width: 150px;
+    height: 150px;
+}
+.content_right .recommend_list:last-child{
+    border-bottom: none;
+}
+.shops_list .recommend_list {
+    text-align: center;
+    width: 150px;
+    height: 190px;
+   cursor: pointer;
+   float: left;
+    background-color: #ffffff;
+    margin-left: 15px;
+}
+.shops_list .recommend_list:hover{
+    box-shadow: 0px 2px 10px 0px 
+		rgba(0, 0, 0, 0.35);
+}
+.hot_detail{
+    height: 190px;
+    margin-top: 20px;
+}
+.hot_detail span{
+   display: inline-block;
+   width: 2px;
+   height: 190px;
+   background-color: #bb3838;
+   margin-left: 10px;
+   float: left;
+}
+.product_introduce{
+    background: url(../imgs/product_introduce.png) no-repeat;
+    font-size: 14px;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    
+}
+
+.shops_list .shops_icon {
+    margin-left: 75px;
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    object-fit: scale-down;
+}
+
+
+#enter_shop {
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    float: right;
+    width: 120px;
+	height: 40px;
+	background-image: linear-gradient(0deg, 
+		#ec8619 0%, 
+		#ffde00 100%), 
+	linear-gradient(
+		#f19149, 
+		#f19149);
+	background-blend-mode: normal, 
+		normal;
+    border-radius: 3px;
+    margin-right: 50px;
+    margin-top: -28px;
+}
+
+#enter_shop a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.recommend_list img {
+    width: 110px;
+    height: 110px;
+    object-fit: scale-down;
+}
+.recommend_list ul li:first-child{
+    font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #666666;
+}
+.recommend_list ul li:last-child{
+    font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+.recommend_list li {
+    list-style: none;
+    margin-top: 10px;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 25px;
+}
+
+.badge {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url(../imgs/badge.png) no-repeat;
+    top: 10px;
+    left: 10px;
+    border: none;
+    padding-left: 13px;
+    font-size: 18px;
+    color: #f0a837;
+    padding-top: 8px;
+    box-sizing: border-box;
+
+}
+
+.badge p {
+    text-align: center;
+}
+
+.hot_product {
+    width: 40px;
+	height: 190px;
+	background-color: #bb3838;
+   padding-left: 12px;
+   padding-top: 55px;
+   box-sizing: border-box;
+    font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 4px;
+    color: #ffffff;
+    float: left;
+}
+.fl{
+    float: left;
+}

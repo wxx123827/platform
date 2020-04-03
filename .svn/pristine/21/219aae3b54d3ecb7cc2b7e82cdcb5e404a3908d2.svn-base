@@ -1,0 +1,115 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html");
+	$('.foot').load("foot.html");
+	sessionStorage.removeItem("data");
+	init();
+})
+
+//选择类型
+function init() {
+	$.ajax({
+		url: baseUrl+"release/getUserJoin",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(res) {
+			if (res.code == SUCCESS) {
+				var result = res.msg;
+				switch (result.jointype) {
+					case 0:
+						$(".rights").load("enterprise_content.html", function(response, status, xhr) {
+							
+						});
+						break;
+					case 1:
+						$(".rights").load("personal_content.html", function(response, status, xhr) {});
+						break;
+					case 2:
+						$(".rights").load("individual_content.html", function(response, status, xhr) {});
+						break;
+				}
+				return;
+			}else{
+				$(".rights").html(res.msg)
+			}
+
+		}
+	})
+}
+
+layui.use(['form', 'layedit', 'laydate', 'upload'], function() {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		laydate = layui.laydate;
+
+	var cardfront = upload.render({
+		elem: '#cardfrontdiv',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#cardfrontimg').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res, index, upload) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("personalform", {
+				"cardfront": res.src
+			})
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#cardfronterrorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				cardfront.upload();
+			});
+		}
+	});
+	var cardreverse = upload.render({
+		elem: '#cardreversediv',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#cardreverseimg').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res, index, upload) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+
+			form.val("personalform", {
+				"cardreverse": res.src
+			})
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#cardreverseerrorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				cardreverse.upload();
+			});
+		}
+	});
+
+})
+

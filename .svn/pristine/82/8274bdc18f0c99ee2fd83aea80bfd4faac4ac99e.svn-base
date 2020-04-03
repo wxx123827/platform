@@ -1,0 +1,40 @@
+/**
+ * 个人入驻
+ */
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+})
+
+layui.use(['form', 'layedit', 'laydate', 'upload'], function() {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		laydate = layui.laydate;
+
+
+	//自定义验证规则
+	form.verify({
+		title: function(value) {
+			if (value.length < 5) {
+				return '标题至少得5个字符啊';
+			}
+		},
+		pass: [
+			/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
+		],
+		content: function(value) {
+			layedit.sync(editIndex);
+		}
+	});
+	form.on('submit(demo1)', function(data) {
+		layer.alert(JSON.stringify(data.field), {
+			title: '最终的提交信息'
+		})
+		return false;
+	});
+
+})

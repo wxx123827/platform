@@ -1,0 +1,176 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.active{
+    background-color: #247dd0!important;
+    color: #ffffff!important;
+}
+
+.invoice_title .layui-btn {
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 0 !important;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #333333;
+    background-color: #ffffff;
+    border-radius: 5px 5px 0px 0px !important;
+    width: 100px;
+}
+.invoice_title .layui-btn:hover{
+    color: #333333;
+}
+
+.content .left {
+    width: 190px;
+    height: 590px;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.content .left ul {
+    margin-top: 20px;
+}
+.my_shop {
+    font-size: 16px;
+    color: #999999;
+    margin-bottom: 10px;
+}
+.my_shop span{
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    margin-top: 10px;
+	border-top: 1px solid #eeeeee;
+}
+.my_shop span:first-child{
+    float: left;
+}
+.my_shop span:nth-child(2){
+    float: right;
+}
+.content .left li a {
+    font-size: 14px;
+    color: #666666;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.content .left li {
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.content .left li:hover {
+    width: 190px;
+    height: 35px;
+    background-color: #eeeeee;
+}
+
+.content .right {
+    width: 1000px;
+    background-color: #ffffff;
+    margin-bottom: 100px;
+    margin-top: 10px;
+}
+.content .favorite_type{
+    height: 50px;
+}
+.content .right h2 {
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #333333;
+    padding: 20px 0px 10px 10px;
+    float: left;
+}
+.content .right .type_select{
+    float: right;
+    padding:30px 10px 10px 0px;
+}
+.type_select a{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+    color: #999999;
+    margin-left: 18px;
+}
+.content .right hr {
+    background-color: #999999 !important;
+    margin: 0!important;
+}
+
+.content .right .favorite_detail {
+    width: 1000px;
+    height: 140px;
+    background-color: #f1f8ff;
+    margin-top: 10px;
+}
+.content .right .invoice_title{
+    padding-top: 10px;
+}
+.favorite_detail .invoice_img {
+    float: left;
+
+}
+
+.favorite_detail .invoice_img img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: #bfbfbf;
+}
+
+.favorite_detail .invoice_left {
+    float: left;
+    margin-left: 20px;
+}
+
+.favorite_detail .invoice_left ul {
+    margin-top: 20px;
+}
+
+.favorite_detail .invoice_left ul h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.favorite_detail .invoice_left ul li {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.favorite_detail .invoice_right {
+    float: right;
+}
+
+.favorite_detail .invoice_right div {
+    margin-top: 20px;
+    margin-right: 20px;
+    color: #247dd0;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#content_box {
+    min-height: 500px;
+    height: auto;
+}
+.layui-btn{
+    border-radius: 5px!important;
+}

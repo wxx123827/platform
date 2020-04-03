@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人中心-我的收藏</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" href="css/my_favorite.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	</head>
+
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav_area">
+		</div>
+		<div class="basic_content">
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li><a href="essential_information.html">基本信息</a></li>
+						<li><a href="account_security.html">账户安全</a></li>
+						<li><a href="address.html">地址管理</a></li>
+						<li><a href="invoice_control.html">发票管理</a></li>
+						<li style="background-color: #247dd0;"><a href="my_favorite.html" style="color: #ffffff;">我的收藏</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2>我的收藏</h2>
+					<hr />
+						<div class="layui-form-item invoice_content">
+							<div class="invoice_title">
+								<button class="layui-btn all active">全部<span class="layui-badge layui-bg-gray">0</span></button>
+								<button class="layui-btn equipment">仪器设备<span class="layui-badge layui-bg-gray">0</span></button>
+								<button class="layui-btn lab">实验室<span class="layui-badge layui-bg-gray">0</span></button>
+								<button class="layui-btn consumable">耗材配件<span class="layui-badge layui-bg-gray">0</span></button>
+								<button class="layui-btn skill">技能知识<span class="layui-badge layui-bg-gray">0</span></button>
+							</div>
+							<div id="content_box">
+							</div>
+							<div id="page"></div>
+						</div>
+
+				</div>
+				
+			</div>
+		</div>
+		<div id="footer" class="foot">
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/my_favorite.js"></script>
+	</body>
+</html>

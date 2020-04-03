@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心-我的收藏</title>
+
+    <link rel="stylesheet" href="css/common/personal_headfoot.css">
+    <link rel="stylesheet" href="css/serve_personal.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="head">
+    </div>
+    <div class="nav">
+    </div>
+    <div class="basic_content">
+        <div class="content">
+            <div class="left">
+                <ul>
+                    <li><a href="my_favorite.html">我的发布</a> </li>
+                    <li style="background-color: #247dd0;"><a href="my_favorite.html" style="color: #ffffff;">服务商资料</a>
+                    </li>
+                    <li><a href="address.html">服务商简介</a></li>
+                    <li><a href="invoice_control.html">入住审核</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="foot">
+    </div>
+    <script src="layui/layui.all.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/my_favorite.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人中心-账户安全</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" href="css/account_security.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav">
+		</div>
+		<div class="basic_content">
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li><a href="essential_information.html">基本信息</a></li>
+						<li><a href="account_security.html">账户安全</a></li>
+						<li><a>地址管理</a></li>
+						<li><a href="invoice_control.html">发票管理</a></li>
+						<li><a>我的收藏</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2>账户安全</h2>
+					<hr />
+					<h3><span></span>修改密码</h3>
+					<form action="" method="" lay-filter="updatepwdform" class="layui-form">
+						<div class="layui-form-item" style="margin-top: 10px;">
+							<p><span style="margin-left:40px">原密码：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left:40px">新密码：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left:30px">确认密码：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						
+						<p class="next" style="margin-top: 30px;">
+							<div class="layui-input-block">
+							<button type="submit" class="layui-btn layui-btn-normal" style="width: 60px!important;
+							height: 26px!important;line-height: 26px;" lay-submit="" lay-filter="save">确定</button>
+							</div>
+						</p>
+					</form>
+					<h3><span></span>修改手机号</h3>
+					<form action="" method="" lay-filter="updatetelform" class="layui-form">
+						<div class="layui-form-item">
+							<p><span style="margin-left: 40px;">手机号：</span>
+								<div class="layui-input-block">
+									<p>18888888888</p>
+									<button  class="layui-btn  layui-btn-normal"  lay-filter="save" style="width: 100px!important;
+									height: 26px!important;line-height: 26px;margin-left: 15px;">发送验证码</button>
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left: 20px;">短信验证码：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left: 30px;">新手机号：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left: 20px;">短信验证码：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						
+						<p class="next">
+							<div class="layui-input-block">
+							<button type="submit" class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="save" style="width: 60px!important;
+							height: 26px!important;line-height: 26px;">确定</button>
+							</div>
+						</p>
+					</form>
+					<hr/>
+					<h3><span></span>邮箱验证</h3>
+					<form action="" method="" lay-filter="updatetelform" class="layui-form">
+						<div class="layui-form-item" style="margin-top: 15px;">
+							<p><span style="margin-left: 40px;">手机号：</span>
+								<div class="layui-input-inline" style="width: 0px!important;">
+								<input type="text" name="title" style="float: left!important;width: 200px!important;" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								<button type="submit" class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="save" style="width: 100px!important;
+								height: 26px!important;line-height:26px;margin-left:15px">发送激活邮件</button>
+								</div>
+							</p>
+						</div>
+					</form>
+					
+					<h3 style="clear: both;"><span></span>绑定微信</h3>
+					<p style="margin-top: 10px;margin-left: 40px;"><span>未绑定</span>
+						<div class="layui-input-inline">
+							<button type="submit" class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="save" style="margin-left: 100px;height: 26px!important;line-height: 26px;margin-top: 8px;">发送绑定</button>
+							
+						</div>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div id="footer" class="foot" >
+
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/account_security.js"></script>
+	</body>
+</html>

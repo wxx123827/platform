@@ -1,0 +1,18 @@
+$(document).ready(function() {
+	layui.use(['form'], function() {
+		var form=layui.form;
+		var data=JSON.parse(sessionStorage.getItem("data"))
+		$("[name=name]").text(data.name)
+		form.val("personalform",{
+			"name":data.personaljoininfo.name,
+			"tel":data.personaljoininfo.tel,
+			"email":data.personaljoininfo.email,
+			"skill":data.personaljoininfo.skillsinfo
+		})
+		layui.$('input').attr('disabled',true);
+		layui.$("textarea").attr('disabled',true);
+		$("#cardfrontimg").attr("src",baseImgUrl+data.personaljoininfo.cardfront)
+		$("#cardreverseimg").attr("src",baseImgUrl+data.personaljoininfo.cardreverse)
+		form.render()
+	})
+})

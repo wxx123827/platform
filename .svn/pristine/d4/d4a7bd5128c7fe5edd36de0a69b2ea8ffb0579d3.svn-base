@@ -1,0 +1,257 @@
+@charset "utf-8";
+/** 以下是必要样式 **/
+
+/* menu */
+.menu {
+	position: relative;
+	width: 1210px;
+	margin: 0px auto;
+	height: 40px;
+	background-color: #E4393C;
+}
+
+.menu div {
+	position: absolute;
+	top: 0px;
+	height: 40px;
+	font-family: "Microsoft Yahei";
+}
+
+.menu .all-sort {
+	left: 0px;
+	width: 210px;
+	text-align: center;
+	font-size: 14px;
+}
+
+.menu .all-sort a {
+	color: #FFF;
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+}
+
+.menu .ad {
+	right: 0px;
+	width: 141px;
+}
+
+.menu .nav {
+	left: 210px;
+}
+
+.menu .nav ul li {
+	float: left;
+	width: 85px;
+	line-height: 40px;
+}
+
+.menu .nav ul li a {
+	display: block;
+	width: 100%;
+	color: #FFF;
+	text-align: center;
+	font: 700 15px/40px "Microsoft Yahei";
+}
+
+.menu .nav ul li a:hover,
+.menu .nav ul li a.current {
+	background: #A40000;
+	text-decoration: none;
+}
+
+.wrap {
+	width: 1210px;
+	margin: 0px auto;
+}
+
+#classify {
+	padding-top: 10px;
+	/* position: relative; */
+	width: 200px;
+	background-color: #ffffff;
+	height: 430px;
+	/* position: absolute; */
+	z-index: 0;
+    cursor: pointer;
+}
+
+#classify .item {
+	height: 30px;
+	width: 200px;
+}
+
+#classify .title {
+	padding-left: 20px;
+}
+
+#classify .item.bo {
+	border-top: none;
+}
+
+#classify .item h3 {
+	height: 28px;
+	line-height: 28px;
+	border: 1px 0px;
+	font-size: 14px;
+	font-weight: normal;
+	width: 199px;
+	overflow: hidden;
+}
+
+#classify .hover h3 {
+	position: relative;
+	z-index: 13;
+	background: #FFF;
+	border-color: #DDD;
+	border-width: 1px 0px;
+	border-style: solid;
+}
+
+/* #classify .item span {
+	padding:auto 5px;
+} */
+
+#classify .item a {
+	color: #666666;
+	text-decoration: none;
+	display: inline-block;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+#classify .item h4{
+	padding-left: 20px;
+	width: 200px;
+	z-index: 999;
+	position: relative;
+}
+#classify .item h4 a{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+}
+
+#classify .item:hover {
+	font-weight: bold;
+	color: #247dd0!important;
+	cursor: pointer;
+}
+#classify .item:hover h4>a{
+	font-weight: bold;
+	color: #247dd0!important;
+	cursor: pointer;
+}
+#classify .item-list {
+	display: none;
+	position: absolute;
+	width: 792px;
+	height: 430px;
+	border: 2px solid #247dd0;
+	box-sizing: border-box;
+	border-top: none;
+	background: #FFF;
+	left: 198px;
+	top: 3px;
+	z-index: 10;
+}
+
+.item-list .subitem {
+	float: left;
+	width: 705px;
+	padding: 0px 4px 0px 8px;
+}
+
+.item-list .subitem dl {
+	border-top: 1px solid #EEE;
+	padding: 6px 0px;
+	overflow: hidden;
+	zoom: 1;
+}
+
+.item-list .subitem .fore {
+	border-top: none;
+}
+
+.item-list .subitem dt {
+	float: left;
+	width: 70px;
+	line-height: 22px;
+	text-align: right;
+	padding: 3px 6px 0px 0px;
+	font-weight: 700;
+	color: #E4393C;
+}
+
+.item-list .subitem dt a {
+	color: #E4393C;
+	text-decoration: underline;
+}
+
+.item-list .subitem dd {
+	float: left;
+	width: 705px;
+	padding: 3px 0px 0px;
+	overflow: hidden;
+}
+
+.item-list .subitem dd em {
+	float: left;
+	height: 14px;
+	line-height: 14px;
+	padding: 0px 8px;
+	margin-top: 5px;
+	border-right: 1px solid #CCC;
+}
+.item-list .subitem dd em:last-child{
+	border-right: none;
+}
+.item-list .subitem dd em a,
+.item-list .cat-right dd a {
+	color: #666;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.item-list .subitem dd em a:hover,
+.item-list .cat-right dd a:hover {
+	font-weight: normal;
+	text-decoration: underline;
+	color: #247dd0!important;
+}
+
+.item-list .cat-right {
+	float: right;
+	width: 210px;
+}
+
+.item-list .cat-right dl {
+	width: 194px;
+	padding: 6px 8px;
+}
+
+.item-list .cat-right dd {
+	padding-top: 6px;
+	line-height: 22px;
+	overflow: hidden;
+	padding: 3px 0px 0px;
+}
+
+.item-list .cat-right dt {
+	padding: 3px 6px 0px 0px;
+	font-weight: 700;
+	color: #E4393C;
+}
+
+.item-list .cat-right dd a:hover {
+	color: #666;
+}
+#all_types:hover{
+   cursor: pointer;
+}
+/* #classify:hover {
+	height: auto;
+	min-height: 420px; 
+ } */
+
+

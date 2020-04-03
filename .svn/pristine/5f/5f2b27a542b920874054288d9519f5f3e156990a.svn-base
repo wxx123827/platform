@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	</head>
+	<style>
+		.save,
+		.cancel {
+			width: 100px !important;
+			height: 40px !important;
+			line-height: 40px;
+			border-radius: 5px !important;
+			border: solid 1px #247dd0;
+			font-size: 14px;
+			font-weight: normal;
+			font-stretch: normal;
+			letter-spacing: 0px;
+			color: #247dd0 !important;
+		}
+
+		.save:hover,
+		.cancel:hover {
+			background-color: #247dd0 !important;
+			color: #ffffff !important;
+		}
+	</style>
+	<body>
+		<form id="add" action="" method="" style="margin-top: 30px;" lay-filter="individualform" class="layui-form">
+			<input type="text" name="uid" lay-verify="uid" style="display: none;" >
+			<div class="layui-form-item">
+				<p style="margin-top: 10px;float: left;"><span style="margin-left:40px">发票类型：</span>
+					<div class="layui-input-block">
+						<input type="radio" name="type" value="0" title="增值税普通发票" checked="">
+						<input type="radio" name="type" value="1" title="增值税专用发票">
+					</div>
+				</p>
+			</div>
+			<div class="layui-form-item">
+				<p style="margin-top: 10px;float: left;"><span style="margin-left:55px">发票抬头：</span>
+					<div class="layui-input-inline">
+						<input type="text" name="name" lay-verify="name" autocomplete="off" placeholder="请输入发票抬头" class="layui-input">
+					</div>
+				</p>
+			</div>
+			<div class="layui-form-item">
+				<p style="margin-top: 10px;float: left;"><span style="margin-left:40px">纳税人识别号：</span>
+					<div class="layui-input-inline">
+						<input type="text" name="code" lay-verify="code" autocomplete="off" placeholder="请输入纳税人识别号" class="layui-input">
+					</div>
+				</p>
+			</div>
+			<p class="next" style="margin-top: 40px;width: 100%;text-align: center;">
+				<button type="submit" class="layui-btn  layui-btn-primary save" lay-submit="" lay-filter="save">保存</button>
+				<button type="button" class="layui-btn  layui-btn-primary cancel" lay-filter="cancel">取消</button>
+			</p>
+		</form>
+	</body>
+	<script src="layui/layui.all.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/baseconstant.js"></script>
+	<script src="js/individual_invoice.js"></script>
+</html>

@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    min-width: 1200px;
+}
+
+/* 店主力荐 */
+#goods_list{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#goods_list .best_title{
+    width: 1200px;
+	height: 60px;
+	background-color: #000000;
+    background: url(../imgs/shop_bg.png) no-repeat;
+    margin-top: 30px;
+    clear: both;
+}
+#goods_list .best_title p{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+#goods_list .best_content .best_detail{
+    width: 285px;
+	height: 350px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+}
+#goods_list .best_content .best_detail img{
+    width: 175px;
+    height: 140px;
+    margin-top: 55px;
+    display: inline-block;
+}
+#goods_list .best_content .best_detail:nth-child(4n+1){
+    margin-left: 0;
+}
+#goods_list .best_content .best_detail ul{
+    margin-top: 40px;
+}
+#goods_list .best_content .best_detail ul li{
+    margin-top: 10px;
+}
+/* 热销产品 */
+#goods_list .hot_product{
+    clear: both;
+    margin-top: 750px;
+    height: 420px;
+}
+#goods_list .hot_title{
+    width: 1200px;
+	height: 60px;
+	background-color: #000000;
+    background: url(../imgs/shop_bg.png) no-repeat;
+}
+#goods_list .hot_title p{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+#goods_list .hot_content .hot_detail{
+    width: 285px;
+	height: 350px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+}
+#goods_list .hot_content .hot_detail img{
+    width: 175px;
+    height: 140px;
+    margin-top: 55px;
+    display: inline-block;
+}
+#goods_list .hot_content .hot_detail:nth-child(4n+1){
+    margin-left: 0;
+}
+#goods_list .hot_content .hot_detail ul{
+    margin-top: 40px;
+}
+#goods_list .hot_content .hot_detail ul li{
+    margin-top: 10px;
+}
+
+/* 最新上架 */
+#goods_list .the_newest{
+    clear: both;
+    height: 810px;
+}
+#goods_list .newest_title{
+    width: 1200px;
+	height: 60px;
+	background-color: #000000;
+    background: url(../imgs/shop_bg.png) no-repeat;
+    margin-top: 30px;
+}
+#goods_list .newest_title p{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #ffffff;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+#goods_list .newest_content .newest_detail{
+    width: 285px;
+	height: 350px;
+    background-color: #ffffff;
+    margin-left: 10px;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+}
+#goods_list .newest_content .newest_detail img{
+    width: 175px;
+    height: 140px;
+    margin-top: 55px;
+    display: inline-block;
+}
+#goods_list .newest_content .newest_detail:nth-child(4n+1){
+    margin-left: 0;
+}
+#goods_list .newest_content .newest_detail ul{
+    margin-top: 40px;
+}
+#goods_list .newest_content .newest_detail ul li{
+    margin-top: 10px;
+}
+
+/* 资质证书 */
+.certificate{
+    background: url(../imgs/shops_bg.png) no-repeat;
+    margin-top: 20px;
+    height: 297px;
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+.certificate_icon{
+    text-align: center;
+}
+/* 轮播效果 */
+.Box {
+    position: relative;
+}
+.Box {
+    width: 1200px;
+    height: 266px;
+    margin: 0 auto;
+}
+.Box .Box_con {
+    position: relative;
+}
+.Box .Box_con .btnl {
+    position: absolute;
+}
+.Box .Box_con .btn {
+    display: block;
+    width: 16px;
+    height: 23px;
+    position: absolute;
+    top: 80px;
+    cursor: pointer;
+}
+.Box .Box_con .btnl {
+    background: url(../img/jtl02.png) no-repeat center;
+    left: 35px;
+}
+.Box .Box_con .btnr {background: url(../img/jtr02.png) no-repeat center;
+    right: 35px;
+}
+.Box .Box_con .btnl:hover {
+    background: url(../img/jtl03.png) no-repeat center;
+}
+.Box .Box_con .btnr:hover {background: url(../img/jtr03.png) no-repeat center;
+}
+.Box .Box_con .conbox {
+    position: relative;
+    overflow: hidden;
+    width: 1020px;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+.Box .Box_con .conbox ul {
+    position: relative;
+    list-style: none;
+}
+.Box .Box_con .conbox ul li {
+    float: left;
+    width: 244px;
+    height: 186px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.Box .Box_con .conbox ul li:first-child {
+    margin-left: 0;
+}
+.Box .Box_con .conbox ul li img {
+    display: block;
+    width: 244px;
+    height: 186px;
+    transition: all 0.5s;
+}
+.Box .Box_con .conbox ul li:hover img {
+    transform: scale(1.1);
+}
+			
+.Box .BoxSwitch {
+    margin-top: 10px;
+    text-align: center;
+}
+.Box .BoxSwitch span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    width: 30px;
+    height: 3px;
+    background: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.Box .BoxSwitch span.cur {
+    background: red;
+}
+
+
+
+

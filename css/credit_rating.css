@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    min-width: 1200px;
+}
+/* 内容区域 */
+.credit_content {
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 商品评价 */
+.goods_evaluate {
+    height: 45px;
+    line-height: 45px;
+    background-color: #e5e5e5;
+}
+.goods_evaluate .evaluate_text {
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 14px;
+    color: #000000;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.evaluate_content{
+    height: 280px;
+    background-color: #ffffff;
+}
+.evaluate_score{
+    width: 300px;
+    height: 180px;
+    float: left;
+    margin-left: 110px;
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 10px;
+	border: solid 2px #247dd0;
+}
+.evaluate_score p{
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+.evaluate_score .layui-rate{
+    padding: 0;
+}
+.evaluate_score:first-child{
+    margin-left: 40px;
+}
+#good_score1 .layui-rate li i.layui-icon{
+    font-size: 24px;
+}
+
+/* 评价详情 */
+.evaluate_contents{
+    background-color: #ffffff;
+    padding-bottom: 100px;
+}
+.evaluates_detail{
+    width: 1200px;
+    margin: 0 auto;
+}
+.evaluates_word{
+    height: 44px;
+    line-height: 44px;
+    background-color: #e5e5e5;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.evaluates_word p{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 14px;
+	color: #000000;
+}
+.evaluate_contents .evaluate_detail{
+    height: 170px;
+    padding-top: 25px;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+}
+.evaluate_left{
+    float: left;
+    width: 190px;
+}
+.evaluate_left img{
+    display: block;
+    width: 81px;
+    height: 81px;
+    padding-left: 48px;
+}
+.evaluate_left p{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: -15px;
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+	color: #333333;
+}
+.evaluate_middle .layui-rate li i.layui-icon{
+    font-size:16px;
+}
+.text_area{
+    margin-top: 10px;
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 14px;
+	color: #000000;
+}
+.goods_name{
+    margin-top: 45px;
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+	color: #666666;
+}
+.evaluate_middle .layui-rate{
+    padding-top: 0px;
+}
+.evaluate_middle{
+    float: left;
+}
+.evaluate_right{
+    float: right;
+    margin-right: 40px;
+    margin-top: 105px;
+}
+.evaluate_right p{
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+	color: #666666;
+}

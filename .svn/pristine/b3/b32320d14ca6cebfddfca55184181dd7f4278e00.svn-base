@@ -1,0 +1,25 @@
+.news_content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.news_content .hourly_news{
+   
+   height: 50px;
+   line-height: 50px;
+   border-bottom: 1px solid #999999;
+}
+.hourly_news p{
+    font-size: 14px;
+}
+.news_list{
+    width: 100%;
+    min-height: 700px;
+    height: auto;
+}
+.news_list{
+    width: 1200px;
+    margin: 0 auto;
+}
+.list_content{
+   height: 52px;
+}

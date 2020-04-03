@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心-我的发布</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css">
+    <link rel="stylesheet" href="css/my_release.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="head">
+    </div>
+    <div class="nav">
+    </div>
+    <div class="basic_content">
+        <div class="content">
+            <div class="content_left left">
+                <ul>
+                    <li style="background-color: #247dd0;"><a href="my_release.html" style="color: #ffffff;">我的发布</a> </li>
+                    <li><a href="serve_data.html">服务商资料</a></li>
+                    <li><a href="service_introduction.html">服务商简介</a></li>
+                    <li><a href="enter_audit.html">入住审核</a></li>
+                   
+                </ul>
+            </div>
+            <div class="content_right right">
+                <div class="content_top">
+                    <p style="margin-left: 20px;"><span>物品名称：</span><input class="item_name"></p>
+                    <p><span>物品状态：</span>
+                        <select>
+                            <option selected value="0">请选择</option>
+                            <option value="1">待审核</option>
+                            <option value="2">审核通过</option>
+                            <option value="3">待发布</option>
+                            <option value="4">审核失败</option>
+                        </select>
+                    </p>
+                    <p style="margin-left: 20px;"><span>物品类型：</span><input class="item_type"></p>
+                    <button type="button" class="refer">查询</button>
+                </div>
+                <table class="layui-hide" id="release" lay-filter="release"></table>
+
+                <script type="text/html" id="release-bar">
+					{{# console.log(d)}}
+					{{# if(d.shelfstate==="0"){}}
+					 <a class="layui-btn layui-btn-xs" lay-event="update" id="up_shelf">上架</a>
+					{{# }else{}}
+					 <a class="layui-btn layui-btn-xs" lay-event="update" id="down_shelf">下架</a>
+					{{# }}}
+                    <a class="layui-btn layui-btn-xs" lay-event="edit" id="edit1">修改</a>
+                    <a class="layui-btn layui-btn-xs" lay-event="detail" id="detail1">查看</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" id="dels">删除</a>
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="foot">
+    </div>
+    <script src="layui/layui.all.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/my_release.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,51 @@
+.fl {
+	float: left;
+}
+#nav_type .nav li.fl div.nav_item {
+	margin-left: 25px;
+}
+.search_list{
+	width: 1200px;
+	margin: 0 auto;
+}
+.search_detail{
+	float: left;
+	width: 285px;
+	height: 214px;
+	background-color: #ffffff;
+	border: solid 1px #eeeeee;
+	margin-right: 20px;
+	margin-top: 10px;
+	position: relative;
+}
+.search_detail img{
+	display: inline-block;
+	width: 106px;
+	height: 80px;
+	margin-top: 24px;
+	margin-left: 90px;
+}
+.search_detail:nth-child(4n){
+	margin-right: 0px;
+}
+.container{
+	padding-left: 0px;
+}
+.search_detail .content{
+   width: 265px;
+   height: 80px;
+   margin-bottom: 0px;
+   margin-left: 10px;
+   background-color: #2b2727;;
+   position: absolute;
+   bottom: 0px;
+}
+.layui-rate{
+	padding: 16px 5px 10px 0px;
+	margin-left: 63px;
+}
+.shop_name{
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+}

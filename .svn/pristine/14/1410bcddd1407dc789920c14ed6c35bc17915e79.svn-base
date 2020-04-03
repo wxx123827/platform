@@ -1,0 +1,215 @@
+/**
+ * 第三方入驻
+ */
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+})
+layui.use(['form', 'layedit', 'laydate', 'upload'], function() {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		laydate = layui.laydate;
+
+	var logo = upload.render({
+		elem: '#logodiv',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#logoimg').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var business1 = upload.render({
+		elem: '#businessdiv1',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#businessimg1').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#business1errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var business2 = upload.render({
+		elem: '#businessdiv2',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#businessimg2').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#business2errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var business3 = upload.render({
+		elem: '#businessdiv3',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#businessimg3').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#business3errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var otherimg1 = upload.render({
+		elem: '#otherImgdiv1',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#otherImgimg1').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#otherImg1errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var otherimg2 = upload.render({
+		elem: '#otherImgdiv2',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#otherImgimg2').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#otherImg2errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	var otherimg3 = upload.render({
+		elem: '#otherImgdiv3',
+		url: '/upload/',
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#otherImgimg3').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#otherImg3errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				uploadInst.upload();
+			});
+		}
+	});
+	//自定义验证规则
+	  form.verify({
+	    title: function(value){
+	      if(value.length < 5){
+	        return '标题至少得5个字符啊';
+	      }
+	    }
+	    ,pass: [
+	      /^[\S]{6,12}$/
+	      ,'密码必须6到12位，且不能出现空格'
+	    ]
+	    ,content: function(value){
+	      layedit.sync(editIndex);
+	    }
+	  });
+	form.on('submit(demo1)', function(data) {
+		layer.alert(JSON.stringify(data.field), {
+			title: '最终的提交信息111'
+		})
+		return false;
+	});
+
+})
+

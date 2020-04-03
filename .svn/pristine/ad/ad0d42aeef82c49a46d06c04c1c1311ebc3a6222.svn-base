@@ -1,0 +1,30 @@
+var getNavigation = function getNavigation() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + "main/getNavigation",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$(res.msg).each(function() {
+					html += '<li class="fl">';
+					html += '<div class="nav_item" classifyuid="' + this.classifyuid + '"  url="' + this.url +
+						'"><a  class="bold " href="#">' + this.navigationname + '</a><b class="hot"></b></div>';
+					html += '</li>';
+				})
+				$(".nav").append(html);
+			}
+		}
+	})
+}
+getNavigation()
+$(".classify").on('mouseover',function(){
+	$("#classify").css("display","block");
+})
+
+$(".classify").on('mouseleave',function(){
+	$("#classify").css("display","none");
+})

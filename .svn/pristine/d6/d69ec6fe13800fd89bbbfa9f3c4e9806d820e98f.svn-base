@@ -1,0 +1,117 @@
+/**
+ * 用户入驻选择
+ */
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+	sessionStorage.removeItem("data")
+})
+
+$(".square_one").click(function(res) {
+	var value = $(this).attr("value");
+	if (userJoinStatus) {
+		layer.msg("已入驻，等待审核");
+		return;
+	} else {
+		layer.load(2)
+		initJoin(value);
+	}
+});
+
+function initJoin(type) {
+	var typestr = "";
+	$.ajax({
+		url: baseUrl + "join/initjoin",
+		type: "post",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			type: type
+		},
+		success: function(res) {
+			layer.closeAll();
+			if (res.code === SUCCESS) {
+				chooseUrl(type);
+			} else if (res.code === 10004) {
+				switch (res.msg.jointype) {
+					case "0":
+						typestr = "单位";
+						break;
+					case "1":
+						typestr = "个人";
+						break;
+					case "2":
+						typestr = "机构";
+						break;
+				}
+				if (type != res.msg.jointype) {
+
+					layer.confirm('检测到您上次选择的是' + typestr + '', {
+						btn: ['继续', '重新选择'] //按钮
+					}, function(index) {
+						layer.close(index)
+						layer.load(2)
+						sessionStorage.setItem("data", JSON.stringify(res.msg));
+						chooseUrl(res.msg.jointype)
+					}, function(index) {
+						layer.close(index)
+						layer.load(2)
+						updateUserJoin(type);
+					});
+				} else {
+					sessionStorage.setItem("data", JSON.stringify(res.msg));
+					chooseUrl(res.msg.jointype)
+				}
+			}else if(res.code===10005){
+				if(res.msg.joinstatus==='1' && res.msg.auditstatus==='0'){
+					sessionStorage.setItem("joinStatusType",1);
+					window.location.href="joinstatus.html"
+				}else if(res.msg.joinstatus==='1' && res.msg.auditstatus==='1'){
+					sessionStorage.setItem("joinStatusType",2);
+					window.location.href="joinstatus.html"
+				}else if(res.msg.joinstatus==='1' && res.msg.auditstatus==='2'){
+					sessionStorage.setItem("joinStatusType",3);
+					window.location.href="joinstatus.html";
+				}
+			}
+		}
+	})
+}
+
+function chooseUrl(type) {
+	switch (type) {
+		case '0':
+			window.location.href = "./enterpries.html";
+			break;
+		case '1':
+			window.location.href = "./personal.html";
+			break;
+		case '2':
+			window.location.href = "./third.html";
+			break;
+	}
+}
+
+function updateUserJoin(type) {
+	$.ajax({
+		url: baseUrl + "join/updateUserJoin",
+		type: "post",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			type: type
+		},
+		async: false,
+		success: function(res) {
+			layer.closeAll()
+			if (res.code === SUCCESS) {
+				chooseUrl(type)
+			}
+		}
+	})
+}

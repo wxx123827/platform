@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'SourceHanSansCN-Regular';
+  src: url('../font/SourceHanSansCN-Regular.otf');
+  src: url('../font/SourceHanSansCN-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+div,
+h2,
+input,
+p {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: url(../imgs/bg.jpg) no-repeat;
+  background-size: 100% 100%;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.main .main_top {
+  position: relative;
+}
+.main .main_top p {
+  position: absolute;
+  left: 11.95833333rem;
+  top: 0.5rem;
+  width: 250px;
+  height: 14px;
+  font-family: 'AdobeHeitiStd-Regular';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #ffffff;
+}
+.main .main_top a {
+  font-family: 'AdobeHeitiStd-Regular';
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  color: #62b0ed;
+}
+.main .main_bottom {
+  width: 400px;
+  height: 550px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 2rem;
+  left: 9.58333333rem;
+}
+.main .main_bottom h2 {
+  width: 200px;
+  height: 70px;
+  font-family: 'SourceHanSansCN-Regular';
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #333333;
+  position: absolute;
+  top: 0.25rem;
+  left: 155px;
+}
+.main .main_bottom div {
+  width: 100%;
+  height: 40px;
+  margin-top: 0.25rem;
+  margin-left: 50px;
+}
+.main .main_bottom div p {
+  font-size: 14px;
+  color: #bd2424;
+  margin-top: -0.08333333rem;
+  margin-left: 0px;
+}
+.main .main_bottom .telepone {
+  margin-top: -0.04166667rem;
+}
+.main .main_bottom input {
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  border: solid 1px #bfbfbf;
+  font-size: 14px;
+  position: relative;
+  z-index: 99!important;
+  margin-top: 70px;
+}
+.main .main_bottom .yanzheng input:first-child {
+  width: 190px;
+  margin-right: -10%;
+}
+.main .main_bottom .yanzheng input:nth-child(2) {
+  display: inline-block;
+  width: 95px;
+  height: 40px;
+  background-color: #62b0ed;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 20px;
+  border: solid 1px #bfbfbf;
+}
+.main .main_bottom .identifying input {
+  width: 110px;
+  height: 40px;
+  border-radius: 5px;
+  border: solid 1px #bfbfbf;
+}
+.main .main_bottom .identifying #canvas {
+  margin-left: -20px;
+  margin-bottom: -15px;
+  width: 110px;
+  height: 40px;
+}
+.main .main_bottom .identifying span {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  margin-left: -24px;
+  font-family: 'SourceHanSansCN-Regular';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #62b0ed;
+  cursor: pointer;
+}
+.main .main_bottom .agree {
+  margin-top: 20px;
+}
+.main .main_bottom .agree input {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #666;
+}
+.main .main_bottom .agree .agree_span {
+  width: 255px;
+  height: 15px;
+  font-family: 'SourceHanSansCN-Regular';
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #666666;
+  margin-left: -20px;
+  text-decoration: none;
+}
+.main .main_bottom .agree .agree_span2 {
+  width: 200px;
+  text-decoration: none;
+  color: #666666;
+}
+.main .main_bottom .register_now {
+  margin-top: 0.16666667rem;
+}
+.main .main_bottom .register_now input {
+  background-color: #62b0ed;
+  color: #ffffff;
+}
+.error {
+  font-size: 14px;
+  color: #bd2424;
+  margin-top: -10px;
+  margin-left: 0px;
+}
+.error1 {
+  font-size: 14px;
+  color: #bd2424;
+  margin-top: -10px;
+  margin-left: 0px;
+}

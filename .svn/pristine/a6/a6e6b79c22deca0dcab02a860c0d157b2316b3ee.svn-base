@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'SourceHanSansCN-Regular';
+    src: url('../font/SourceHanSansCN-Regular.otf');
+    src: url('../font/SourceHanSansCN-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content_left {
+    width: 890px;
+    height: 1200px;
+    background-color: #ffffff;
+    float: left;
+    margin-bottom: 60px;
+}
+
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.main h3 {
+    padding: 30px 10px;
+    box-sizing: border-box;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #666666;
+}
+
+.left_img {
+    width: 300px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+}
+.imgs_box{
+    /* background-color: #dcdcdc; */
+}
+.imgs_box img {
+    width: 60px;
+    height: 70px;
+    margin-left: 25px;
+}
+
+.content {
+    width: 300px;
+    height: 230px;
+    box-sizing: border-box;
+    border: 1px solid #eee;
+}
+.content img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.right_text {
+    height: 300px;
+    margin-left: 320px;
+
+}
+
+.introduction div {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.right_text p {
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.right_text input {
+    width: 144px;
+    height: 35px;
+    background-color: #247dd0;
+    border-radius: 5px;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-top: 20px;
+    border: 1px solid #247dd0;
+}
+
+.shops_list {
+    width: 250px;
+    margin-top: 30px;
+    float: left;
+    border: 1px solid #ccc;
+    height: 710px;
+}
+
+.shops_list .shop_info {
+    height: 300px;
+
+    background-image: linear-gradient(#247dd0, #fff);
+    background-blend-mode: normal,
+        normal;
+}
+
+.shops_list #name {
+    width: 100%;
+    text-align: center;
+    margin-left: 0 !important;
+}
+
+.list_detail p {
+    width: 630px;
+    height: 30px;
+    line-height: 30px;
+    border-top: 1px solid #a0a0a0;
+    border-bottom: 1px solid #a0a0a0;
+    margin-left: 10px;
+    margin-top: 30px;
+    float: left;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #666666;
+    text-align: center;
+}
+
+.content_bottom {
+    width: 100%;
+    height: 700px;
+    clear: both;
+}
+
+.collect_share {
+    height: 30px;
+}
+
+#collect,
+#share {
+    cursor: pointer;
+    /* width: 100px; */
+}
+
+#collect {
+    margin-left: 75px;
+}
+
+#share {
+    margin-left: 40px;
+}
+
+#collect:hover .collect_img {
+    color: red;
+}
+
+#share:hover .share_img {
+    color: #247dd0;
+}
+
+.introduction {
+    width: 630px;
+    border: solid 1px #dcdcdc;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.content_right {
+    float: right;
+    width: 290px;
+    height: 710px;
+    background-color: #ffffff;
+    margin-top: -32px;
+}
+
+.content_right p {
+    line-height: 40px;
+    width: 290px;
+    height: 40px;
+    background-color: #eeeeee;
+    text-align: center;
+    font-family: 'SourceHanSansCN-Regular';
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #666666;
+}
+
+.content_right .recommend_list {
+    height: 200px;
+    text-align: center;
+    border-bottom: solid 1px #a0a0a0;
+    margin-top: 25px;
+}
+
+.content_right .recommend_list img {
+    width: 175px;
+    height: 150px;
+}
+
+.shops_list .recommend_list {
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+    height: 175px;
+    border-bottom: solid 1px #a0a0a0;
+}
+
+.shops_list .shops_icon {
+    margin-left: 75px;
+    margin-top: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    object-fit: scale-down;
+}
+
+.recommend_list:last-child {
+    border-bottom: none;
+}
+
+#enter_shop {
+    background-color: #247dd0;
+    cursor: pointer;
+    margin-left: 50px;
+    width: 140px;
+    line-height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#enter_shop a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.recommend_list img {
+    width: 155px;
+    height: 120px;
+    object-fit: scale-down;
+}
+
+.recommend_list li {
+    list-style: none;
+}
+
+.badge {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url(../imgs/badge.png) no-repeat;
+    top: 10px;
+    left: 10px;
+    border: none;
+    padding-left: 13px;
+    font-size: 18px;
+    color: #f0a837;
+    padding-top: 8px;
+    box-sizing: border-box;
+
+}
+
+.badge p {
+    text-align: center;
+}
+
+.hot_product {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 30px;
+    width: 250px;
+    text-align: center;
+}

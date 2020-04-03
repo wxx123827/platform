@@ -1,0 +1,256 @@
+@font-face {
+	font-family: 'SourceHanSansCN-Ragular';
+	src: url('../font/SourceHanSansCN-Ragular.otf');
+	src: url('../font/SourceHanSansCN-Ragular.otf') format('otf');
+	font-family: 'SourceHanSansCN-Bold';
+	src: url('../font/SourceHanSansCN-Bold.otf');
+	src: url('../font/SourceHanSansCN-Bold.otf') format('otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+#search #hotWords a:last-child {
+	border-right: none;
+}
+
+.nav_middle {
+	width: 1200px;
+	height: 1600px;
+	margin: 0 auto;
+}
+
+#nav_type {
+	height: 38px;
+	width: 100%;
+	margin-top: 20px;
+	min-width: 1200px;
+	position: relative;
+	z-index: 6;
+}
+ #nav_type .nav {
+   /* padding: 0 18px; */
+   height: 38px;
+   width: 770px;
+   background-color: #fff;
+   white-space: nowrap;
+ }
+
+ #nav_type .nav li {
+   list-style: none;
+ }
+
+ #nav_type .nav li.fl div.nav_item {
+   padding: 11px;
+   margin-right: 20px;
+   position: relative;
+ }
+
+ #nav_type .nav li.fl div.nav_item>a,
+ #nav_type .nav li.fl div.nav_item>a:visited {
+   display: block;
+   padding: 0 18px;
+   font-size: 16px;
+   line-height: 1;
+   font-family: 'SourceHanSansCN-Bold';
+   color: #333;
+   cursor: pointer;
+ }
+
+ #nav_type .nav li.fl div.nav_item>a.bold,
+ #nav_type .nav li.fl div.nav_item>a:visited.bold {
+   font-weight: bold;
+ }
+
+ #nav_type .nav li.fl div.nav_item>a.border,
+ #nav_type .nav li.fl div.nav_item>a:visited.border {
+   border-right: 1px solid #ddd;
+ }
+
+ #nav_type .nav li.fl div.nav_item>a.active,
+ #nav_type .nav li.fl div.nav_item>a:visited.active {
+   color: #247dd0;
+ }
+
+ #nav_type .nav li.fl div.nav_item>a:hover:not(.active),
+ #nav_type .nav li.fl div.nav_item>a:visited:hover:not(.active) {
+   color: #247dd0;
+ }
+  .fl {
+    float: left;
+  }
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+	clear: both;
+}
+
+#all_types {
+	width: 16.66666667%;
+	padding-left: 16px;
+	line-height: 38px;
+	background-color: #eeeeee;
+	color: #333333;
+	font-size: 15px;
+}
+
+#all_types:before {
+	width: 16px;
+	height: 16px;
+	content: '';
+	display: inline-block;
+	position: relative;
+	top: -2px;
+	margin-right: 12px;
+	vertical-align: middle;
+
+}
+
+.all_typetext {
+	font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #666666;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+
+.shiboqi {
+	font-family: 'SourceHanSansCN-Regular';
+	font-size: 12px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #e31f1f;
+	padding-left: 5px;
+	box-sizing: border-box;
+}
+
+.all_types {
+	background-color: #ffffff;
+	padding-bottom: 20px;
+}
+
+.brand {
+	width: 1200px;
+	height: 40px;
+	border: solid 1px #a0a0a0;
+	background-color: #ffffff;
+}
+
+.region {
+	width: 1200px;
+	height: 40px;
+	border: solid 1px #a0a0a0;
+	border-top: none;
+	background-color: #ffffff;
+}
+
+.brand_title,
+.region_title {
+	display: inline-block;
+	width: 110px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background-color: #eeeeee;
+	border-right: 1px solid #a0a0a0;
+}
+
+.region_title {
+	height: 39px;
+	line-height: 39px;
+}
+
+.brand input {
+	margin-left: 20px;
+}
+
+.region input {
+	margin-left: 20px;
+}
+
+.related_list div,
+.search_list div {
+	width: 23.8%;
+	float: left;
+	border: 1px solid #eeeeee;
+	height: 330px;
+	margin-left: 6px;
+	margin-right: 6px;
+	margin-top: 20px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.search_list,
+.related_list {
+	background-color: #ffffff;
+	height: 1750px;
+	/* _height:200px; 
+    min-height:200px; */
+}
+
+.related_list img,
+.search_list img {
+	width: 90%;
+	height: 210px;
+	margin: 10px;
+	background-color: #efefef;
+	box-sizing: border-box;
+}
+
+.related_recommend {
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	line-height: 40px;
+	background-color: #eeeeee;
+	margin-top: 10px;
+	font-family: 'SourceHanSansCN-Bold';
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+#page {
+	width: 1200px;
+	margin: 0 auto;
+	margin-left: 500px;
+	margin-top: 30px;
+}
+
+.remind_noresult {
+	height: 300px;
+	background-color: #ffffff;
+	margin-top: 20px;
+	text-align: center;
+	font-size: 16px;
+
+}
+
+.remind_noresult img {
+	margin-top: 40px;
+}
+
+.sorry {
+	margin-top: 40px;
+}
+
+.issue {
+	margin-top: 10px;
+}
+
+.related_recommend {
+	font-family: 'SourceHanSansCN-Bold';
+	font-size: 14px;
+	background-color: #eeeeee;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 10px;
+	box-sizing: border-box;
+}

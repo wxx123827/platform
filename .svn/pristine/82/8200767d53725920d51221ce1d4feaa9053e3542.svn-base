@@ -1,0 +1,275 @@
+// var checkUserJoinAjax;
+layui.use(['rate', 'element', 'carousel'], function() {
+	var carousel = layui.carousel;
+	var $ = layui.jquery;
+	var rate = layui.rate;
+	var element = layui.element;
+	//页面加载时运行的方法
+	$(document).ready(function() {
+		$('.head').load("head.html");
+		$('.search').load("search.html");
+		$('.foot').load("foot.html");
+		getBanner();
+		var html = '';
+		if (userUid === "null" || userUid===null) {
+			html += '<img src="imgs/admin_icon.png">';
+			html += '<a href="#">Hi,请登录</a>';
+			$('.banner_right_img').html(html);
+			html = '';
+			html += '<a href="login.html">登录</a>';
+			html += '<a href="register.html">注册</a>';
+			$('.banner_right_middle').html(html);
+		} else {
+			if(userSrc===""||userSrc===null){
+				html +='<img src="imgs/admin_icon.png">';
+			}else{
+				html+='<img src="'+baseImgUrl+userSrc+'">';
+			}
+			html += '<a href="#">Hi,' + userTel + '</a>';
+			$('.banner_right_img').html(html);
+			html = '';
+			html += '<a href="#" class="logout">退出</a>';
+			checkUserJoinAjax()
+			if (!userJoinStatus) {
+				html += '<a href="settle_select.html">入驻</a>';
+			}else{
+				html += '<a href="essential_information.html">个人中心</a>';
+			}
+			$('.banner_right_middle').html(html);
+		}
+		getNews();
+		getClassify();
+		getNewGoods();
+		getEnterprise();
+		getcommongoods()
+		$(document).on("mouseenter mouseleave", ".recommend_bar a", function() {
+			var i = $(this).index();
+			$(this).addClass('on').siblings().removeClass('on');
+			$(document).find('.tab_content').removeClass('show').eq(i).addClass('show');
+		})
+	})
+	$(".news_more").on("click",function(){
+		$.ajax({
+			url: baseUrl + "main/getAllNews",
+			data: {
+				num: 1,
+				size: 10
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					sessionStorage.setItem("newsList", JSON.stringify(res.msg));
+					window.location.href="./news_list.html";
+				}
+			}
+		})
+		
+	})
+	
+	function getNewGoods() {
+		var html = "";
+		$.ajax({
+			url: baseUrl + "main/getNewGoods",
+			data: {
+				limit: 4
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					$.each(res.msg, function(i, n) {
+						html+=getGoodsHtml(n);
+					})
+					$(".newest_content").html(html);
+				}
+			},
+			error: function() {
+				for (var i = 0; i < 4; i++) {
+					html += '<div class="newest_one"><img src="./imgs/default.jpg"></div>';
+				}
+				$(".newest_content").html(html);
+			}
+		})
+	}
+
+	function getEnterprise() {
+		var html = "";
+		$.ajax({
+			url: baseUrl + "main/getShopPanking",
+			data: {
+				limit: 4
+			},
+			async: false,
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					$(".enterprise_content").html('');
+					$.each(res.msg, function(i, n) {
+						html="";
+						html += " <div class=\"enterprise_one\" onclick=\"window.open('service_provider.html?s="+n.uid+"&n="+n.name+"','_self')\">";
+						if(n.logo==""||n.logo==null){
+						html += "<img src='" + defaultImg + "'>";
+						}else{
+							html += "<img src='" + baseImgUrl + n.logo + "'>";
+						}
+						html += '<ul><li id ="test' + i + '" > ' + n.empiricalvalue + '</li>';
+						html += "<li>" + n.name + "</li>"
+						html += "</ul></div>";
+						$(".enterprise_content").append(html);
+						rate.render({
+							elem: '#test'+i,
+							value: n.empiricalvalue,
+							readonly: true,
+							half: true,
+							// theme: '#FE0000'
+						});
+					})	
+				}
+			}
+		});
+	}
+
+	function getcommongoods() {
+		var html1 = "";
+		var html2 = "";
+		$.ajax({
+			url: baseUrl + "main/getRecommendGoods",
+			data: {
+				limit: 4
+			},
+			// async: false,
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					$.each(res.msg.fields, function(i, n) {
+						switch(i){
+							case 0:
+							html1 += '<a href="javascript:;" class="recommend_bar_one on" name="recommend_bar">' + n + '</a>'
+							break;
+							case 1:
+							html1 += '<a href="javascript:;" class="recommend_bar_two" name="recommend_bar">' + n + '</a>'
+							break;
+							case 2:
+							html1 += '<a href="javascript:;" class="recommend_bar_three" name="recommend_bar">' + n + '</a>'
+							break;
+							case 3:
+							html1 += '<a href="javascript:;" class="recommend_bar_four" name="recommend_bar">' + n + '</a>'
+							break;
+						}
+					})
+
+					$.each(res.msg.goods, function(i, n) {
+						if(i==0){
+							html2 += '<div class="tab_content show">';
+						}else{
+							html2 += '<div class="tab_content">';
+						}
+						
+						if (n == null) {
+							html2 += '<div class="recommend_one" name="recommend_one" >';
+							html2 += '<img src="./imgs/default.jpg" style="margin-left: -3px;">';
+							html2 += '</div>'
+						} else {
+							$.each(n, function(i, n) {
+								html2+=getGoodsHtml(n)
+							})
+						}
+						html2 += '</div>';
+					})
+					$('.recommend_bar').html(html1);
+					$('.recommend_content').html(html2);
+				}
+			}
+		})
+	}
+
+	//获取所有banner图
+	function getBanner() {
+		var html = "";
+		$.ajax({
+			url: baseUrl + "main/getBanner",
+			// async: false,
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					$.each(res.msg, function(i, n) {
+						switch (n.sorts) {
+							case "1":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+									'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+							case "2":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+									'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+							case "3":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+									'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+							case "4":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+									'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+							case "5":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+									'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+							case "6":
+								html += '<div><img src="' + baseImgUrl + n.pictureaddress +
+						    			'" style="width:100%;height:100%;object-fit:fill"></div>';
+								break;
+						}
+					})
+					// $('.banner_list').html(html);
+				} else {
+					html = defaultBanner;
+				}
+				$('.banner_list').html(html);
+				carousel.render({
+					elem: '#myCarousel',
+					width: '100%', //设置容器宽度
+					arrow: 'always' //始终显示箭头
+				});
+			},
+			error: function(res) {
+				html = defaultBanner;
+				$('.banner_list').html(html);
+				carousel.render({
+					elem: '#myCarousel',
+					width: '100%', //设置容器宽度
+					arrow: 'always' //始终显示箭头
+				});
+			},
+			
+		});
+		
+	}
+	
+	//获取所有新闻
+	function getNews() {
+		var html = "";
+		$.ajax({
+			url: baseUrl + "main/getNews",
+			data: {
+				limit: 7
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					$.each(res.msg, function(i, n) {
+						html += '<p class="new" onClick=getNewsDetail(\''+n.uid+'\')>' + n.newstitle + '</p>';
+					})
+				}
+				$(".new_list").html(html);
+			}
+		})
+	}
+	
+	//退出
+	$(document).on('click', '.logout', function() {
+		$.ajax({
+			url: baseUrl + "user/logout",
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					sessionStorage.setItem("userUid", null);
+					sessionStorage.setItem("userTel", null);
+					sessionStorage.clear();
+					window.location.href = "./login.html";
+				}
+			}
+		})
+	})
+});

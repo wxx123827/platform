@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>需求清单</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/requirement_list.css">
+	</head>
+
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav_area">
+		</div>
+		<div class="basic_content">
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li style="background-color: #247dd0;"><a href="requirement_list.html" style="color: #ffffff;">需求清单</a></li>
+						<li><a href="buyer_order.html">我的订单</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="right_top">
+						<label>物品名称：<input></label>
+						<label>物品类型：<input></label>
+						<div class="refer">查询</div>
+					</div>
+					<form action="" method="" lay-filter="requirement" class="layui-form">
+						<div class="list_title">
+							<input type="checkbox" value="" name="all" lay-skin="primary" title="全选" />
+							<span>物品名称</span>
+							<span>物品类型</span>
+							<span>型号</span>
+							<span>单价</span>
+							<span>数量</span>
+							<span>金额</span>
+						</div>
+						<div class="shops_bottom">
+							<div class="manage">管理</div>
+							<div class="favorite">
+								<div id="count">合计:<div class="allprice">0</div>
+								</div>
+								<div id="addOrder">提交订单</div>
+							</div>
+						</div>
+						<div class="list">
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		<div id="footer" class="foot" style="clear:both;">
+
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/requirement_list.js"></script>
+
+	</body>
+
+</html>

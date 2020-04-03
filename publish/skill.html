@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布知识</title>
+    <link rel="stylesheet" href="../css/published_page.css">
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <style>
+        .layui-form-item p span{
+            display: inline-block;
+            height: 35px;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="published_page">
+        <div class="published_content">
+            <h2>发布知识 <span style="font-size: 14px;color: #333333;">个人技能</span></h2>
+            <hr />
+            <div class="bottom_list">
+                <form action="" method="" lay-filter="thirdform" class="layui-form">
+                    <input type="text" style="display: none;" name="type" value="5" />
+					<input type="text" style="display: none;" name="uid" />
+                    <div class="layui-form-item">
+                        <p><e style="color: red;">※</e><span>技能标题：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" lay-verify="name" autocomplete="off"
+                                    placeholder="请输入标题" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                            <p><b style="color: red;">※</b><span>物品类别：</span>
+                                <div id="classify"></div>
+                            </p>
+                        </div>
+                    <div class="layui-form-item">
+                        <p style="margin-left: 62px;"><e style="color: red;">※</e><span>位置：</span>
+                            <div class="city_select">
+                                <div class="layui-input-inline">
+                                    <select name="province" lay-filter="province" lay-verify="province">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="city" lay-filter="city">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="area" lay-filter="area">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" name="address" style="width: 300px!important;" lay-verify="address" autocomplete="off"
+                                    placeholder="请输入详细地址" class="layui-input">
+                            </div>
+                            <span class="money_unit">元</span>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p><e style="color: red;margin-left: 32px;">※</e><span>金额：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="expectedrevenue" lay-verify="expectedrevenue" autocomplete="off"
+                                    placeholder="请输入金额" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p class="label_list">
+                            <e style="color: red;margin-left: 32px;">※</e><span>单位：</span>
+                            <div class="layui-input-inline">
+                              <select name="company">
+                              	<option value="次">次</option>
+                              	<option value="天">天</option>
+                              	<option value="周">周</option>
+                              	<option value="月">月</option>
+                              	<option value="小时">小时</option>
+                              </select>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item" style="margin-top: 70px;">
+                        <p><e style="color: red;">※</e><span>上传照片：</span>
+                            <div class="publishedImg" style="margin-left: -10px;">
+                                <div class="layui-upload-list" id="publishedImgdiv1">
+                                    <img class="layui-upload-img" id="publishedImgimg1" >
+                                    <input type="text" style="display: none;" name="publishedImgimg1" class="publishedImgSrc">
+                                </div>
+                                <!-- <p class="removeImg">删除</p> -->
+                                <p id="publishedImg1errorText"></p>
+                            </div>
+                            <div class="publishedImg">
+                                <div class="layui-upload-list" id="publishedImgdiv2">
+                                    <img class="layui-upload-img" id="publishedImgimg2">
+                                    <input type="text" style="display: none;" name="publishedImgimg2" class="publishedImgSrc">
+                                </div>
+                                <p id="publishedImg2errorText"></p>
+                            </div>
+                            <div class="publishedImg">
+                                <div class="layui-upload-list" id="publishedImgdiv3">
+                                    <img class="layui-upload-img" id="publishedImgimg3">
+                                    <input type="text" style="display: none;" name="publishedImgimg3" class="publishedImgSrc">
+                                </div>
+                                <p id="publishedImg3errorText"></p>
+                            </div>
+                        </p>
+                    </div>
+                   
+                    <div class="layui-form-item">
+                        <p style="float: left;"><b style="color: red;">※</b><span style="margin-left: -5px;">技能说明：</span>
+                           
+                            <div class="layui-input-block" style="margin-left: 125px!important;width: 85%;">
+                                    <textarea id="synopsis" name="synopsis" lay-verify="synopsis"
+                                        placeholder="">
+                                            </textarea>
+                                </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;"><b style="color: red;">※</b> <span>个人优势：</span>
+                          
+                            <div class="layui-input-block" style="margin-left: 125px!important;width: 85%;">
+                                    <textarea id="technicaldata" name="technicaldata" lay-verify="technicaldata"
+                                        placeholder="">
+                                            </textarea>
+                                </div>
+                        </p>
+                    </div>
+					<p class="next">
+					    <div style="clear: both;text-align: center;" class="published_submit">
+					       <div class="submit" id="immediate" lay-submit="" lay-filter="immediate" type="submit">立即发布</div>
+					       <div class="submit" id="save" lay-submit="" lay-filter="save" type="submit">保存草稿</div>
+					    </div>
+					</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../layui/layui.js"></script>
+    <script src="../js/jquery.min.js"></script>
+	<script src="../js/baseconstant.js"></script>
+    <script src="../js/citys.js"></script>
+    <script src="../js/common_publish.js"></script>
+</body>
+</html>

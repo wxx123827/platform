@@ -1,0 +1,76 @@
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+})
+
+//仪器详情
+$.ajax({
+	url: baseUrl + 'goods/getDetail',
+	xhrFields: {
+		withCredentials: true
+	},
+	crossDomain: true,
+	data: {
+		uid: GetQueryString("uid"),
+	},
+	success: function(res) {
+		console.log(res)
+		if(res.code===SUCCESS){
+			
+		}
+	}
+})
+
+//获取机构和机构热门商品
+$.ajax({
+	url: baseUrl + 'goods/getShop',
+	xhrFields: {
+		withCredentials: true
+	},
+	crossDomain: true,
+	data: {
+		uid: GetQueryString("uid"),
+	},
+	success: function(res) {
+		console.log(res)
+		if(res.code===SUCCESS){
+			
+		}
+	}
+})
+//获取推荐商品
+$.ajax({
+	url: baseUrl + 'goods/getRecommendGoods',
+	xhrFields: {
+		withCredentials: true
+	},
+	crossDomain: true,
+	data: {
+		uid: GetQueryString("uid"),
+	},
+	success: function(res) {
+		console.log(res)
+		if(res.code===SUCCESS){
+			
+		}
+	}
+})
+
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+}
+//1. 给图片注册点击事件
+var imgs = document.querySelectorAll(".title img");
+// 获取展示图片
+var img_show = document.querySelector(".content img");
+// 2.给图片设置点击事件
+for (var i = 0; i < imgs.length; i++) {
+	imgs[i].onclick = function() {
+		// 3. 将当前图片路径获取到，设置给展示的图片位置处
+		img_show.src = this.src;
+	}
+}

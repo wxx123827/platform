@@ -1,0 +1,132 @@
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+})
+
+$.ajax({
+	url: baseUrl + 'goods/getGoodsById',
+	type: 'get',
+	async: false,
+	data: {
+		id: GetQueryString("id"),
+	},
+	success: function (e) {
+		var data = JSON.parse(e)
+		console.log(data)
+		console.log(data.breadcrumb)
+		var str = "";
+		str += "<div class=\"content_left\">"
+		str += "<h3 class=\"title\">" + data.breadcrumb + "</h3>"
+		str += "<div class=\"img_text\">"
+		str += "<div class=\"left_img\">"
+		str += "<div class=\"content\">"
+		str += "<img src='http://img.keyanwu.com/" + data.goods.src[0] + "'>"
+		str += " </div>"
+		str += "<div class=\"title\">"
+		str += "<a href=\"javascript:;\">"
+		str += "<img src='http://img.keyanwu.com/" + data.goods.src[0] + "'>"
+		str += " </a>"
+		str += "<a href=\"javascript:;\">"
+		str += "<img src='http://img.keyanwu.com/" + data.goods.src[1] + "'>"
+		str += " </a>"
+		str += "<a href=\"javascript:;\">"
+		str += "<img src='http://img.keyanwu.com/" + data.goods.src[2] + "'>"
+		str += " </a>"
+		str += " </div>"
+		str += " </div>"
+		str += " <div class=\"right_text\">"
+		str += "<p>" + "仪器型号：" + data.goods.model + "</p>"
+		str += "<p>" + "仪器品牌：" + data.goods.brand + "</p>"
+		str += "<p>" + "应用领域：" + data.goods.range + "</p>"
+		str += "<p>" + "购置日期：" + data.goods.buytime + "</p>"
+		str += "<p>" + "仪器所在地：" + data.goods.address + "</p>"
+		str += "<input type=\"button\" value=\"立即咨询\" style=\"margin-top: 20px;\">"
+		str += "<input type=\"button\" value=\"立即咨询\" style=\"margin-top: 20px;\">"
+		str += "</div>"
+		str += "<div class=\"collect_share\" style=\"margin-top: 10px;\">"
+		str += "<img src=\"imgs/collect.png\" style=\"margin-left: 75px;\">"
+		str += "<span style=\"padding-left: 10px\">" +收藏+ "</span>"
+		str += "<img src=\"imgs/share.png\" style=\"margin-left: 40px\">"
+		str += "<span style=\"padding-left: 10px\">" +分享+ "</span>"
+		str += "</div>"
+		str += "<div class=\"shops_list\">"
+		str += "<div>"
+		str += "<div style=\"position:relative\">"
+		str += "<div class=\"badge\">" + data.shop.panking + "</div>"
+		str += "<img src='" + data.shop.logo + "' style=\"margin-left:50px;margin-top:50px\">";
+		str += "<p id = \"test\" style=\"margin-left:60px;\">" + data.shop.empiricalvalue + "</p>"
+		str += "<p style=\"margin-left:80px\";background-color:\"blue\">" + "进入" + data.shop
+			.shopname + "店铺" + "</p>"
+		str += "</div>"
+		//星级转化
+		layui.use(['rate', 'element'], function () {
+			var rate = layui.rate;
+			var element = layui.element;
+			element.init();
+			for (var num = 0; num <= 4; num++) {
+				rate.render({
+					elem: '#test',
+					value: data.shop.empiricalvalue,
+					readonly: true,
+					half: true,
+					// theme: '#FE0000'
+				});
+			}
+		});
+		str += "<p class=\"hot_product\">" + "机构热门产品" + "</p>"
+		$.each(data.shop.shopgoods, function (i, n) {
+			str += " <div class=\"recommend_list\" onClick=\"detail(\'" + String(n.uid) +
+				"\')\">";
+			str += "<img src='http://img.keyanwu.com/" + n.src + "'>";
+			str += "<ul><li>" + n.name + "</li>";
+			str += "<li>" + n.model + "</li>"
+			str += "</ul></div>"
+
+		})
+		str += "</div>"
+		str += "</div>"
+		str += "<div class=\"list_detail\">"
+		str += "<P>仪器详情</P>"
+		str += "</div>"
+		str += "<div class=\"introduction\">"
+		str += "<div style=\"height: 200px\">" + "仪器简介:" + data.goods.synopsis + "</div>"
+		str += "<div style=\"height: 200px\">" + "技术参数:" + data.goods.technicaldata + "</div>"
+		str += "<div style=\"height: 200px\">" + "应用范围:" + data.goods.range + "</div>"
+		str += "</div>"
+		str += "</div>"
+		str += "</div>"
+		str += "<div class=\"content_right\">"
+		str += "<p>猜你喜欢</p>"
+		$.each(data.recommend, function (i, n) {
+			console.log(data.recommend)
+			str += " <div class=\"recommend_list\" onClick=\"detail(\'" + String(n.uid) +
+				"\')\">";
+			str += "<img src='http://img.keyanwu.com/" + n.src + "'>";
+			str += "<ul><li>" + n.name + "</li>";
+			str += "<li>" + n.model + "</li>"
+			str += "</ul></div>"
+
+		})
+		str += "</div>"
+		$(".main").html(str)
+	}
+})
+
+function GetQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+}
+//1. 给图片注册点击事件
+var imgs = document.querySelectorAll(".title img");
+// 获取展示图片
+var img_show = document.querySelector(".content img");
+// 2.给图片设置点击事件
+for (var i = 0; i < imgs.length; i++) {
+	imgs[i].onclick = function () {
+		// 3. 将当前图片路径获取到，设置给展示的图片位置处
+		img_show.src = this.src;
+	}
+}

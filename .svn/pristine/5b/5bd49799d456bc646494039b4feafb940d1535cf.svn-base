@@ -1,0 +1,5 @@
+$(document).ready(function() {
+	$('.basic_head').load("personal_head.html");
+	$('.center').load("personal_center.html");
+	$('.foot').load("foot.html");
+})

@@ -1,0 +1,74 @@
+    <div class="right_content">
+        <h2>服务商资料</h2>
+        <hr />
+        <form action="" method="" lay-filter="mechanismform" class="layui-form">
+            <p style="margin-left: 15px;">服务商资料：机构</p>
+            <p style="margin-left: 30px;">
+                <span>单位LOGO：</span>
+               <div class="imgs_one" style="margin-left: 158px;margin-right: 15px;">
+               	<img src="" class="upload" id="logo" style="width: 157px;height: 157px;">
+               </div>
+            </p>
+            <p style="margin-left: 30px;">
+                <span>单位名称：</span>
+                <input type="text" class="telephone" name="tel">
+            </p>
+			<p style="margin-left: 30px;">
+				<span>服务领域：</span>
+				<input type="text" class="field" name="field">
+			</p>
+            <p style="margin-left: 10px;">
+                <span>机构所在地：</span>
+                <input type="text" class="province" name="province" style="width:100px">
+                <input type="text" class="city" name="city" style="width:100px">
+                <input type="text" class="country" name="country" style="width:100px">
+                <input type="text" class="address" name="address" style="width:300px">
+            </p>
+           <p style="margin-left: 30px;position: relative;"><span>联系人：</span>
+           	<input type="text" class="contact" name="contact">
+           </p>
+           <p style="margin-left: 30px;position: relative;"><span>联系电话：</span>
+           	<input type="text" class="tel" name="tel">
+           </p>
+           <p style="margin-left: 30px;position: relative;"><span>办公电话：</span>
+           	<input type="text" class="office" name="office">
+           </p>
+           <p style="margin-left: 30px;position: relative;"><span>单位邮箱：</span>
+           	<input type="text" class="email" name="email">
+           </p>
+           <p style="margin-left: 30px;position: relative;"><span>单位规模：</span>
+           	<div class="city_select">
+           		<div class="layui-input-inline">
+           			<select name="scale">
+           				<option value="0">0-15</option>
+           				<option value="1">15-50</option>
+           				<option value="2">50-99</option>
+           				<option value="3">100-499</option>
+           				<option value="4">500-999</option>
+           				<option value="5">1000-9999</option>
+           				<option value="6">10000以上</option>
+           			</select>
+           		</div>
+           	</div>
+           </p>
+            <p style="margin-left: 30px;position: relative;"><span>具备资质：</span>
+                <input type="text" class="qualification" name="qualification">
+            </p>
+            <p class="license" style="margin-top: 130px;margin-left: 30px;">
+            	<span>营业执照：</span>
+            	<div class="imgs_one" style="margin-left: 158px;margin-right: 15px;">
+            		<img src="" class="upload" id="licenseimg" style="width: 200xp;height: 200px;">
+            	</div>
+            </p>
+            <p class="others" style="margin-top: 130px;margin-left: 30px;">
+            	<span>其他资质：</span>
+            	<div class="imgs_one">
+            		<img src="" class="upload" name="otherimg" style="width: 200px;height: 200px;">
+            	</div>
+            </p>
+           <!-- <div class="detail_submit" style="margin-left: 30%;text-align:center;margin-top: 50px;height: 80px;">
+                <div class="alter">修改</div>
+            </div> -->
+        </form>
+    </div>
+	<script src="js/join_content.js"></script>

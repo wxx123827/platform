@@ -1,0 +1,157 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content .left{
+    width: 190px;
+    height: 456px;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 30px;
+}
+.content .left ul{
+    margin-top: 20px;
+}
+.content .left li a{
+    font-size: 16px;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li{
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li:hover{
+    width: 190px;
+    height: 35px;
+    background-color: #eeeeee;
+}
+
+.content .right {
+    width: 1000px;
+    background-color: #ffffff;
+    padding-bottom: 120px;
+}
+
+.content .right p {
+    float: left;
+}
+.content .right p span{
+    font-size: 14px;
+}
+.content .right h2{
+    font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    padding: 20px 0px 0px 20px;
+}
+.content .right hr{
+    background-color: #999999!important;
+}
+.content .right h3{
+    font-size: 16px;
+    color: #999999;
+}
+.content .right h3 span{
+    display: inline-block;
+    height: 60px;
+    background-color: #ffffff;
+    color: red;
+}
+.content .right h3 span{
+    display: inline-block;
+    width: 4px;
+	height: 14px;
+    background-color: #247dd0;
+    margin: 10px 10px 0px 0px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+.layui-form-item{
+    height: 35px;
+    line-height: 35px;
+}
+.layui-btn-normal{
+    background-color: #f1f8ff!important;
+    border-radius: 5px;
+}
+.layui-btn{
+    font-size: 12px!important;
+    border-radius: 5px!important;
+}
+.layui-form-item{
+    margin-top: 10px;
+}
+.content .invoice_content{
+    height: 120px;
+}
+.content #content{
+    width: 1000px;
+    height: 120px;
+    margin-bottom: 10px;
+	background-color: #f1f8ff;
+}
+.content .contents{
+    width: 1000px;
+    height: 120px;
+    margin-bottom: 10px;
+	background-color: #f1f8ff;
+}
+.content .invoice_content .invoice_left{
+    float: left;
+}
+.content .invoice_content .invoice_right{
+    height: 100%;
+    float: right;
+    line-height: 120px;
+}
+.content .invoice_content .invoice_left ul{
+    margin-top: 8px!important;
+}
+.content .invoice_content .invoice_left ul li{
+    margin-left: 20px!important;
+}
+.content .invoice_content .invoice_left ul li span{
+    margin-left: 20px;
+    color: #999999;
+    font-size: 14px;
+}
+.content .invoice_content .invoice_right div{
+    float: left;
+   margin-right: 20px;
+   font-size: 14px;
+   color: #666666;
+}
+.content .invoice_content .invoice_right div:hover{
+    color: #247dd0;
+    cursor: pointer;
+}
+.invoice_bottom{
+    clear: both;
+    margin-top: 10px;
+    width: 1000px;
+}
+.invoice_bottom .contents{
+    padding-left: 400px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.invoice_bottom .contents img{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+}
+.layui-btn{
+    border-radius: 5px!important;
+}

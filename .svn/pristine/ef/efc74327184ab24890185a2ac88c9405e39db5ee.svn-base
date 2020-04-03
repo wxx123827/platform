@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布耗材</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css" type="text/css" />
+    <link rel="stylesheet" href="css/published_material.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <style>
+        label {
+            position: relative;
+        }
+
+        .label_list input {
+            width: 14px;
+            height: 14px;
+
+            margin-right: 5px
+        }
+
+        .bottom_list p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+    </div>
+    <div class="nav">
+    </div>
+    <div class="published_material">
+        <div class="material_content">
+            <h2>发布耗材</h2>
+            <hr />
+            <div class="bottom_list">
+                <form action="" method="" lay-filter="thirdform" class="layui-form">
+                    <input type="text" style="display: none;" name="infouid">
+                    <div class="layui-form-item" style="margin-top: 80px;">
+                        <p><i>※</i><span>耗材图片：</span>
+                            <div class="materialImg" style="margin-left: 0px;">
+                                <div class="layui-upload-list" id="materialImgdiv1">
+                                    <img class="layui-upload-img" id="materialImgimg1">
+                                    <input type="text" style="display: none;" name="materialImgimg1" class="materialImgSrc">
+                                </div>
+                                <!-- <p class="removeImg">删除</p> -->
+                                <p id="materialImg1errorText"></p>
+                            </div>
+                            <div class="materialImg">
+                                <div class="layui-upload-list" id="materialImgdiv2">
+                                    <img class="layui-upload-img" id="materialImgimg2" style="margin-left: 10px;">
+                                    <input type="text" style="display: none;" name="materialImgimg2" class="materialImgSrc">
+                                </div>
+                                <p id="materialImg2errorText"></p>
+                            </div>
+                            <div class="materialImg">
+                                <div class="layui-upload-list" id="materialImgdiv3">
+                                    <img class="layui-upload-img" id="materialImgimg3" style="margin-left: 10px;">
+                                    <input type="text" style="display: none;" name="materialImgimg3" class="materialImgSrc">
+                                </div>
+                                <p id="materialImg3errorText"></p>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p><i>※</i><span>耗材名称：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" lay-verify="name" autocomplete="off"
+                                    placeholder="请输入耗材名称" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p><i>※</i><span>耗材品牌：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" lay-verify="name" autocomplete="off"
+                                    placeholder="请输入耗材品牌" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p class="label_list">
+                            <i>※</i><span>耗材型号：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" lay-verify="name" autocomplete="off"
+                                    placeholder="请输入耗材类别" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p><i>※</i><span>耗材类别：</span>
+                            <div class="layui-input-inline fields" style="width: 100%!important;">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p><i>※</i><span style="margin-left: 30px;">位置：</span>
+                            <div class="city_select">
+                                <div class="layui-input-inline">
+                                    <select name="province" lay-filter="province" lay-verify="province">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="city" lay-filter="city">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="area" lay-filter="area">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" name="address" style="width: 300px!important;" lay-verify="address" autocomplete="off"
+                                    placeholder="请输入详细地址" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="margin-left: 60px;"><i>※</i><span>金额：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="contactname" lay-verify="contactname" autocomplete="off"
+                                    placeholder="请输入金额" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="margin-left: 60px;"><i>※</i><span>单价：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder=""
+                                    class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="margin-left: 60px;"><i>※</i><span>数量：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="officephone" lay-verify="officephone" autocomplete="off"
+                                    placeholder="请输入办公电话" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;"><span>技术指标：</span>
+                            <div class="layui-input-block" style="margin-left: 103px!important;">
+                                <textarea placeholder="请输入内容" class="layui-textarea" style="width: 90%;resize:none" name="skillinfo"
+                                    lay-verify="skillinfo"></textarea>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;"><span>性能参数：</span>
+                            <div class="layui-input-block" style="margin-left: 103px!important;">
+                                <textarea placeholder="请输入内容" class="layui-textarea" style="width: 90%;resize:none" name="skillinfo"
+                                    lay-verify="skillinfo"></textarea>
+                            </div>
+                        </p>
+                    </div>
+                    <p class="next">
+                        <div style="clear: both;text-align: center;" class="material_submit">
+                            <div class="submit" id="immediate">立即发布</div>
+                            <div class="submit" id="save">保存草稿</div>
+                        </div>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="foot" id="footer">
+    </div>
+    <script src="layui/layui.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/citys.js"></script>
+    <script src="js/published_material.js"></script>
+
+</body>
+
+</html>

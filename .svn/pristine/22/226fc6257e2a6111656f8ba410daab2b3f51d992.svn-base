@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+  
+    background-color:#f9f9f9;
+}
+@font-face {
+    font-family: 'SourceHanSansCN-Regular';
+    src: url('../font/SourceHanSansCN-Regular.otf');
+    src: url('../font/SourceHanSansCN-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    clear: both;
+  }
+  .fl {
+    float: left;
+  }
+  .index{
+      margin-left: 100px;
+  }
+  .fr {
+    float: right;
+  }
+ #front_header .fr a{
+      margin-left: 90px;
+  }
+  .clear,
+  .clearfix {
+    clear: both;
+  }
+  .business{
+	  float: left;
+	  margin-left: 0px;
+  }
+  .otherImg{
+	  float:left;
+	  margin-left: 0px!important;
+  }
+  
+  
+  a{
+    text-decoration: none;
+    color: #666;
+  }
+  a:link,a:visited,a:active{
+    text-decoration: none;
+  }
+.main{
+    width: 1200px;
+    margin: 0 auto;
+}
+.main_content_top{
+    height: 165px;
+    background-color:#ffffff;
+   
+}
+.main_content_top p{
+    
+	height: 18px;
+	font-family: 'SourceHanSansCN-Regular';
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    padding-left: 210px;
+    padding-top: 65px;
+    box-sizing: border-box;
+}
+.main_content_bottom{
+    background-color:#ffffff;
+    margin-top: 20px;
+}
+.circle div{
+    float: left;
+    width: 90px;
+    height: 130px;
+    margin-top: -60px;
+}
+.circle div a{
+    display: block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #999999;
+}
+.circle div p{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.square{
+    clear: both;
+ 
+}
+.square div{
+    width: 200px;
+    height: 160px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    text-align: center;
+    margin-left: 201px;
+    margin-top: 190px;
+}
+.square div a{
+    text-decoration: none;
+    line-height: 160px;
+    color: #999999;
+    font-size: 16px;
+   
+}
+.square div:hover{
+    background-color: #247dd0;
+    color: #fff;
+}
+.square div:hover a{
+  color: #fff;
+}
+.square div:first-child{
+    margin-left: 90px;
+}
+
+
+
+
+#sorts {
+  width: 200px;
+  background-color: #ffffff;
+  height: 420px;
+}
+
+#sorts li {
+  list-style: none;
+}
+
+
+
+

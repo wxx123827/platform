@@ -1,0 +1,11 @@
+<div class="head_container">
+	<div class="left site">
+		<div class="nav_city"><span class="select">咨询电话：010-62176775</span></div>
+
+	</div>
+	<div class="left about"><a href="#">关于我们</a>
+	</div>
+	<div class="right" id="nologin">
+	</div>
+</div>
+<script src="js/head.js"></script>

@@ -1,0 +1,251 @@
+var baseUploadUrl = "http://keyanwu.com/api/upload/uploadMin";
+var userUid = sessionStorage.getItem("userUid");
+var form;
+var saveOrimmediate;
+var synopsis = "";
+var technicaldata = "";
+var range = "";
+var catIns1;
+var layedit;
+var formatdate;
+var getFields;
+var laydate;
+layui.config({
+	base: '../'
+}).extend({
+	selectN: 'static/selectN',
+}).use(['form', 'layedit', 'laydate', 'upload', 'selectN'], function() {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		layer = layui.layer,
+		selectN = layui.selectN;
+	laydate = layui.laydate;
+	form = layui.form
+	layedit = layui.layedit
+	form.render();
+	laydate.render({
+		elem: "#times",
+		type: 'datetime'
+		// value: crtTimeFtt(data.buytime) //必须遵循format参数设定的格式
+	});
+	synopsis = layedit.build('synopsis'); //建立编辑器
+	technicaldata = layedit.build('technicaldata');
+	range = layedit.build('range');
+	catIns1 = selectN({
+		//元素容器【必填】
+		elem: '#classify',
+		search: [false, true]
+			//候选数据【必填】
+			,
+		data: baseUrl + "main/getClassify"
+	});
+	pca.init('select[name=province]', 'select[name=city]', 'select[name=area]');
+	var publishedimg1 = upload.render({
+		elem: '#publishedImgdiv1',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg1').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg1": res.src
+			})
+			$("[name=publishedImgimg1]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg1errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg1.upload();
+			});
+		}
+	});
+	var publishedimg2 = upload.render({
+		elem: '#publishedImgdiv2',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg2').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg2": res.src
+			})
+			$("[name=publishedImgimg2]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg2errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg2.upload();
+			});
+		}
+	});
+	var publishedimg3 = upload.render({
+		elem: '#publishedImgdiv3',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg3').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg3": res.src
+			})
+			$("[name=publishedImgimg3]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg3errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg3.upload();
+			});
+		}
+	});
+	getFields = function getFields() {
+		var html = "";
+		$.ajax({
+			url: baseUrl + 'fields/getFields',
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			async:false,
+			success: function(res) {
+				if (res.code === 200) {
+					$.each(res.msg.true, function(i, n) {
+						html += '<input type="checkbox" name="fields" title="' + n + '" lay-skin="primary" value="' + n + '"> ';
+					})
+					html +='<div class="layui-input-inline" style="margin-top:20px;float:none">'
+					html +='<input type="text" name="fieldsstr" lay-verify="fieldsstr" autocomplete="off" placeholder="请输入服务领域，以英文逗号分隔" class="layui-input">'
+					html +='</div>'
+				}
+				$('.fields').html(html);
+			}
+		})
+	}
+	saveOrimmediate = function saveOrimmediate(data, type) {
+		var result = data.field
+		var file = new Array()
+		result.technicaldata = layedit.getContent(technicaldata)
+		result.range = layedit.getContent(range)
+		result.synopsis = layedit.getContent(synopsis)
+		$(".publishedImgSrc").each(function(i) {
+			var src = $(this).attr("src")
+			// if (typeof(src) === "undefined") {
+			// 	layer.msg("请上传三张图片", {
+			// 		icon: 2
+			// 	})
+			// 	$(this).prev().attr("tabindex", 0).addClass("layui-form-danger");
+			// 	return false;
+			// }
+			file.push($(this).attr("src"))
+		})
+		result.file = file;
+		var classify = result.classify.split(",");
+		if (classify[classify.length - 1] === "") {
+			result.classify = classify[classify.length - 2]
+		} else {
+			result.classify = classify[classify.length - 1]
+		}
+		var checkfields = $(document).find("[name=fields]");
+		if (checkfields.length != 0) {
+			var filedsArray = new Array();
+			$.each(checkfields, function(i, n) {
+				var next = $(this).next(".layui-form-checkbox");
+				if ($(next).hasClass("layui-form-checked")) {
+					filedsArray.push($(n).attr("value"));
+				}
+			})
+			if (result.fieldsstr != "") {
+				$.each(result.fieldsstr.split(","), function(i, n) {
+					filedsArray.push(n);
+				});
+			}
+			result.fields = filedsArray;
+		}
+		console.log(result)
+		save(JSON.stringify(result), result.type, type);
+	}
+
+	function dateFtt(fmt, date) { //author: meizz
+		var o = {
+			"M+": date.month + 1, //月份   
+			"d+": date.date, //日   
+			"h+": date.hours, //小时   
+			"m+": date.minutes, //分   
+			"s+": date.seconds, //秒   
+			"q+": Math.floor((date.month + 3) / 3), //季度   
+			"S": date.time //毫秒   
+		};
+		var datas = new Date();
+		if (/(y+)/.test(fmt))
+			fmt = fmt.replace(RegExp.$1, (datas.getFullYear() + "").substr(4 - RegExp.$1.length));
+		for (var k in o)
+			if (new RegExp("(" + k + ")").test(fmt))
+				fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+		return fmt;
+	}
+	function save(data, type, status) {
+		$.ajax({
+			url: baseUrl + "goods/updateGoods",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			type: "post",
+			async: false,
+			data: {
+				data: data,
+				type: type,
+				status: status
+			},
+			success: function(res) {
+				if (res.code === 200) {
+					console.log(res)
+					layer.msg("更新成功")
+					f_close()
+					return;
+				}
+			}
+		})
+	}
+	function f_close() {
+		var index = parent.layer.layer.getFrameIndex(window.name);
+		parent.layer.layer.close(index);
+	}
+})

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心-地址管理</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css">
+    <link rel="stylesheet" href="css/address.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="head">
+    </div>
+    <div class="nav">
+    </div>
+    <div class="basic_content">
+        <div class="content">
+            <div class="left">
+                <ul>
+                    <li><a href="essential_information.html">基本信息</a></li>
+                    <li><a href="account_security.html">账户安全</a></li>
+                    <li><a href="address.html">地址管理</a></li>
+                    <li><a href="invoice_control.html">发票管理</a></li>
+                    <li><a>我的收藏</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <h2 style="float: left;">地址管理</h2>
+                <button style="float: right;" class="layui-btn release_goods" data-type="reload">新增地址</button>
+                <hr />
+            </div>
+            <table class="layui-hide" id="release" lay-filter="release"></table>
+    
+            <script type="text/html" id="release-bar">
+                <a class="layui-btn layui-btn-xs" lay-event="detail" id="detail1">设为默认</a>
+                <a class="layui-btn layui-btn-xs" lay-event="edit" id="edit1">编辑</a>
+               
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" id="dels">删除</a>
+            </script>
+            </div>
+    </div>
+    <div id="footer" class="foot">
+    </div>
+    <script src="layui/layui.all.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/address.js"></script>
+</body>
+
+</html>

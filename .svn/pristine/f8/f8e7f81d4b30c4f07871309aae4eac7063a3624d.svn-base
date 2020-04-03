@@ -1,0 +1,40 @@
+.news_content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.news_content .hourly_news{
+   clear: both;
+   height: 35px;
+   line-height: 35px;
+   border-bottom: 1px solid #999999;
+}
+.hourly_news p{
+    font-size: 14px;
+}
+.hourly_news p a{
+    cursor: pointer;
+}
+.news_detail{
+    width: 100%;
+}
+.news_title h3{
+    margin-top: 20px;
+    font-weight: 550!important;
+    margin-left: 30px;
+}
+.news_time p{
+    margin-top: 10px;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #999999;
+    margin-left: 30px;
+}
+.content_detail{
+    width: 100%;
+    min-height: 650px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}

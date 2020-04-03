@@ -1,0 +1,22 @@
+<div class="center">
+	<div class="personal_center">
+		<div class="center_left left">
+			<img src="imgs/logo.png">
+		</div>
+		<div class="center_middle left">
+		</div>
+
+		<div class="center_right right">
+			<div class="key">
+				<a href="#" class="layui-btn layui-btn-lg layui-btn-primary" id="key_publish">一键发布</a>
+			</div>
+			<div class="tab_nav" style="display: none;">
+				<a class="published_material.html">发布耗材</a>
+				<a class="published_lab.html">发布实验室</a>
+				<a class="published_material.html">发布耗材</a>
+				<a class="personal_skill.html">个人技能</a>
+				<a class="technical_data.html">技术资料</a>
+			</div>
+		</div>
+	</div>
+</div>

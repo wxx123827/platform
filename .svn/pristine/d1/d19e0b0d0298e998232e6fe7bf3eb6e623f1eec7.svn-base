@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人中心-邮箱验证结果</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" href="css/essential_information.css">
+        <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+        <style>
+        .result_content{
+            width: 1200px;
+            height: 370px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+        h2{
+            padding-top: 50px;
+        }
+        .result_content button{
+            margin-top: 20px;
+            background-color: aquamarine;
+            width: 100px;
+            height: 30px;
+            border: 1px solid #ffffff;
+            text-align: center;
+        }
+        </style>
+	</head>
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav">
+		</div>
+		<div class="result_content">
+           <div><h2>此处我不知道写什么文字</h2></div>
+           <div><button>what</button></div>
+        </div>
+		<div id="footer" class="foot" style="clear:both;">
+
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/essential_information.js"></script>
+	</body>
+</html>

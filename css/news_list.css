@@ -1,0 +1,242 @@
+.nav_area {
+    height: 400px;
+    background: url(../imgs/news_banner.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.nav_area .news_tab {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 350px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.nav_area .news_tab a{
+    font-size: 14px;
+    color: #ffffff;
+    display: inline-block;
+    width: 83px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    margin-right: 25px;
+}
+.active {
+    
+    text-align: left; 
+    background: url(../imgs/tab_bg.png) no-repeat;
+}
+
+.news_content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.news_content .hourly_news {
+    clear: both;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.hourly_news p {
+    font-size: 14px;
+}
+
+.hourly_news p a {
+    cursor: pointer;
+}
+
+.news_list {
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.news_list .list_content{
+    width: 850px;
+    background-color: #ffffff;
+    min-height: 1440px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: auto;
+    float: left;
+    margin-bottom: 100px;
+}
+.list_top{
+    width: 810px;
+    height: 360px;
+    position: relative;
+}
+.list_content .list_top img {
+    width: 810px;
+    height: 360px;
+}
+
+.list_content .list_top .list_title {
+    width: 810px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    background: rgba(36, 125, 208, 0.8);
+    color: #ffffff;
+    font-size: 18px;
+    position: absolute;
+    bottom: 0;
+}
+.list_detail{
+    margin-top: 30px;  
+}
+.list_detail .message{
+    width: 809px;
+    height: 140px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.list_detail .message:hover{
+    box-shadow: 2px 1px 7px 0px 
+        rgba(4, 0, 0, 0.35);
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: -10px;
+}
+.list_detail .message:first-child{
+    margin-top: 0;
+}
+.list_detail .message:last-child{
+    margin-bottom: 40px;
+}
+.message_left{
+    float: left;
+}
+.list_detail .message img{
+    width: 210px;
+    height: 140px;
+}
+.message_right{
+    float: right;
+    margin-left: 20px;
+    width: 578px;
+}
+.message_right h3{
+    font-size: 18px;
+    color: #333333;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+.message_right .message_info{
+    margin-top: 15px;
+}
+.message_info li{
+    font-size: 12px;
+    color: #999999;
+    float: left;
+}
+.source{
+    width: 185px;
+}
+.praise{
+    float: right!important;
+    margin-right: 5px;
+
+}
+.praise:hover{
+    cursor: pointer;
+}
+.praise i:hover {
+    color: #247dd0!important;
+}
+.notice_news{
+    width: 274px;
+    float: right;
+    height: 910px;
+}
+.notice_news .notice{
+    width: 274px;
+	height: 458px;
+    background-color: #ffffff;
+}
+.notice_title{
+    padding-top: 20px;
+    box-sizing: border-box;
+    margin-left: -13px;
+}
+.notice_area li{
+    width: 274px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.notice_area li span{
+    display: inline-block;
+    width: 18px;
+	height: 18px;
+    background-color: #a0a0a0;
+    color: #fefefe;
+    font-size: 12px;
+    text-align: center;
+}
+.notice_area li a{
+    display: inline-block;
+    width: 210px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+	font-size: 14px;
+    color: #666666;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.notice_area li:first-child{
+    margin-top: 10px;
+}
+.notice_area li:first-child span,.notice_area li:nth-child(2) span,.notice_area li:nth-child(3) span{
+    background-color: #247dd0;
+}
+.notice_area li:hover a{
+    color: #247dd0;
+    cursor: pointer;
+}
+.notice_area li:hover span{
+    background-color: #247dd0;
+}
+.new_message{
+  width: 274px;
+  height: 430px;
+  margin-top: 20px;
+  background-color: #ffffff;
+}
+.message_title img{
+  margin-left: -13px;
+  padding-top: 20px;
+  box-sizing: border-box;
+} 
+.new_message .message_area li{
+    width: 240px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.new_message .message_area li:first-child{
+    margin-top: 10px;
+}
+.new_message .message_area li a{
+    font-size: 14px;
+    color: #666666;
+}
+.new_message .message_area li:hover{
+    cursor: pointer;
+}
+.new_message .message_area li:hover a{
+    color: #247dd0;
+}

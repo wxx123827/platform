@@ -1,0 +1,19 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.foot').load("foot.html");
+	var detail=JSON.parse(sessionStorage.getItem("newDetail"));
+	console.log(detail)
+	$(".news_title").html('<h3>'+detail.newstitle+'</h3>');
+	$(".news_time").html('<span>来源：新华网'+'</span><span style="margin-left:50px">日期：'+dateFtt("yyyy-MM-dd hh:mm:ss", detail.creattime)+'</span>');
+	$(".content_detail").html(detail.newscontent);
+})
+$(function() {
+	$(".nav_area .news_tab a").mouseenter(function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	})
+	$(".nav_area .news_tab a").mouseleave(function() {
+		$(".nav_area .news_tab a").removeClass("active")
+	})
+})
+
+

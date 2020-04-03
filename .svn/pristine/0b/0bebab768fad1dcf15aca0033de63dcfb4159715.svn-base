@@ -1,0 +1,13 @@
+<div id="activation" style="text-align: center;margin-top: 30px;">
+    <div class="activation_title">
+        <h2 style="color: #247DD0;">请激活你的邮箱</h2>
+        <p style="font-size: 16px;">激活后将可使用邮箱或手机号登录</p>
+        <div><a href="#"
+                style="font-size:16px;color:#fff;display: block;text-decoration: none;width: 100px;height: 40px;background-color: #247dd0;line-height: 40px;margin-left: 47%;">立即激活</a>
+            <p style="font-size: 16px;">如按钮无法点击请复制下方链接<span></span>，拷贝到浏览器地址栏访问
+                一个明文链接，</p>
+            <p style="font-size: 16px;">请您于半小时内点击该链接
+                若您没有申请过验证邮箱，请忽略此邮件</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+/**
+ * 邮箱验证
+ */
+$(document).ready(function() {
+	$('.head').load("head.html");
+	$('.search').load("search.html");
+	$('.foot').load("foot.html");
+	$(".identidy_content").text('系统已向'+sessionStorage.getItem("data")+'发送验证码，请查收')
+})
+
+$(".resend").on("click",function(){
+	resend();
+})
+$(".submit").on("click",function(){
+	check($(".identidy_content1").val())
+})
+function resend(){
+	$.ajax({
+		url:baseUrl+"join/resend",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		type: "post",
+		data:{
+			email:sessionStorage.getItem("data")
+		},
+		success:function(res){
+			if(res.code===SUCCESS){
+				
+			}
+		}
+	})
+}
+function check(code){
+	$.ajax({
+		url:baseUrl+"join/checkCode",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		type: "post",
+		data:{
+			email:sessionStorage.getItem("data"),
+			code:code
+		},
+		success:function(res){
+			if(res.code===SUCCESS){
+				
+			}
+		}
+	})
+}

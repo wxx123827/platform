@@ -1,0 +1,62 @@
+layui.use('laypage', function() {
+	var laypage = layui.laypage;
+	$(document).ready(function() {
+		$('.head').load("personal_head.html");
+		// $('.nav_area').load("personal_nav.html", function(response, status, xhr) {
+		// 	$(document).find(".center_middle").html('<span>实时新闻</span>')
+		// });
+		$('.foot').load("foot.html");
+	})
+	var data=JSON.parse(sessionStorage.getItem("newsList"));
+	if(data===null){
+		getNewsList(1,10);
+		data=JSON.parse(sessionStorage.getItem("newsList"));
+	}
+	if(data==="null"){
+		getNewsList(1,10);
+		data=JSON.parse(sessionStorage.getItem("newsList"));
+	}
+	console.log(data)
+	// var html="";
+	// $(data.list).each(function(){
+	// 	html+='<div class="list_content" onClick=getNewsDetail(\'' + String(this.uid) + '\')>';
+	// 	html+='<div class="content_left"><span>'+this.creattime.date+'</span><span>'+(this.creattime.year+1900)+'-'+(this.creattime.month+1)+'</span></div>';
+	// 	html+='<div class="content_right">'+this.newstitle+'</div>';
+	// 	html+='</div>'
+	// })
+	// $(".news_list").html(html);
+	
+	// laypage.render({
+	//     elem: 'page', //注意，这里的 test1 是 ID，不用加 # 号
+	//     count: data.totalRow, //数据总数，从服务端得到
+	//     limit: data.pageSize,
+	//     curr: data.pageNumber,
+	// 	jump: function(obj, first){
+	// 	    //obj包含了当前分页的所有参数，比如：
+	// 	    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+	// 	    console.log(obj.limit); //得到每页显示的条数   
+	// 	    //首次不执行
+	// 	    if(!first){
+	// 			getNewsList(obj.curr,obj.limit)
+	// 	      //do something
+	// 	    }
+	// 	  }
+	//   });
+	// function getNewsList(num, size) {
+	// 	$.ajax({
+	// 		url: baseUrl + "main/getAllNews",
+	// 		data: {
+	// 			num: num,
+	// 			size: size
+	// 		},
+	// 		async:false,
+	// 		success: function(res) {
+	// 			if (res.code === SUCCESS) {
+	// 				sessionStorage.setItem("newsList", JSON.stringify(res.msg))
+	// 			}
+	// 		}
+	// 	})
+	// }
+})
+
+

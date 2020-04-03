@@ -1,0 +1,11 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html");
+	$('.foot').load("foot.html");
+	var detail=JSON.parse(sessionStorage.getItem("newDetail"));
+	console.log(detail)
+	$(".news_title").html('<h3>'+detail.newstitle+'</h3>');
+	$(".news_time").html('<p>'+dateFtt("yyyy-MM-dd hh:mm:ss", detail.creattime)+'</p>');
+	$(".content_detail").html(detail.newscontent);
+})
+

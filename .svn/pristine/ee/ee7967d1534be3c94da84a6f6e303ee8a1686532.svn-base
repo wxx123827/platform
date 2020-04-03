@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>订单详情</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/order_detail.css">
+	</head>
+
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav_area">
+		</div>
+		<div class="basic_content">
+			<div class="content">
+				<div class="left">
+					<ul>
+						<li><a href="requirement_list.html">需求清单</a></li>
+						<li style="background-color: #247dd0;"><a href="buyer_order.html" style="color: #ffffff;">我的订单</a>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="order_status">
+						<h3 class="status">当前订单状态：<span class="state"></span></h3>
+					</div>
+					<div class="shipping_address">
+						<h3><span></span>收货地址</h3>
+						<p style="float: left;" class="nickname">昵称：
+							<span class="nickname"></span>
+						</p>
+						<p style="float: left;" class="linkman">联系人：
+							<span class="buyname"></span>
+						</p>
+						<p class="contact_number" style="float: left;">联系电话：
+							<span class="buyphone"></span>
+						</p>
+						<p style="clear: both;">收货地址：<span class="address"></span></p>
+						<p>备注：<span class="buynode"></span></p>
+					</div>
+					<div class="invoice_info">
+						<h3><span></span>发票信息</h3>
+						<p style="float: left;" class="invoice_type">发票类型：
+							<span class="invoicetype"></span>
+						</p>
+						<p style="float: left;" class="linkmans">发票抬头：
+							<span class="invoicename"></span>
+						</p>
+						<p class="contact_numbers" style="float: left;">税务识别号：
+							<span class="invoicecode"></span>
+						</p>
+					</div>
+					<div class="order_info">
+						<h3><span></span>订单信息</h3>
+						<p style="float: left;" class="invoice_type">订单编号：
+							<span class="orderuid"></span>
+						</p>
+						<p style="float: left;" class="linkmans">创建时间：
+							<span class="ordercreattime"></span>
+						</p>
+
+						<p class="contact_numbers" style="float: left;">结束时间：
+							<span class="orderendtime"></span>
+						</p>
+
+
+						<div class="table_data">
+							<table class="tablecss" cellspacing="0">
+								<tr>
+									<th width="240">物品名称</th>
+
+									<th width="110">单价</th>
+									<th width="110">数量</th>
+									<th width="170">使用时间</th>
+									<th width="110">优惠</th>
+									<th width="110">成交价</th>
+									<th width="110">物品状态</th>
+									<th width="170">发货时间</th>
+									<th width="170">归还时间</th>
+									<th width="170" style="border-right:1px solid #a0a0a0;">付款时间</th>
+
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="close">
+						<div id="close">关闭</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div id="footer" class="foot" style="clear:both;">
+
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/order_detail.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="am-form tpl-form-line-form" action="" method="post">
+
+        <div class="am-form-group">
+            <label class="am-radio-inline tpl-login-remember-me">
+                <input class="tpl-form-input" type="radio" name="status" id="student" value="0" checked="checked">个人
+            </label>
+            <label class="am-radio-inline tpl-login-remember-me">
+                <input class="tpl-form-input" type="radio" name="status" id=teacher value="1">企业
+            </label>
+        </div>
+        
+       <div class="personal_content">
+        <div class="am-form-group">
+           1233456
+        </div>
+
+        <div class="am-form-group">
+        </div>
+        </div>
+        <div class="enterprise_content" style="display: none;">
+                <div class="am-form-group">
+                   566321112
+                </div>
+        
+                <div class="am-form-group">
+                    <button type="submit"
+                        class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+                        
+        
+                </div>
+                </div>
+    </form>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+          $(document).ready(function() {
+                 $('input[type=radio][name=status]').change(function() {
+                    if (this.value == '0') {
+                        $(".personal_content").css('display','block');
+                        $(".enterprise_content").css('display','none');
+                    }else if (this.value == '1') {
+                         $(".enterprise_content").css('display','block');
+                         $(".personal_content").css('display','none');
+                    }
+                });
+            });         
+        </script>
+</html>

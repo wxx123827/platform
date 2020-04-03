@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'SourceHanSansCN-Regular';
+    src: url('../font/SourceHanSansCN-Regular.otf');
+    src: url('../font/SourceHanSansCN-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+.identity{
+    clear: both;
+    margin-top: 100px;
+}
+
+.identidy_content{
+    width: 600px;
+	height: 27px;
+	font-family: 'SourceHanSansCN-Regular';
+	font-size: 24px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    margin-left: 300px;
+    padding-top: 100px;
+
+}
+.identidy_content1{
+    width: 410px;
+	height: 60px;
+    border: solid 1px #247dd0;
+	font-family: 'SourceHanSansCN-Regular';
+	font-size: 24px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #999999;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+.resend{
+    width: 200px;
+	height: 62px;
+	background-color: #224477;
+    border-radius: 5px;
+    margin-left: 500px;
+    margin-top: 50px;
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.identity .submit{
+    width: 409px;
+    height: 62px;
+    line-height: 62px;
+    background-color: #247dd0;
+    border-radius: 5px;
+    font-family: 'SourceHanSansCN-Regular';
+	font-size: 24px;
+    margin-left: 32%;
+    margin-top: 50px;
+    color: #ffffff;
+    text-align: center;
+}

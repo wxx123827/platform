@@ -1,0 +1,7 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav_area').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>订单详情</span>')
+	});
+	$('.foot').load("foot.html");
+})

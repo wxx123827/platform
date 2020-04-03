@@ -1,0 +1,40 @@
+<div class="searchcontainer">
+	<div class="left logo">
+		<a href="index.html"><img src="imgs/logo_new.png" alt="" id="imgs"></a>
+	</div>
+	<form action="" class="left " id="search">
+		<dl class="left">
+			<dt>全站</dt>
+			<dd class="all" data-href="" style="visibility: hidden;">全站></dd>
+
+			<dd data-href="" style="visibility: hidden;">仪器
+			</dd>
+
+			<dd data-href="" style="visibility: hidden;">服务</dd>
+
+			<dd data-href="" style="visibility: hidden;">公开课
+			</dd>
+			<dd data-href="" style="visibility: hidden;">需求</dd>
+			<dd class="last" data-href="" style="visibility: hidden;">店铺</dd>
+		</dl>
+		<input type="text" class="left key_words" name="ky" placeholder="请输入您想搜索的内容">
+		<button class="right go_search" type="button">搜索</button>
+		<p id="hotWords" class="clearfix">
+		</p>
+	</form> 
+	<div style="position: relative;float:right;" class="nav_box">
+		<div id="nav_box">
+			<p class="right punlish_container">
+			</p>
+			<p class="tab_nav" style="display: none;">
+				<a href="published_material.html">发布耗材</a>
+				<a href="published_lab.html">发布实验室</a>
+				<a href="published_instrument.html">发布仪器</a>
+				<a href="personal_skill.html">个人技能</a>
+				<a href="technical_data.html">技术资料</a>
+			</p>
+		</div>
+	</div>
+</div>
+<script src="js/search.js"></script>
+<script>

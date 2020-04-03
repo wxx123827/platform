@@ -1,0 +1,39 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html");
+	$('.foot').load("foot.html");
+	sessionStorage.removeItem("data");
+	init();
+})
+
+function init() {
+	$.ajax({
+		url: baseUrl+"release/getUserJoin",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(res) {
+			if (res.code == SUCCESS) {
+				var result = res.msg;
+				switch (result.jointype) {
+					case 0:
+						$(".rights").load("enterprise_content.html", function(response, status, xhr) {
+							
+						});
+						break;
+					case 1:
+						$(".rights").load("personal_content.html", function(response, status, xhr) {});
+						break;
+					case 2:
+						$(".rights").load("individual_content.html", function(response, status, xhr) {});
+						break;
+				}
+				return;
+			}else{
+				$(".rights").html(res.msg)
+			}
+
+		}
+	})
+}

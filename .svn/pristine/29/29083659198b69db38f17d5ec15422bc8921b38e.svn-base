@@ -1,0 +1,198 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>我的发布</span>')
+	});
+	$('.foot').load("foot.html");
+})
+
+//我的发布数据
+layui.use(['laypage', 'layer', 'table', 'upload', 'element'], function() {
+	var laypage = layui.laypage;
+	var layer = layui.layer;
+	var table = layui.table;
+	var upload = layui.upload;
+	var element = layui.element;
+	var $ = layui.$;
+	var form = layui.form;
+	var page;
+	// layer.load(2)//加载
+	table.render({
+		elem: '#release',
+		url: baseUrl + "release/getGoodsByUser",
+		toolRow: true,
+		cellMinWidth: 80,
+		cols: [
+			[ //标题栏
+				{
+					field: 'name',
+					title: '物品名称',
+					align: 'center',
+					// width: 300,
+					sort: true
+				},
+				{
+					field: 'classifyname',
+					title: '分类',
+					align: 'center',
+					// width: 300,
+					sort: true
+				},
+				{
+					field: 'expectedrevenue',
+					title: '期望收益',
+					align: 'center',
+					width: 100,
+					sort: true
+				},
+				{
+					field: 'time',
+					title: '购置日期',
+					align: 'center',
+					// width: 300,
+					templet: function(d) {
+						return d.buytime != null ? crtTimeFtt(d.buytime) : '无数据'
+					}
+				},
+				{
+					field: 'status',
+					title: '物品类型',
+					align: 'center',
+					width: 80,
+					sort: true,
+					templet: function(d) {
+						switch (d.types) {
+							case '1':
+								return "仪器"
+								break;
+							case '2':
+								return "实验室"
+								break;
+							case '3':
+								return "耗材"
+								break;
+							case '4':
+							case '5':
+								return "知识"
+								break;
+						}
+					}
+				},
+				{
+					field: 'status',
+					title: '状态',
+					align: 'center',
+					// width: 300,
+					sort: true,
+					templet: function(d) {
+						if (d.checkstatus == "0" && d.status == "0") {
+							return '<p>待发布</p>'
+						}
+						if (d.checkstatus == "0" && d.status == "1") {
+							return '<p>待审核</p>'
+						}
+						if (d.checkstatus == "1" && d.status == "1") {
+							return '<p>审核通过</p>'
+						}
+						if (d.checkstatus == "2" && d.status == "1") {
+							return '<p>审核失败</p>'
+						}
+					}
+				},
+				{
+					fixed: 'right',
+					title: '操作',
+					width: 250,
+					align: 'center',
+					toolbar: "#release-bar"
+				}
+			]
+		],
+		//分页
+		page: {
+			layout: ['first', 'prev', 'page', 'next', 'last', 'count', 'skip'] //自定义分页布局
+				,
+			limit: 9,
+			prev: '上一页',
+			next: "下一页",
+			theme: '#1E9FFF',
+		},
+		id: 'releaseList',
+		response: {
+			statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+		},
+		parseData: function(res) { //将原始数据解析成 table 组件所规定的数据
+			return {
+				"code": res.code, //解析接口状态
+				"msg": res.msg, //解析提示文本
+				"count": res.msg.totalRow, //解析数据长度
+				"data": res.msg.list, //解析数据列表
+				"page": res.msg.totalPage
+
+			};
+		}
+	});
+
+	function crtTimeFtt(value, row, index) {
+		return dateFtt("yyyy-MM-dd hh:mm:ss", value); //直接调用公共JS里面的时间类处理的办法     
+	}
+	var openindex;
+	//行内工具栏事件
+	table.on('tool(release)', function(obj) {
+		var data = obj.data;
+
+		if (obj.event === 'del') {
+			layer.confirm('确定删除吗?', function(index) {
+				layer.load(2);
+				layer.closeAll('loading');
+			});
+		} else if (obj.event === 'detail') {
+			layer.open({
+				type: 2,
+				title: '发布',
+				shadeClose: true,
+				shade: false,
+				maxmin: true, //开启最大化最小化按钮
+				area: ['1000px', '700px'],
+				content: './release_goods.html?uid=' + data.uid + '&type=1',
+				end: function() {
+					obj.update();
+					table.reload('releaseList', {
+						url: baseUrl + 'release/getGoodsByUser'
+					});
+				}
+			});
+		} else if (obj.event === 'edit') {
+			layer.open({
+				type: 2,
+				title: '发布',
+				shadeClose: true,
+				shade: false,
+				maxmin: true, //开启最大化最小化按钮
+				area: ['1000px', '700px'],
+				content: './release_goods.html?uid=' + data.uid + '&type=0',
+				end: function() {
+					table.reload('releaseList', {
+						url: baseUrl + 'release/getGoodsByUser'
+					});
+				}
+			});
+		}
+	})
+	$('.closed').on('click', function() {
+		layer.closeAll();
+	});
+	//查询按钮
+	$('.refer').on('click', function() {
+		table.reload('releaseList', {
+			url: baseUrl + '/goods/goodsSearch',
+			where: {
+				name: $(".item_name").val(),
+				shopuid: demo3.getValue('valueStr')[0],
+				type: $('select').val(),
+				page: 1,
+				limit: 9,
+			} //设定异步数据接口的额外参数
+		});
+	})
+})

@@ -1,0 +1,10 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html");
+	$('.foot').load("foot.html");
+})
+//分页
+
+
+
+

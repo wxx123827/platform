@@ -1,0 +1,37 @@
+<div class="footer_main">
+	<div class="ykx_intro">
+		<div class="footer_img">
+			<img src="imgs/footer_icon.png">
+		</div>
+		<div class="fl">
+			<dl>
+				<dt>关于我们</dt>
+				<dd><a href="">关于我们</a></dd>
+				<dd><a href="">加入我们</a></dd>
+			</dl>
+			<dl>
+				<dt>平台协议</dt>
+				<dd><a href="">用户协议</a></dd>
+				<dd><a href="">隐私声明</a></dd>
+			</dl>
+			<dl>
+				<dt>联系我们</dt>
+				<dd>公司地址：北京市海淀区西三旗东黄平路19号</dd>
+				<dd>龙旗广场E座(4号楼)906室</dd>
+				<dd>电子邮箱：market@oitek.com.cn</dd>
+				<dd>电话：010-62176775 62178811 62176785</dd>
+				<dd>传真：010-62176619</dd>
+			</dl>
+		</div>
+
+		<div class="fr">
+			<img src="" alt="">
+		</div>
+	</div>
+
+	<div class="icp_no">
+		<p class="" style="font-size: 12px;">版权所有@北京海洋兴业科技股份有限公司（2018）京ICP备05048835号 | 企业营业执照</p>
+
+	</div>
+</div>
+<script src="js/foot.js"></script>

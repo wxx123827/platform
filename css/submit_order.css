@@ -1,0 +1,243 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content .left {
+    width: 190px;
+    height: 456px;
+    background-color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content .left ul{
+    margin-top: 10px;
+}
+.content .left ul li{
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+
+}
+.content .left ul li:hover{
+    background-color: #eeeeee;
+}
+
+.content .left ul li a{
+    font-size: 16px;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+    
+}
+.content .right {
+    width: 1000px;
+    background-color: #ffffff;
+    padding-bottom: 120px;
+}
+
+.content .right h2{
+    font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    padding: 20px 0px 0px 20px;
+}
+.content .right hr{
+    background-color: #999999!important;
+}
+
+.layui-form-item{
+    height: 35px;
+    line-height: 35px;
+}
+
+.layui-form-item{
+    margin-top: 10px;
+}
+.content .submit_detail{
+    height: 120px;
+    background-color: #f1f8ff;
+    margin-bottom: 10px;
+}
+
+.content .contents{
+    width: 1000px;
+    height: 120px;
+    margin-bottom: 10px;
+	background-color: #f1f8ff;
+}
+.content .submit_content .submit_left{
+    float: left;
+}
+.content .submit_content .submit_right{
+    height: 100%;
+    float: right;
+    line-height: 120px;
+}
+.content .submit_content .submit_left ul{
+    margin-top: 8px!important;
+}
+.content .submit_content .submit_left ul li{
+    margin-left: 20px!important;
+}
+.content .submit_content .submit_left ul li span{
+    margin-left: 20px;
+    color: #999999;
+    font-size: 14px;
+}
+.content .submit_content .submit_right div{
+    float: left;
+   margin-right: 20px;
+   font-size: 14px;
+   color: #666666;
+}
+.content .submit_content .submit_right div:hover{
+    color: #247dd0;
+    cursor: pointer;
+}
+.submit_bottom{
+    clear: both;
+    width: 1000px;
+}
+.submit_bottom .submit_title{
+    height: 50px;
+    line-height: 50px;
+    margin-top: 230px;
+    border-top: 1px dashed #dcdcdc;
+}
+.submit_title span{
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+.submit_title span:first-child{
+    margin-left: 140px;
+}
+.submit_title span:nth-child(2){
+    margin-left: 280px;
+}
+.submit_title span:nth-child(3){
+    margin-left: 120px;
+}
+.submit_title span:nth-child(4){
+    margin-left: 120px;
+}
+.submit_title span:nth-child(5){
+    margin-left: 80px;
+}
+.contents_area{
+    margin-top: 10px;
+}
+.contents_area:first-child{
+    margin-top: 0;
+}
+.contents_area .name_area{
+    height: 30px;
+    line-height: 30px;
+    background-color: #eeeeee;
+    font-size: 14px;
+	padding-left: 20px;
+	color: #666666;
+}
+.detail_area{
+    height: 140px;
+    border: solid 1px #dcdcdc;
+}
+.detail_area img{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+.detail_area div{
+    float: left;
+    
+}
+.detail_area div:nth-child(2){
+    width: 330px;
+}
+.detail_area div:nth-child(3){
+    width: 110px;
+    line-height: 140px;
+}
+.detail_area div:nth-child(4){
+    width: 235px;
+    line-height: 140px;
+}
+.detail_area div:nth-child(5){
+   width: 90px;
+    line-height: 140px;
+}
+.detail_area div:nth-child(6){
+    width: 80px;
+    line-height: 140px;
+}
+
+.remarks{
+    clear: both;
+    height: 30px;
+    line-height:30px;
+    padding-left: 20px;
+    border: solid 1px #dcdcdc;
+    border-top: none;
+    font-size: 12px;
+	color: #999999;
+}
+.names{
+    margin-top: 20px;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    margin-bottom: 10px;
+    font-weight: 550;
+    word-break:break-all;
+}
+.submits{
+    height: 40px;
+    line-height: 40px;
+	background-color: #cccccc;
+}
+.submits_left{
+    float: left;
+    margin-left: 630px;
+}
+.submits_left span{
+    margin-right: 30px;
+}
+.submits_left span:last-child e{
+    font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #e31f1f;
+}
+.submits .submits_right{
+    float: right;
+    font-size: 14px;
+	text-align: center;
+	color: #ffffff;
+    width: 110px;
+    height: 40px;
+    cursor: pointer;
+	background-color: #bb3838;
+	border-radius: 3px;
+}
+.node{
+	width: 900px;
+	height: 20px;
+	border: 1px solid #ccc;
+}
+

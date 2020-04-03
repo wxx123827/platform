@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布仪器</title>
+    <link rel="stylesheet" href="../css/published_page.css">
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+</head>
+
+<body>
+    <div class="published_page">
+        <div class="published_content">
+            <h2>发布仪器</h2>
+            <hr />
+            <div class="content_list">
+                <form action="" method="" lay-filter="thirdform" class="layui-form">
+                    <input type="text" style="display: none;" name="type" value="1" />
+					<input type="text" style="display: none;" name="uid" />
+                    <div class="layui-form-item" style="margin-top: 80px;">
+                        <p>
+                            <e style="color: red;">※</e><span>仪器图片：</span>
+                            <div class="publishedImg" style="margin-left: 0px;">
+                                <div class="layui-upload-list" id="publishedImgdiv1">
+                                    <img class="layui-upload-img" id="publishedImgimg1">
+                                    <input type="text" style="display: none;" name="publishedImgimg1"
+                                        class="publishedImgSrc">
+                                </div>
+                                <!-- <p class="removeImg">删除</p> -->
+                                <p id="publishedImg1errorText"></p>
+                            </div>
+                            <div class="publishedImg">
+                                <div class="layui-upload-list" id="publishedImgdiv2">
+                                    <img class="layui-upload-img" id="publishedImgimg2" style="margin-left: 10px;">
+                                    <input type="text" style="display: none;" name="publishedImgimg2"
+                                        class="publishedImgSrc">
+                                </div>
+                                <p id="publishedImg2errorText"></p>
+                            </div>
+                            <div class="publishedImg">
+                                <div class="layui-upload-list" id="publishedImgdiv3">
+                                    <img class="layui-upload-img" id="publishedImgimg3" style="margin-left: 10px;">
+                                    <input type="text" style="display: none;" name="publishedImgimg3"
+                                        class="publishedImgSrc">
+                                </div>
+                                <p id="publishedImg3errorText"></p>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p>
+                            <e style="color: red;">※</e><span>仪器名称：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="name" lay-verify="name" autocomplete="off" placeholder="请输入名称"
+                                    class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <p>
+                            <e style="color: red;">※</e><span>仪器型号：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="model" lay-verify="model" autocomplete="off" placeholder=""
+                                    class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p class="label_list">
+                            <e style="color: red;">※</e><span>仪器品牌：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" name="brand" lay-filter="brand"
+                                    placeholder="请选择品牌">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p>
+                            <e style="color: red;">※</e><span>购置日期：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="times" name="buytime" lay-filter="buytime"
+                                    style="background-color: #f9f9f9;" placeholder="请选择日期">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p class="label_list">
+                            <p style="margin-left:0px;display: inline;">
+                                <e style="color: red;">※</e><span>应用领域：
+                            </p>
+                            <div class="layui-input-inline fields" style="width: 80%!important;">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="margin-left: 15px;">
+                            <e style="color: red;">※</e><span>仪器所在地：</span>
+                            <div class="city_select">
+                                <div class="layui-input-inline">
+                                    <select name="province" lay-filter="province" lay-verify="province">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="city" lay-filter="city">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="layui-input-inline" style="margin-left: 0;">
+                                    <select name="area" lay-filter="area">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-input-inline">
+                                <input type="text" name="address" style="width: 300px!important;" lay-verify="address"
+                                    autocomplete="off" placeholder="请输入详细地址" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+
+                        <p><b style="color: red;">※</b><span>物品类别：</span>
+
+                            <div id="classify"></div>
+
+                        </p>
+
+                    </div>
+                    <div class="layui-form-item">
+                        <p>
+                            <e style="color: red;">※</e><span>期望收益：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="expectedrevenue" lay-verify="expectedrevenue"
+                                    autocomplete="off" placeholder="" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p>
+                            <e style="color: red;margin-left: 33px;">※</e><span>库存：</span>
+                            <div class="layui-input-inline">
+                                <input type="text" name="stock" lay-verify="stock" autocomplete="off"
+                                    placeholder="请输入库存" class="layui-input">
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;margin-left: 40px;"><span style="margin-left: 5px;">仪器简介：</span>
+                            <div class="layui-input-block" style="margin-left: 125px!important;width: 85%;">
+                                <textarea id="synopsis" name="synopsis" lay-verify="synopsis" placeholder="">
+                                            </textarea>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;margin-left: 40px;"><span>技术参数：</span>
+
+                            <div class="layui-input-block" style="margin-left: 125px!important;width: 85%;">
+                                <textarea id="technicaldata" name="technicaldata" lay-verify="technicaldata"
+                                    placeholder="">
+                                            </textarea>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="layui-form-item">
+                        <p style="float: left;margin-left: 40px;"><span>应用范围：</span>
+
+                            <div class="layui-input-block" style="margin-left: 125px!important;width: 85%;">
+                                <textarea id="range" name="range" lay-verify="range" placeholder="">
+                                                </textarea>
+                            </div>
+                        </p>
+                    </div>
+                    <p class="next">
+                        <div style="clear: both;text-align: center;" class="published_submit">
+                          <div class="submit" id="immediate" lay-submit="" lay-filter="immediate" type="submit">立即发布</div>
+                          <div class="submit" id="save" lay-submit="" lay-filter="save" type="submit">保存草稿</div>
+                        </div>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="../layui/layui.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/citys.js"></script>
+    <script src="../js/common_publish.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人中心-账户安全</title>
+		<link rel="stylesheet" href="css/common/personal_headfoot.css">
+		<link rel="stylesheet" href="css/essential_information.css">
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="head">
+		</div>
+		<div class="nav">
+		</div>
+		<div class="basic_content">
+			<div class="content">
+				<div class="left">
+					<div class="face">
+					<img src="imgs/admin_icon.png">
+					<p class="layui-btn layui-btn-sm layui-btn-normal">上传图片</p>
+					</div>
+					<ul>
+						<li><a href="essential_information.html">基本信息</a></li>
+						<li><a href="account_security.html">账户安全</a></li>
+						<li><a>地址管理</a></li>
+						<li><a>发票管理</a></li>
+						<li><a>我的收藏</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2>基本信息</h2>
+					<hr />
+					<form action="" method="" lay-filter="informationform" class="layui-form">
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>昵称：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入昵称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>姓名：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>性别：</span>
+								<div class="layui-input-block">
+									 <input type="radio" name="sex" value="男" title="男">
+									      <input type="radio" name="sex" value="女" title="女" >
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>手机号：</span>
+								<div class="layui-input-block">
+									<p style="margin-top: 10px"><span>18888888888</span></p>
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>固定电话：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入固定电话" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>邮箱：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入邮箱" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>单位名称：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入单位名称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>所属部门：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入所属部门" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 10px"><span>担任岗位：</span>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入担任岗位" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span>所在地址：</span>
+								<div class="layui-input-block city_select">
+									<div class="layui-input-inline">
+										<select name="province" lay-filter="province">
+										</select>
+									</div>
+									<div class="layui-input-inline" style="margin-left: 0px;">
+										<select name="city" lay-filter="city">
+										</select>
+									</div>
+								</div>
+							</p>
+						</div>
+						<p class="next" style="margin-top: 30px;">
+							<button type="submit" class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="save">保存</button>
+							<button  class="layui-btn  layui-btn-primary"  lay-filter="cancel">返回</button>
+						</p>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		<div id="footer" class="foot" style="clear:both;">
+
+		</div>
+		<script src="layui/layui.all.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/baseconstant.js"></script>
+		<script src="js/essential_information.js"></script>
+		<script src="js/citys.js"></script>
+	</body>
+</html>

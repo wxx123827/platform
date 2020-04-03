@@ -1,0 +1,9 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.foot').load("foot.html");
+})
+
+
+
+
+

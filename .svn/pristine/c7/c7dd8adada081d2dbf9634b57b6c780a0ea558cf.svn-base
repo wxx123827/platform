@@ -1,0 +1,31 @@
+/**
+ * 页眉
+ */
+$(document).ready(function() {
+	// userUid = "1";
+	checkUserLogin();
+	
+})
+
+//检查用户是否登录
+function checkUserLogin() {
+	var headStr;
+	if (userUid === "null" || userUid===null) {
+		headStr = '<a href="login.html">你好，请登录</a>';
+		headStr += '<a class="register" href="register.html">免费注册</a>';
+		headStr += '<a class="register" href="settle_select.html">我要入驻</a>';
+		headStr += '<a class="register" href="#">帮助中心</a>';
+	} else {
+		checkUserJoinAjax();
+		headStr = '<a href="#">你好，' + userTel + '</a>';
+		if (userJoinStatus) {
+			headStr += '<a class="register" href="request.html">我的发布</a>';
+		} else {
+			console.log(11)
+			headStr += '<a class="register" href="settle_select.html">我要入驻</a>';
+		}
+		headStr += '<a class="register" href="#">需求清单</a>';
+		headStr += '<a class="register" href="#">帮助中心</a>';
+	}
+	$('#nologin').html(headStr);
+}

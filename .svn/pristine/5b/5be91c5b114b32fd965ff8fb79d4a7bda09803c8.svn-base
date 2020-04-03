@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/register.css" type="text/css" />
+    <link rel="stylesheet" href="css/common/common.css" type="text/css" />
+    <title>注册页</title>
+</head>
+<body>
+    <div class="main">
+        <div class="main_top">
+            <a href="index.html">
+                <img src="./imgs/logo_new.png" alt=""> 
+            </a>
+        </div>
+        <div class="main_middle">
+            <img src="./imgs/login.png" alt="">
+
+            <div class="main_bottom">
+                <div class="main_top">
+                    <h2>账号注册</h2>
+                </div>
+               
+                <!-- 手机号 -->
+                <div class="telepone">
+                    <input type="text" name="phonenumber" class="click_tel" placeholder="请输入手机号">
+                </div>
+                <div class="yanzheng">
+                    <input type="text" name="verify" class="click_code" id="one" placeholder="请输入手机验证码" >
+                    <input type="button" class="verify_code" value="获取验证码">
+                </div>
+                <div class="password">
+                    <input type="password" name="psd" class="click_pwd" placeholder="请设置密码">
+                </div>
+                <div class="sure_pwd">
+                    <input type="password" name="surepsd" class="click_sure" placeholder="请再次输入密码">
+                </div>
+                <div class="identifying">
+                    <input type="text" class="click_ide" id="write" placeholder="请输入验证码">
+                    <canvas id="canvas" width="100" height="43" onselectstart="return false"></canvas>
+                    <input type="button" onclick="draw([])" onselectstart="return false" class="un_clear" value="看不清楚"> 
+                </div>
+                <div class="agree">
+                    <input type="checkbox" class="check" ><label for="check"></label>
+                    <span class="agree_span" onselectstart="return false">我已阅读并同意<a href="#" class="agree_span2">《实验室共享用户注册协议》</a></span>
+                
+                </div>
+                <div class="register_now">
+                    <input type="button" name="btn" class="click_register" value="立即注册">
+                </div>
+            </div>
+        </div>
+        <div class="main_footer">
+            版权所有@北京海洋兴业科技股份有限公司（2018）京ICP备05048835号  | 企业营业执照
+        </div>
+        
+    </div>
+	
+    <script src="js/jquery.min.js"></script>
+	<script src="layui/layui.js"></script>
+	<script src="js/baseconstant.js"></script>
+	<script src="js/jquery.input.rule.js"></script>
+	<script src="js/login-register-rule.js"></script>
+	<script src="js/identifying.js"></script>
+	<script src="js/sms.js"></script>
+	<script src="js/login.js"></script>
+</body>
+</html>

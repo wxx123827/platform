@@ -1,0 +1,346 @@
+/**
+ * 常量
+ */
+//基础地址
+// var baseUrl = "http://keyanwu.com/main/";
+var baseUrl="http://bobble1.natapp1.cc/"
+// var baseUrl="";
+//图片基础路径
+var baseImgUrl = "http://img.keyanwu.com/";
+//图片上传基础路径
+var baseUploadUrl = "http://keyanwu.com/api/upload/uploadMin";
+//默认图片
+var defaultImg = './imgs/default.jpg'
+var SUCCESS = 200;
+var FAIL = 500;
+//用户id
+var userUid = sessionStorage.getItem("userUid");
+var userTel = sessionStorage.getItem("userTel");
+var userSrc = sessionStorage.getItem("src");
+//用户入驻状态
+var userJoinStatus = false;
+// userUid="1";
+//默认banner
+var defaultBanner = '<div><img src="./imgs/default.jpg" style="width:100%;height:100%;object-fit:fill"></div>';
+
+function getGoodsHtml(data){
+	var html='<div class="content_box" onClick=\'detail(\"' + String(data.uid) + '\")\' >';
+	html+='<img src=\'' + baseImgUrl + data.src +'\' onerror=javascript:this.src=\'./imgs/default.jpg\'>';
+	html+='<ul>';
+	switch(data.types){
+		case "1":
+		html+='<li>'+data.name+'</li>'
+		html+='<li>型号:'+data.model+'</li>';
+		break;
+		case "2":
+		html+='<li>'+data.name+'</li>'
+		html+='<li>'+data.classifyname+'</li>';
+		break;
+		case "3":
+		html+='<li style=\'color:red\'>¥'+data.expectedrevenue+'</li>';
+		html+='<li>'+data.name+'</li>'
+		break;
+		case "4":
+		html+='<li>'+data.name+'</li>'
+		html+='<li>'+data.classifyname+'</li>';
+		break;
+		case "5":
+		html+='<li>'+data.name+'</li>'
+		html+='<li>'+data.classifyname+'</li>';
+		break;
+	}
+	html+='</ul></div>';
+	return html
+}
+
+//日期转换
+function dateFtt(fmt, date) { //author: meizz   
+	var o = {
+		"M+": date.month + 1, //月份   
+		"d+": date.date, //日   
+		"h+": date.hours, //小时   
+		"m+": date.minutes, //分   
+		"s+": date.seconds, //秒   
+		"q+": Math.floor((date.month + 3) / 3), //季度   
+		"S": date.time //毫秒   
+	};
+	var datas = new Date();
+	if (/(y+)/.test(fmt))
+		fmt = fmt.replace(RegExp.$1, (datas.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+		if (new RegExp("(" + k + ")").test(fmt))
+			fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	return fmt;
+	
+}
+
+function addCollect(uid){
+	$.ajax({
+		url: baseUrl + "personal/addCollect",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			goodsuid: uid,
+		},
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$(".collect_img").removeClass("layui-icon-rate").addClass("layui-icon-rate-solid").css("color", "red");
+				$(".collect_text").text("取消收藏");
+				layui.layer.msg("收藏成功");
+				return;
+			}
+			layui.layer.msg(res.msg)
+		}
+	})
+}
+function removeCollect(uid){
+	$.ajax({
+		url: baseUrl + "personal/removeCollect",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			goodsuid: uid,
+		},
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$(".collect_img").removeClass("layui-icon-rate-solid").addClass("layui-icon-rate").css("color", "");
+				$(".collect_text").text("收藏")
+				layui.layer.msg("取消收藏成功");
+				window.location.reload()
+				return;
+			}
+			layui.layer.msg(res.msg)
+		}
+	})
+}
+
+//ajax拦截器
+$(document).ajaxSuccess(function(event, xhr, options) {
+	var data = xhr.responseJSON;
+	if (data != undefined) {
+		if (data.code != undefined) {
+			if (data.code === 401) {
+				alert("登录失效");
+				sessionStorage.setItem("url", window.location.href);
+				window.location.href = "./login.html";
+				return;
+			} else if (data.code === 10002) {
+				alert("登录超时，请重新登录");
+				sessionStorage.setItem("userUid", null);
+				sessionStorage.setItem("userTel", null);
+				sessionStorage.setItem("userJoinStatus", null);
+				sessionStorage.setItem("url", window.location.href);
+				window.location.href = "./login.html";
+				return;
+			}
+		}
+	}
+});
+
+function classifySearch(uid, num) {
+	// var html="";
+	sessionStorage.removeItem("classifysearch")
+	$.ajax({
+		url: baseUrl + "search/searchByClassify",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		type: "post",
+		data: {
+			uid: uid,
+			num: num,
+			size: 16
+		},
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				sessionStorage.setItem("classifysearchText", uid);
+				sessionStorage.setItem("classifysearch", JSON.stringify(res.msg));
+				sessionStorage.setItem("classifyissort", false);
+				window.location.href = "searchclassifypage.html";
+			}
+		}
+	});
+};
+
+function getUrlSearch(name) {
+	// 未传参，返回空
+	if (!name) return null;
+	// 查询参数：先通过search取值，如果取不到就通过hash来取
+	var after = window.location.search;
+	after = after.substr(1) || window.location.hash.split('?')[1];
+	// 地址栏URL没有查询参数，返回空
+	if (!after) return null;
+	// 如果查询参数中没有"name"，返回空
+	if (after.indexOf(name) === -1) return null;
+
+	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+	// 当地址栏参数存在中文时，需要解码，不然会乱码
+	var r = decodeURI(after).match(reg);
+	// 如果url中"name"没有值，返回空
+	if (!r) return null;
+	return r[2];
+}
+$(function() {
+	getNavigation()
+	$($(document).find(".nav_item")[getUrlSearch("i")]).find("a").css("color", "#247dd0")
+	var str = window.location.href;
+	str = str.substring(str.lastIndexOf("/") + 1);
+	str = str.substring(0, str.lastIndexOf("."));
+	var nologin = new Array();
+	nologin.push("login");
+	nologin.push("forget");
+	nologin.push("register");
+	nologin.push("index");
+	nologin.push('email_result')
+	nologin.push("consumable_share");
+	nologin.push("lab_share");
+	nologin.push("knowledge_share");
+	nologin.push("instrument_share");
+	nologin.push("news_list");
+	nologin.push("news_detail");
+	nologin.push('');
+	if (userUid === "null" || userUid === null) {
+		var code = $.inArray(str, nologin);
+		if (code === -1) {
+			alert("请登录");
+			sessionStorage.setItem("userUid", null);
+			sessionStorage.setItem("userTel", null);
+			sessionStorage.setItem("userJoinStatus", null);
+			sessionStorage.setItem("url", window.location.href);
+			window.location.href = "./login.html";
+			return;
+		}
+	}
+})
+var getNavigation = function getNavigation() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + "main/getNavigation",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$(res.msg).each(function() {
+					html += '<li class="fl">';
+					html += '<div class="nav_item" classifyuid="' + this.classifyuid + '"  url="' + this.url +
+						'"><a  class="bold " href="#">' + this.navigationname + '</a><b class="hot"></b></div>';
+					html += '</li>';
+				})
+				$(".nav").append(html);
+			}
+		}
+	})
+}
+//检查是否入驻
+var checkUserJoinAjax = function checkUserJoin() {
+	$.ajax({
+		url: baseUrl + "join/checkUserJoin",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				sessionStorage.setItem("userJoinStatus", JSON.stringify(res.msg));
+				if (res.msg.joinstatus === '1' && res.msg.auditstatus === '2') {
+					userJoinStatus = true;
+					return;
+				}
+			}
+			userJoinStatus = false;
+		},
+		error: function(res) {
+			userJoinStatus = false;
+		}
+	})
+}
+var layer = layui.use('layer', function() {})
+//获取所有领域
+var getFields = function getFields() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + 'fields/getFields',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			console.log(res)
+			if (res.code === SUCCESS) {
+				$.each(res.msg.true, function(i, n) {
+					html += '<input type="checkbox" name="fields" title="' + n + '" lay-skin="primary" value="' + n + '"> ';
+				})
+				html +=
+					'<div class="layui-input-inline" style="margin-top:20px;float:none;margin-left:0px"><input type="text" name="fieldsstr" lay-verify="fieldsstr" autocomplete="off" placeholder="请输入服务领域，以英文逗号分隔" class="layui-input"></div>'
+			}
+			$('.fields').html(html);
+			layui.form.render("checkbox")
+		}
+	})
+}
+
+var getQualification = function getQualification() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + 'qualifications/getQualification',
+		xhrFields: {
+			withCredentials: true,
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				console.log(res)
+				$.each(res.msg.true, function(i, n) {
+					html += '<input type="checkbox" name="qualification" title="' + n + '"  value="' + n + '"> ';
+				})
+				html +=
+					'<div class="layui-input-inline" style="margin:0;float:none"><input type="text" name="qualificationstr" lay-verify="qualificationstr" autocomplete="off" placeholder="请输入具备资质，以英文逗号分隔" class="layui-input"></div>'
+			}
+			$('.qualification').html(html);
+			layui.form.render("checkbox")
+		}
+	})
+}
+//鼠标悬停发布类型选择
+$(document).on("mouseenter", "#key_publish", function() {
+	$(".tab_nav").css("display", "block")
+})
+$(document).on("mouseleave", "#nav_content", function() {
+	$(".tab_nav").css("display", "none")
+})
+$(document).on("click", ".nav_item", function() {
+	var classifyuid = $(this).attr("classifyuid")
+	var url = $(this).attr("url")
+	window.location.href = url + "?i=" + $(".nav_item").index(this) + "&c=" + classifyuid;
+})
+
+//商品详情
+function detail(uid, type) {
+	window.location.href = "./detail.html?uid=" + uid
+}
+
+function getNewsDetail(uid) {
+	$.ajax({
+		url: baseUrl + "main/getNewById",
+		data: {
+			uid: uid
+		},
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				sessionStorage.setItem("newDetail", JSON.stringify(res.msg));
+				window.location.href = "./news_detail.html"
+			}
+		}
+	})
+}

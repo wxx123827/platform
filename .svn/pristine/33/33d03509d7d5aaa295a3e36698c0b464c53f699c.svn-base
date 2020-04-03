@@ -1,0 +1,20 @@
+.news_content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.news_content .hourly_news{
+   clear: both;
+   height: 35px;
+   border-bottom: 1px solid #999999;
+}
+.hourly_news p{
+    font-size: 14px;
+}
+.hourly_news p a{
+    cursor: pointer;
+}
+.news_detail{
+    width: 100%;
+    min-height: 700px;
+    height: auto;
+}

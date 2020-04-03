@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>第三方入驻</title>
+	<link rel="stylesheet" href="css/common/headandfoot.css" type="text/css" />
+	<link rel="stylesheet" href="css/third.css">
+	<link rel="stylesheet" href="css/settle_select.css">
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+
+	<style>
+		label {
+			position: relative;
+		}
+
+		.label_list input {
+			width: 14px;
+			height: 14px;
+
+			margin-right: 5px
+		}
+
+		.bottom_list p {
+			margin-top: 10px;
+		}
+
+		#otherss {
+			height: 30px;
+			line-height: 30px;
+			margin-left: 10px;
+		}
+
+		#otherss span {
+			color: #000;
+			padding-left: -8px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="front_header" class="head">
+	</div>
+	<!--搜索栏-->
+	<div id="search_container" class="search">
+	</div>
+	<div class="main">
+		<div class="main_content">
+			<div class="main_content_top">
+				<p>第三方入驻</p>
+			</div>
+			<div class="main_content_bottom" style="height: 1430px">
+				<div class="circle">
+					<div style="margin-left: 150px">
+						<a href="" style="background-color: #247dd0;">1</a>
+						<p>选择类型</p>
+					</div>
+					<div style="margin-left: 180px">
+						<a href="" style="background-color: #247dd0;">2</a>
+						<p>提交材料</p>
+					</div>
+					<div style="margin-left: 180px">
+						<a href="">3</a>
+						<p>身份验证</p>
+					</div>
+					<div style="margin-left: 180px">
+						<a href="">4</a>
+						<p>资质审核</p>
+					</div>
+				</div>
+				<div class="bottom_list">
+					<form action="" method="" lay-filter="thirdform" class="layui-form">
+						<input type="text" style="display: none;" name="infouid">
+						<div class="layui-form-item">
+							<p style="clear: both" class="case"><span
+									style="display: inline-block;height:130px;line-height:230px; color: #333333;"><span>※</span>单位logo：</span>
+								<div class="layui-upload-list" id="logodiv" style="width: 0px;">
+									<img class="layui-upload-img" id="logoimg" lay-verify="logo" name="logo">
+									<input type="text" style="display: none;" name="logo">
+								</div>
+								<!-- <p class="removeImg">删除</p> -->
+								<p id="errorText"></p>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 20px"><span>※</span>单位名称：
+								<div class="layui-input-inline">
+									<input type="text" name="name" lay-verify="name" autocomplete="off"
+										placeholder="请输入单位名称" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p class="label_list">
+								<p><span>※</span>服务领域：</p>
+								<div class="layui-input-inline fields" style="width: 100%!important;height: 80px!important;">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span style="margin-left: -15px;">※</span>机构所在地：
+								<div class="city_select">
+									<div class="layui-input-inline">
+										<select name="province" lay-filter="province" lay-verify="province">
+											<option></option>
+										</select>
+									</div>
+									<div class="layui-input-inline" style="margin-left: 0;">
+										<select name="city" lay-filter="city">
+											<option></option>
+										</select>
+									</div>
+									<div class="layui-input-inline" style="margin-left: 0;">
+										<select name="area" lay-filter="area">
+											<option></option>
+										</select>
+									</div>
+								</div>
+								<div class="layui-input-inline" style="margin-top: 10px;">
+									<input type="text" name="address" lay-verify="address" autocomplete="off"
+										placeholder="请输入详细地址" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 20px;margin-left: 45px;"><span>※</span>联系人：
+								<div class="layui-input-inline">
+									<input type="text" name="contactname" lay-verify="contactname" autocomplete="off"
+										placeholder="请输入联系人" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 20px"><span>※</span>联系电话：
+								<div class="layui-input-inline">
+									<input type="text" name="tel" lay-verify="tel" autocomplete="off"
+										placeholder="请输入联系电话" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 20px"><span>※</span>办公电话：
+								<div class="layui-input-inline">
+									<input type="text" name="officephone" lay-verify="officephone" autocomplete="off"
+										placeholder="请输入办公电话" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p style="margin-top: 20px"><span>※</span>单位邮箱：
+								<div class="layui-input-inline">
+									<input type="text" name="email" lay-verify="email" autocomplete="off"
+										placeholder="请输入单位邮箱" class="layui-input">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p><span>※</span>单位规模：
+								<div class="city_select">
+									<div class="layui-input-inline">
+										<select name="scale">
+											<option value="0">0-15</option>
+											<option value="1">15-50</option>
+											<option value="2">50-99</option>
+											<option value="3">100-499</option>
+											<option value="4">500-999</option>
+											<option value="5">1000-9999</option>
+											<option value="6">10000以上</option>
+										</select>
+									</div>
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item">
+							<p class="label_list">
+								<p><span>※</span>具备资质：</p>
+								<div class="layui-input-inline qualification" style="width: 100%!important;">
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item" style="margin-top: 45px;">
+							<p><span>※</span>营业执照：
+								<div class="business">
+									<div class="layui-upload-list" id="businessdiv1">
+										<img class="layui-upload-img" id="businessimg1" lay-verify="business">
+										<input type="text" style="display: none;" name="business">
+									</div>
+									<p id="business1errorText"></p>
+								</div>
+							</p>
+						</div>
+						<div class="layui-form-item" style="margin-top: 55px;">
+							<p style="margin-left: 50px;">其他资质：
+								<div class="otherImg">
+									<div class="layui-upload-list" id="otherImgdiv1">
+										<img class="layui-upload-img" id="otherImgimg1">
+										<input type="text" style="display: none;" name="otherImgimg1"
+											class="otherImgSrc">
+									</div>
+									<p id="otherImg1errorText"></p>
+								</div>
+								<div class="otherImg">
+									<div class="layui-upload-list" id="otherImgdiv2">
+										<img class="layui-upload-img" id="otherImgimg2" style="margin-left: 10px;">
+										<input type="text" style="display: none;" name="otherImgimg2"
+											class="otherImgSrc">
+									</div>
+									<p id="otherImg2errorText"></p>
+								</div>
+								<div class="otherImg">
+									<div class="layui-upload-list" id="otherImgdiv3">
+										<img class="layui-upload-img" id="otherImgimg3" style="margin-left: 10px;">
+										<input type="text" style="display: none;" name="otherImgimg3"
+											class="otherImgSrc">
+									</div>
+									<p id="otherImg3errorText"></p>
+								</div>
+							</p>
+						</div>
+						<p class="next" style="margin-top: 30px;">
+							<button type="submit" class="layui-btn" lay-submit="" lay-filter="save">立即提交</button>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="foot">
+	</div>
+
+	<script src="layui/layui.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/baseconstant.js"></script>
+	<script src="js/citys.js"></script>
+	<script src="js/third.js"></script>
+</body>
+
+</html>

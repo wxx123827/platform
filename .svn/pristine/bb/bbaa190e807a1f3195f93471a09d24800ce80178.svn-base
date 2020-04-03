@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实时新闻</title>
+    <link rel="stylesheet" href="css/common/personal_headfoot.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/news_list.css">
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+</head>
+
+<body>
+    <div class="head"></div>
+    <div class="nav_area">
+        <div class="news_tab">
+            <a href="#">公司动态</a>
+            <a href="#">行业动态</a>
+            <a href="#">媒体报道</a>
+        </div>
+    </div>
+    <div class="news_content">
+        <div class="hourly_news">
+            <p><a href="index.html" style="color: #999;font-size: 12px;">首页 > </a><a href="#" class="news_more"
+                    style="font-size: 12px;color: #666;">新闻资讯</a></p>
+        </div>
+        <div class="news_list">
+            <div class="list_content">
+                <div class="list_top">
+                    <img src="imgs/logoa.png">
+                    <div class="list_title">海洋科技股份有限公司</div>
+                </div>
+                <div class="list_detail">
+                    <div class="message">
+                        <div class="message_left"><img src="imgs/wx.png"></div>
+
+                        <div class="message_right">
+                            <h3>品牌代理到自主研发</h3>
+                            <p style="font-size: 14px;color: #666666;line-height: 1.8;height: 60px;">
+                                品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发</p>
+                            <ul class="message_info">
+                                <li class="source">来源：</li>
+                                <li class="times">日期：</li>
+                                <li class="praise">
+                                    <i class="layui-icon layui-icon-praise praise_img"
+                                        style="font-size: 14px;color: #999999;"></i>
+                                    <span style="padding-left: 2px;font-size: 12px;color: #999999;"
+                                        class="collect_text">26</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="message_left"><img src="imgs/wx.png"></div>
+
+                        <div class="message_right">
+                            <h3>品牌代理到自主研发</h3>
+                            <p style="font-size: 14px;color: #666666;line-height: 1.6;height: 60px;">
+                                品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发品牌代理到自主研发</p>
+                            <ul class="message_info">
+                                <li class="source">来源：</li>
+                                <li class="times">日期：</li>
+                                <li class="praise">
+                                    <i class="layui-icon layui-icon-praise praise_img"
+                                        style="font-size: 14px;color: #999999;"></i>
+                                    <span style="padding-left: 2px;font-size: 12px;color: #999999;"
+                                        class="collect_text">26</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="notice_news">
+                <div class="notice">
+                    <div class="notice_title">
+                        <img src="imgs/notice_bg.png">
+                    </div>
+                    <ul class="notice_area">
+                        <li><span>01</span><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><span>02</span><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><span>03</span><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><span>04</span><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+
+                    </ul>
+                </div>
+                <div class="new_message">
+                    <div class="message_title">
+                        <img src="imgs/new_message.png">
+                    </div>
+                    <ul class="message_area">
+                        <li><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+                        <li><a>从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发从品牌代理到自主研发</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot" id="footer"></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/baseconstant.js"></script>
+    <script src="js/news_list.js"></script>
+</body>
+
+</html>

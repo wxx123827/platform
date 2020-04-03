@@ -1,0 +1,100 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content .left{
+    width: 190px;
+    height: 456px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.content .left ul{
+    margin-top: 20px;
+}
+.content .left li a{
+    font-size: 16px;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li{
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li:hover{
+    width: 190px;
+    height: 35px;
+    background-color: #eeeeee;
+}
+.content .right h2{
+    font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    padding: 20px 0px 10px 20px;
+}
+.circle_top{
+    height: 70px;
+    width: 1000px;
+    background-color: #ffffff;
+}
+.circle{
+    height: 190px;
+    margin-top: 20px;
+    width: 1000px;
+    background-color: #ffffff;
+}
+.circle div{
+    float: left;
+    width: 75px;
+    height: 130px;
+    margin-top: -50px;
+}
+.circle div a{
+    display: block;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #999999;
+}
+.circle div p{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.circle_bottom p{
+    margin-bottom: 15px;
+}
+.circle_bottom p:nth-child(2){
+    font-weight: 550;
+    font-size: 16px;
+}
+.circle_bottom{
+    text-align: center;
+    clear: both;
+    height: 380px;
+    background-color: #ffffff;
+}
+.circle_bottom .success{
+    font-size: 16px;
+    font-weight: 550;
+    margin-top: 10px;
+}
+
+.circle_bottom .pass_check{
+    font-size: 14px;
+    margin-top: 10px;
+}

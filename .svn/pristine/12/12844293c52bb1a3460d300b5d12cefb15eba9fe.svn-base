@@ -1,0 +1,75 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.foot').load("foot.html");
+	var sid=getUrlSearch("s");
+	getGoodsBySort(sid)
+	getGoodsByShop(sid,1,100,0,0);
+})
+
+function getGoodsBySort(sid) {
+	$.ajax({
+		url: baseUrl + "shop/getGoodsBySort",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			sid: sid,
+		},
+		success: function(res) {
+			if(res.code===SUCCESS){
+				var html="";
+				$(res.msg).each(function(i){
+					html+='<a href="javascript:;" class="cla_'+i+'" value=\''+this.uid+'\'>'+this.name+'</a>';
+				})
+				$(".classifty").append(html);
+			}
+			console.log(res)
+		}
+	})
+}
+
+function getGoodsByShop(sid,num,size,cid,sort){
+	$.ajax({
+		url: baseUrl + "shop/getGoodsByShop",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		data: {
+			sid: sid,
+			num:num,
+			size:size,
+			cid:cid,
+			sort:sort
+		},
+		success: function(res) {
+			console.log(res)
+			if(res.code===SUCCESS){
+				var html="";
+				$(res.msg.list).each(function(){
+					html+=getGoodsHtml(this);
+				})
+				$('.provider_content').html(html);
+				laypage.render({
+				    elem: 'page', //注意，这里的 test1 是 ID，不用加 # 号
+				    count: res.msg.totalRow, //数据总数，从服务端得到
+				    limit: res.msg.pageSize,
+				    curr: res.msg.pageNumber,
+					jump: function(obj, first){
+					    //obj包含了当前分页的所有参数，比如：
+					    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+					    console.log(obj.limit); //得到每页显示的条数
+					    
+					    //首次不执行
+					    if(!first){
+							getNewsList(obj.curr,obj.limit)
+					      //do something
+					    }
+					  }
+				  });
+			}
+			
+		}
+	})
+}

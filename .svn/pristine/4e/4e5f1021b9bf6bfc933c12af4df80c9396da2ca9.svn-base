@@ -1,0 +1,7 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>我的发布</span>')
+	});
+	$('.foot').load("foot.html");
+})

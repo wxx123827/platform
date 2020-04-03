@@ -1,0 +1,290 @@
+$(document).ready(function() {
+	$('.head').load("personal_head.html");
+	$('.nav_area').load("personal_nav.html", function(response, status, xhr) {
+		$(document).find(".center_middle").html('<span>发布产品</span>')
+	});
+	$('.foot').load("foot.html");
+})
+layui.config({
+	base: './'
+}).extend({
+	selectN: 'static/selectN',
+}).use(['form', 'layedit', 'laydate', 'upload', 'selectN'], function() {
+	var $ = layui.jquery,
+		upload = layui.upload,
+		form = layui.form,
+		layer = layui.layer,
+		layedit = layui.layedit,
+		selectN = layui.selectN,
+		laydate = layui.laydate;
+	var synopsis = layedit.build('synopsis'); //建立编辑器
+	var technicaldata = layedit.build('technicaldata');
+	var range = layedit.build('range');
+	var catIns1 = selectN({
+		//元素容器【必填】
+		elem: '#classify',
+		search: [false, true]
+			//候选数据【必填】
+			,
+		data: baseUrl + "main/getClassify"
+	});
+	getFields();
+	pca.init('select[name=province]', 'select[name=city]', 'select[name=area]');
+	var publishedimg1 = upload.render({
+		elem: '#publishedImgdiv1',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg1').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg1": res.src
+			})
+			$("[name=publishedImgimg1]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg1errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg1.upload();
+			});
+		}
+	});
+	var publishedimg2 = upload.render({
+		elem: '#publishedImgdiv2',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg2').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg2": res.src
+			})
+			$("[name=publishedImgimg2]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg2errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg2.upload();
+			});
+		}
+	});
+	var publishedimg3 = upload.render({
+		elem: '#publishedImgdiv3',
+		url: baseUploadUrl,
+		data: {
+			uid: userUid
+		},
+		before: function(obj) {
+			//预读本地文件示例，不支持ie8
+			obj.preview(function(index, file, result) {
+				$('#publishedImgimg3').attr('src', result); //图片链接（base64）
+			});
+		},
+		done: function(res) {
+			//如果上传失败
+			if (res.code > 0) {
+				return layer.msg('上传失败');
+			}
+			form.val("thirdform", {
+				"publishedImgimg3": res.src
+			})
+			$("[name=publishedImgimg3]").attr("src", res.src)
+			//上传成功
+		},
+		error: function() {
+			//演示失败状态，并实现重传
+			var demoText = $('#publishedImg3errorText');
+			demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+			demoText.find('.demo-reload').on('click', function() {
+				publishedimg3.upload();
+			});
+		}
+	});
+	// //自定义验证规则
+	// form.verify({
+	// 	name: function(value) {
+	// 		if (value.length == 0) {
+	// 			return '请输入名称';
+	// 		}
+	// 	},
+	// 	brand: function(value) {
+	// 		if (value.length == 0) {
+	// 			return '请输入品牌';
+	// 		}
+	// 	},
+	// 	province: function(value) {
+	// 		if (value === "全部") {
+	// 			layer.msg("请选择城市", {
+	// 				icon: 2
+	// 			});
+	// 			$(document).find("[name=province]").addClass("layui-form-danger");
+	// 			return false;
+	// 		}
+	// 	},
+	// });
+	form.on('submit(save)', function(data) {
+		saveOrimmediate(data, 0)
+		return false;
+	});
+	form.on('submit(immediate)', function(data) {
+		saveOrimmediate(data, 1)
+		return false;
+	});
+
+	function saveOrimmediate(data, type) {
+		console.log(data.field)
+		var result = data.field
+		var file = new Array()
+		result.technicaldata = layedit.getContent(technicaldata)
+		result.range = layedit.getContent(range)
+		result.synopsis = layedit.getContent(synopsis)
+		$(".publishedImgSrc").each(function(i) {
+			var src = $(this).attr("src")
+			// if (typeof(src) === "undefined") {
+			// 	layer.msg("请上传三张图片", {
+			// 		icon: 2
+			// 	})
+			// 	$(this).prev().attr("tabindex", 0).addClass("layui-form-danger");
+			// 	return false;
+			// }
+			file.push($(this).attr("src"))
+		})
+		result.file = file;
+		var classify = result.classify.split(",");
+		if (classify[classify.length - 1] === "") {
+			result.classify = classify[classify.length - 2]
+		} else {
+			result.classify = classify[classify.length - 1]
+		}
+		var checkfields = $(document).find("[name=fields]");
+		if (checkfields.length != 0) {
+			var filedsArray = new Array();
+			$.each(checkfields, function(i, n) {
+				var next = $(this).next(".layui-form-checkbox");
+				if ($(next).hasClass("layui-form-checked")) {
+					filedsArray.push($(n).attr("value"));
+				}
+			})
+			if (result.fieldsstr != "") {
+				$.each(result.fieldsstr.split(","), function(i, n) {
+					filedsArray.push(n);
+				});
+			}
+			result.fields = filedsArray;
+		}
+		if (result.type == 3) {
+			checkHasGoods(JSON.stringify(result), result.type, type)
+			return false;
+		} else if (result.type == 1) {
+			checkHasGoods(JSON.stringify(result), result.type, type)
+			return false;
+		}
+		save(JSON.stringify(result), result.type, type);
+	}
+
+	function checkHasGoods(data, type, status) {
+		$.ajax({
+			url: baseUrl + "goods/checkHasGoods",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			type: "post",
+			async: false,
+			data: {
+				data: data,
+				type: type
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					console.log(res)
+					layer.confirm('检测到您店铺内已有该商品,当前库存[' + res.msg.stock + ']', {
+						btn: ['增加库存', '继续添加'] //按钮
+					}, function(index) {
+						addStock(res.msg.uid, JSON.parse(data).stock)
+						return;
+					}, function(index) {
+						save(data, type, status)
+						return
+					});
+					console.log(res)
+					return;
+				}
+				save(data, type, status)
+			}
+		})
+	}
+
+	function save(data, type, status) {
+		$.ajax({
+			url: baseUrl + "goods/saveGoods",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			type: "post",
+			async: false,
+			data: {
+				data: data,
+				type: type,
+				status: status
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					layer.msg("添加成功")
+					console.log(res)
+					return;
+				}
+			}
+		})
+	}
+
+	function addStock(uid, stock) {
+		$.ajax({
+			url: baseUrl + "goods/addStock",
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			type: "post",
+			async: false,
+			data: {
+				uid: uid,
+				stock: stock
+			},
+			success: function(res) {
+				if (res.code === SUCCESS) {
+					layui.layer.msg("增加成功");
+					layui.layer.closeAll()
+					return;
+				}
+			}
+		})
+	}
+})

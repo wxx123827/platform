@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>身份验证</title>
+	<link rel="stylesheet" href="css/common/headandfoot.css" type="text/css" />
+    <link rel="stylesheet" href="css/settle_select.css" type="text/css" />
+    <link rel="stylesheet" href="css/authentication.css" type="text/css" />
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+
+<body>
+
+    <div id="front_header" class="head">
+    </div>
+    <div id="search_container" class="search">
+    </div>
+    <div class="main">
+        <div class="main_content">
+            <div class="main_content_top">
+                <p>欢迎入驻</p>
+            </div>
+            <div class="main_content_bottom" style="height: 800px;">
+                <div class="circle">
+                    <div style="margin-left: 150px">
+                        <a href="" style="background-color: #247dd0;">1</a>
+                        <p>选择类型</p>
+                    </div>
+                    <div style="margin-left: 180px">
+                        <a href="" style="background-color: #247dd0;">2</a>
+                        <p>提交材料</p>
+                    </div>
+                    <div style="margin-left: 180px">
+                        <a href="" style="background-color: #247dd0;">3</a>
+                        <p>身份验证</p>
+                    </div>
+                    <div style="margin-left: 180px">
+                        <a href="" style="background-color: #247dd0;">4</a>
+                        <p>资质审核</p>
+                    </div>
+                </div>
+                <div class="identity">
+					
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="foot">
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="layui/layui.js"></script>
+	<script src="js/baseconstant.js"></script>
+	<script src="js/joinstatus.js"></script>
+</body>
+
+</html>

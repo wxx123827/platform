@@ -1,0 +1,299 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content .left {
+    width: 190px;
+    height: 456px;
+    background-color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content .left .layui-upload .layui-btn {
+    width: 100px !important;
+    height: 30px !important;
+    line-height: 30px;
+    background-color: #eeeeee !important;
+    border-radius: 5px;
+    border: solid 1px #a0a0a0;
+    margin-top: 20px;
+    margin-left: 45px;
+}
+
+.content .left ul {
+    margin-top: 10px;
+}
+
+.content .left ul li {
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+
+}
+
+.content .left ul li:hover {
+    background-color: #eeeeee;
+}
+
+.content .left ul li a {
+    font-size: 16px;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+
+}
+
+.content .right {
+    width: 1000px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    height: 900px;
+    padding-bottom: 80px;
+}
+
+.right .order_status {
+    width: 1000px;
+    height: 116px;
+    background-color: #eeeeee;
+}
+
+.right .order_status p,
+.right .order_status h3 {
+    padding-top: 15px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.right .order_status .status {
+    font-size: 15px;
+    font-weight: 550;
+    color: #333333;
+}
+
+
+.right .order_status .buyer_handle {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #999999;
+}
+.right .order_status .buyer_handle span{
+    font-size: 12px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #d02424;
+}
+.right .order_status .cancel_order {
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 16px;
+    letter-spacing: 0px;
+    color: #247dd0;
+}
+.right .shipping_address{
+    width: 1000px;
+    height: 136px;
+    margin-top: 20px;
+    border-bottom: dashed 1px #dcdcdc;
+}
+.right .shipping_address h3{
+    font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+.right .shipping_address h3 span{
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 10px;
+	background-color: #247dd0;
+}
+.shipping_address p{
+    padding-top: 15px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    
+}
+.shipping_address p span{
+    font-size: 14px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #666666;
+}
+
+.invoice_info{
+    margin-top: 20px;
+    width: 1000px;
+    height: 102px;
+    border-bottom: dashed 1px #dcdcdc;
+}
+.right .invoice_info h3{
+    font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+.right .invoice_info h3 span{
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 10px;
+	background-color: #247dd0;
+}
+.invoice_info p{
+    padding-top: 15px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    
+}
+.invoice_info p span{
+    font-size: 14px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #666666;
+}
+.contact_number,.linkman,.nickname,.invoice_type,.linkmans,.contact_numbers{
+    width: 330px;
+}
+.order_info{
+    margin-top: 20px;
+    width: 1000px;
+    height: 313px;
+}
+.right .order_info h3{
+    font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+.right .order_info h3 span{
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 10px;
+	background-color: #247dd0;
+}
+.order_info p{
+    padding-top: 15px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    
+}
+.order_info p span{
+    font-size: 14px;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #666666;
+}
+.table_data{
+    margin-top: 125px;
+    clear: both;
+    width: 960px;
+    overflow-x: auto;
+}
+.tablecss{
+    width: 1470px;
+    text-align: center;
+    border: 1px solid #a0a0a0;
+    border-bottom: none;
+    border-left: none;
+    box-sizing: border-box;
+    margin-left: 23px;
+}
+
+.tablecss th{
+    font-size: 14px;
+	color: #333333;
+    line-height: 30px;
+    border-bottom: 1px solid #a0a0a0;
+    border-left: 1px solid #a0a0a0;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+.tablecss td{
+    font-size: 14px;
+    height: 100px;
+    border-bottom: 1px solid #a0a0a0;
+    border-left:1px solid #a0a0a0;
+    box-sizing: border-box;
+}
+.tablecss td:first-child{
+text-align: left;
+}
+.tablecss td img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.tablecss .remark{
+    height: 30px!important; 
+    text-align: left;
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+.tablecss td span{
+    width: 110px;
+    word-wrap:break-word;
+    margin-right: 25px;
+   float: right;
+   margin-top: 20px;
+ 
+}
+.tablecss td p{
+    padding-top: 5px;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+.close{
+    height: 40px;
+    text-align: center;
+    margin-top: 50px;
+}
+#close{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+	border-radius: 5px;
+    border: solid 1px #247dd0;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #247dd0;
+    margin-left: 46%;
+}
+#close:hover{
+    background-color: #247dd0;
+    color: #ffffff;
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+<div class="center">
+	<div class="personal_center">
+		<div class="center_left left">
+			<img src="imgs/logo.png">
+		</div>
+		<div class="center_middle">
+		</div>
+
+		<div class="center_right right">
+			<div id="nav_content">
+				<div class="tab_nav" style="display: none;">
+					<a href="published_material.html">发布耗材</a>
+					<a href="published_lab.html">发布实验室</a>
+					<a href="published_instrument.html">发布仪器</a>
+					<a href="personal_skill.html">个人技能</a>
+					<a href="technical_data.html">技术资料</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	console.log(userUid != null)
+	if (userUid != "null" && userUid != null) {
+		console.log(1)
+		checkUserJoinAjax()
+		if (userJoinStatus) {
+			$(".tab_nav").after('<div class="key"><a href="#" class="layui-btn layui-btn-lg layui-btn-primary" id="key_publish">一键发布</a></div>')
+		}
+	}
+</script>

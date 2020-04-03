@@ -1,0 +1,23 @@
+.basic_content{
+    clear: both;
+    width: 100%;
+}
+.content{
+    width: 1200px;
+    margin:0 auto;
+}
+.content .left{
+    width: 190px;
+	height: 456px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.content .right{
+    width: 1000px;
+	height: 750px;
+	background-color: #ffffff;
+}
+.content .right p{
+float: left;
+}

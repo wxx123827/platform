@@ -1,0 +1,140 @@
+/**
+ * 常量
+ */
+//基础地址
+var baseUrl = "http://bobble1.natapp1.cc/";
+// var baseUrl="";
+//图片基础路径
+var baseImgUrl = "http://img.keyanwu.com/";
+//图片上传基础路径
+var baseUploadUrl = "http://keyanwu.com/api/upload/uploadMin";
+//默认图片
+var defaultImg = '<img src="./imgs/default.jpg" style="width:100%;height:100%;object-fit:fill">'
+var SUCCESS = 200;
+var FAIL = 500;
+//用户id
+var userUid = sessionStorage.getItem("userUid");
+var userTel = sessionStorage.getItem("userTel");
+var userSrc = sessionStorage.getItem("src");
+//用户入驻状态
+var userJoinStatus = false;
+// userUid="1";
+//默认banner
+var defaultBanner = '<div><img src="./imgs/default.jpg" style="width:100%;height:100%;object-fit:fill"></div>';
+
+//ajax拦截器
+$(document).ajaxSuccess(function(event, xhr, options) {
+	var data = xhr.responseJSON;
+	if (data != undefined) {
+		if (data.code != undefined) {
+			if (data.code === 401) {
+				alert("登录失效");
+				sessionStorage.setItem("url", window.location.href);
+				window.location.href = "./login.html";
+			} else if (data.code === 10002) {
+				alert("登录超时，请重新登录");
+				sessionStorage.setItem("userUid", null);
+				sessionStorage.setItem("userTel", null);
+				sessionStorage.setItem("userJoinStatus", null);
+				sessionStorage.setItem("url", window.location.href);
+				window.location.href = "./login.html";
+			}
+		}
+	}
+});
+$(function() {
+	var str = window.location.href;
+	str = str.substring(str.lastIndexOf("/") + 1);
+	str = str.substring(0, str.lastIndexOf("."));
+	var nologin = new Array();
+	nologin.push("login");
+	nologin.push("forget");
+	nologin.push("register");
+	nologin.push("index");
+	nologin.push('email_result')
+	if (userUid === "null" || userUid === null) {
+		var code = $.inArray(str, nologin);
+		if (code === -1) {
+			alert("请登录");
+			sessionStorage.setItem("userUid", null);
+			sessionStorage.setItem("userTel", null);
+			sessionStorage.setItem("userJoinStatus", null);
+			sessionStorage.setItem("url", window.location.href);
+			window.location.href = "./login.html";
+		}
+	}
+})
+//检查是否入驻
+var checkUserJoinAjax = function checkUserJoin() {
+	$.ajax({
+		url: baseUrl + "join/checkUserJoin",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				if (res.msg.joinstatus === '1' && res.msg.auditstatus === '1') {
+					userJoinStatus = true;
+					return;
+				}
+			}
+			userJoinStatus = false;
+		},
+		error: function(res) {
+			userJoinStatus = false;
+		}
+	})
+}
+var layer = layui.use('layer', function() {})
+//获取所有领域
+var getFields = function getFields() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + 'fields/getFields',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$.each(res.msg.true, function(i, n) {
+					html += '<input type="checkbox" name="fields" title="' + n + '" lay-skin="primary" value="' + n + '"> ';
+				})
+				html +=
+					'<div class="layui-input-inline" style="margin:0;float:none"><input type="text" name="fieldsstr" lay-verify="fieldsstr" autocomplete="off" placeholder="请输入服务领域，以英文逗号分隔" class="layui-input"></div>'
+			}
+			$('.fields').html(html);
+			layui.form.render("checkbox")
+		}
+	})
+}
+var getQualification = function getQualification() {
+	var html = "";
+	$.ajax({
+		url: baseUrl + 'qualifications/getQualification',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		async: false,
+		success: function(res) {
+			if (res.code === SUCCESS) {
+				$.each(res.msg.true, function(i, n) {
+					html += '<input type="checkbox" name="qualification" title="' + n + '"  value="' + n + '"> ';
+				})
+				html +=
+					'<div class="layui-input-inline" style="margin:0;float:none"><input type="text" name="qualificationstr" lay-verify="qualificationstr" autocomplete="off" placeholder="请输入具备资质，以英文逗号分隔" class="layui-input"></div>'
+			}
+			$('.qualification').html(html);
+			layui.form.render("checkbox")
+		}
+	})
+}
+
+//商品详情
+function detail(uid) {
+	console.log(uid)
+}

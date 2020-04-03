@@ -1,0 +1,111 @@
+label {
+    position: relative;
+}
+
+.label_list input {
+    width: 14px;
+    height: 14px;
+
+    margin-right: 5px
+}
+
+.content_list p {
+    margin-top: 10px;
+}
+.layui-upload-img{
+    width: 135px;
+    height: 135px;
+    /* border: 1px solid rgb(204, 204, 204); */
+    padding: 10px;
+    cursor: pointer;
+    background: url(../imgs/loading.png) no-repeat;
+    text-align: center;
+    background-position: center;
+    margin-top: -70px;
+}
+.publishedImg{
+    float: left;
+    margin-left: 5px;
+}
+.published_page{
+    width: 100%;
+}
+.published_content{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.published_content h2{
+    clear: both;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.layui-form-item p{
+    float: left;
+    margin-left: 30px;
+}
+
+.layui-form-item p span{
+    font-size: 16px;
+    color: #333333;
+}
+.published_submit{
+    height: 120px;
+    padding-top: 30px;
+}
+.published_submit .submit{
+    float: left;
+}
+#immediate,#save{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+	border-radius: 5px;
+    border: solid 1px #247dd0;
+    font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #247dd0;
+    margin-left: 20px;
+}
+#immediate{
+    margin-left: 35%;
+}
+#immediate:hover,#save:hover{
+	background-color: #247dd0;
+    color: #ffffff;
+    cursor: pointer;
+}
+.layui-form-item .layui-input-inline {
+    width: 210px!important;
+}
+.layui-form-item .layui-upload{
+    margin-top: -20px;
+}
+.layui-form-item #testList{
+   float: right;
+   margin-right: 50px;
+   border-radius: 5px!important;
+   background-color: #009688!important;
+}
+.layui-form-item .layui-upload-list .layui-table{
+    width:85%!important;
+    margin-left: 125px;
+    position: relative;
+    top: 10px;
+}
+#testListAction{
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+    border-radius: 5px!important;
+    width: 105px;
+}
+.money_unit{
+    margin-left: -30px;
+    color: #ccc;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+}

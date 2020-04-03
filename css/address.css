@@ -1,0 +1,77 @@
+.basic_content {
+    clear: both;
+    width: 100%;
+}
+
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.content .left{
+    width: 190px;
+    height: 590px;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+.content .left ul{
+    margin-top: 20px;
+}
+.my_shop {
+    font-size: 16px;
+    color: #999999;
+    margin-bottom: 10px;
+}
+.my_shop span{
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    margin-top: 10px;
+	border-top: 1px solid #eeeeee;
+}
+.my_shop span:first-child{
+    float: left;
+}
+.my_shop span:nth-child(2){
+    float: right;
+}
+.content .left li a{
+    font-size: 14px;
+    color: #666666;
+    display: inline-block;
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li{
+    width: 190px;
+    height: 35px;
+    line-height: 35px;
+}
+.content .left li:hover{
+    width: 190px;
+    height: 35px;
+    background-color: #eeeeee;
+}
+
+.content .right {
+    width: 1000px;
+    background-color: #ffffff;
+    padding-bottom: 120px;
+    margin-top: 10px;
+}
+
+.content .right h2{
+    font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    color: #333333;
+    padding: 20px 0px 10px 20px;
+}
+.layui-btn{
+    border-radius: 5px!important;
+}
+
